@@ -23,7 +23,8 @@ public class Veicolo {
 	protected double pesoCO2;
 	protected double prezzo;
 	@OneToOne
-	protected Admin utenteID; //Admin che ha creato il veicolo
+	protected Admin utenteID; 
+	//Admin che ha creato il veicolo
 	
 	
 	//constructors
@@ -43,8 +44,8 @@ public class Veicolo {
 		this.immagineVeicolo = immagineVeicolo;
 		this.ruote = calcolaRuote(tipologia);					// 		bici, auto, scooter, monopattino
 		this.pesoCO2 = calcolaCO2(tipologia, alimentazione); 	//		bici, auto, scooter, monopattino
-																//     Bicicletta: 1
-																//     Bicicletta elettrica : 0.95
+																//      Bicicletta: 1
+																//      Bicicletta elettrica : 0.95
 																//		Monopattino: 0,95
 																//		Auto Elettrica: 0,6
 																//		Auto Ibrida: 0,4
@@ -63,9 +64,12 @@ public class Veicolo {
 	
 	
 	private int calcolaRuote(String tipologia2) {
-		// se bici return 2
 		//se auto return 4
-		return 0;
+		if (tipologia2.equalsIgnoreCase("auto")){
+			return 4;
+		} else { //bici, scooter, monopattino
+			return 2;
+		}
 	}
 	public void setId(int id) {
 		this.id = id;
