@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT exists ArchivioUtenti (
+UltimaModifica TIMESTAMP ,
+UserID VARCHAR(16) NOT NULL,
+Password VARCHAR(50) NOT NULL,
+Firma TEXT,
+Tipo VARCHAR(1) NOT NULL,
+Nome VARCHAR(40),
+Cognome VARCHAR(40),
+Nascita VARCHAR(10),
+Email VARCHAR(40) NOT NULL,
+CONSTRAINT UserID PRIMARY KEY (UserID),
+UNIQUE KEY IDX_Utente_1 (UserID)
+); 
