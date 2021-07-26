@@ -41,8 +41,8 @@ public class Veicolo {
 		this.descrizione = descrizione;
 		this.posizioneAttuale = posizioneAttuale;
 		this.immagineVeicolo = immagineVeicolo;
-		this.ruote = calcolaRuote(tipologia);// bici, auto, scooter, monopattino
-		this.pesoCO2 = calcolaCO2(tipologia, alimentazione); // bici, auto, scooter, monopattino
+		this.ruote = calcolaRuote(tipologia);					// 		bici, auto, scooter, monopattino
+		this.pesoCO2 = calcolaCO2(tipologia, alimentazione); 	//		bici, auto, scooter, monopattino
 																//     Bicicletta: 1
 																//     Bicicletta elettrica : 0.95
 																//		Monopattino: 0,95
