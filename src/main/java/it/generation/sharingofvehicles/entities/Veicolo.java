@@ -41,8 +41,15 @@ public class Veicolo {
 		this.descrizione = descrizione;
 		this.posizioneAttuale = posizioneAttuale;
 		this.immagineVeicolo = immagineVeicolo;
-		this.ruote = calcolaRuote(tipologia);
-		this.pesoCO2 = calcolaCO2(tipologia, alimentazione);
+		this.ruote = calcolaRuote(tipologia);// bici, auto, scooter, monopattino
+		this.pesoCO2 = calcolaCO2(tipologia, alimentazione); // bici, auto, scooter, monopattino
+																//     Bicicletta: 1
+																//     Bicicletta elettrica : 0.95
+																//		Monopattino: 0,95
+																//		Auto Elettrica: 0,6
+																//		Auto Ibrida: 0,4
+																//		Auto Benzina: 0
+																//		Auto Diesel: 0
 		this.prezzo = prezzo;
 		this.utenteID = utenteID;
 	}
@@ -56,7 +63,8 @@ public class Veicolo {
 	
 	
 	private int calcolaRuote(String tipologia2) {
-		// TODO Auto-generated method stub
+		// se bici return 2
+		//se auto return 4
 		return 0;
 	}
 	public void setId(int id) {
