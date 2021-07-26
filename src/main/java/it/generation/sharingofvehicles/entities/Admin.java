@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
+/*author Edoardo Orta*/
 @Entity
 @Table(name="utenti")
 public class Admin extends Utente{

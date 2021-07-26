@@ -7,6 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+
+
+
+/*author Edoardo Orta*/
 @Entity
 @Table(name = "veicolo")
 public class Veicolo {
@@ -23,8 +27,8 @@ public class Veicolo {
 	protected double pesoCO2;
 	protected double prezzo;
 	@OneToOne
-	protected Admin utenteID; 
 	//Admin che ha creato il veicolo
+	protected Admin utenteID; 
 	
 	
 	//constructors
@@ -58,8 +62,41 @@ public class Veicolo {
 	
 	
 	private double calcolaCO2(String tipologia2, String alimentazione2) {
-		// TODO Auto-generated method stub
-		return 0;
+		switch (tipologia2) {
+		case "bici":
+			switch (alimentazione2) {
+			case "elettrica":
+				return 0.95;
+			default:
+				return 1.00;
+			} 
+			
+			
+		case "monopattino":
+			return 0.95;
+			
+			
+		case "scooter":
+			switch (alimentazione2) {
+			case "elettrica":
+				return 0.90;
+				
+			default:
+				return 0.50;
+			} 
+			
+			
+		default: //auto
+			switch (alimentazione2) {
+			case "ibrida":
+				return 0.4;
+				
+			case "elettrica":
+				return 0.6;
+			default:
+				return 0;
+			}
+		}
 	}
 	
 	

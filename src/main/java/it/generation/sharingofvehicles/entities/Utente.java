@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/*author Edoardo Orta*/
 @Entity
 @Table(name="utenti")
 public class Utente {
