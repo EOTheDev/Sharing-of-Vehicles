@@ -18,17 +18,17 @@ public class Prenotazione {
 	
 	
 	
-	public Prenotazione(int id, Veicolo veicoloID, Utente utenteID, Date dataPrenotazione) {
-		super();
-		this.id = id;
-		this.veicoloID = veicoloID;
-		this.utenteID = utenteID;
-		this.dataPrenotazione = dataPrenotazione;
-	}
-	
-	public Prenotazione() {
-		super();
-	}
+//	public Prenotazione(int id, Veicolo veicoloID, Utente utenteID, Date dataPrenotazione) {
+//		super();
+//		this.id = id;
+//		this.veicoloID = veicoloID;
+//		this.utenteID = utenteID;
+//		this.dataPrenotazione = dataPrenotazione;
+//	}
+//	
+//	public Prenotazione() {
+//		super();
+//	}
 
 
 	public int getId() {

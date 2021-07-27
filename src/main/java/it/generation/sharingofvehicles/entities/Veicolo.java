@@ -38,26 +38,26 @@ public class Veicolo {
 	public int getId() {
 		return id;
 	}
-	public Veicolo(String tipologia, String alimentazione, String descrizione,
-			String posizioneAttuale, String immagineVeicolo, double prezzo, Utente utenteID) {
-		this.id = -1;
-		this.tipologia = tipologia;
-		this.alimentazione = alimentazione;
-		this.descrizione = descrizione;
-		this.posizioneAttuale = posizioneAttuale;
-		this.immagineVeicolo = immagineVeicolo;
-		this.ruote = calcolaRuote(tipologia);					// 		bici, auto, scooter, monopattino
-		this.pesoCO2 = calcolaCO2(tipologia, alimentazione); 	//		bici, auto, scooter, monopattino
-																//      Bicicletta: 1
-																//      Bicicletta elettrica : 0.95
-																//		Monopattino: 0,95
-																//		Auto Elettrica: 0,6
-																//		Auto Ibrida: 0,4
-																//		Auto Benzina: 0
-																//		Auto Diesel: 0
-		this.prezzo = prezzo;
-		this.utenteID = utenteID;
-	}
+//	public Veicolo(String tipologia, String alimentazione, String descrizione,
+//			String posizioneAttuale, String immagineVeicolo, double prezzo, Utente utenteID) {
+//		this.id = -1;
+//		this.tipologia = tipologia;
+//		this.alimentazione = alimentazione;
+//		this.descrizione = descrizione;
+//		this.posizioneAttuale = posizioneAttuale;
+//		this.immagineVeicolo = immagineVeicolo;
+//		this.ruote = calcolaRuote(tipologia);					// 		bici, auto, scooter, monopattino
+//		this.pesoCO2 = calcolaCO2(tipologia, alimentazione); 	//		bici, auto, scooter, monopattino
+//																//      Bicicletta: 1
+//																//      Bicicletta elettrica : 0.95
+//																//		Monopattino: 0,95
+//																//		Auto Elettrica: 0,6
+//																//		Auto Ibrida: 0,4
+//																//		Auto Benzina: 0
+//																//		Auto Diesel: 0
+//		this.prezzo = prezzo;
+//		this.utenteID = utenteID;
+//	}
 	
 	
 	
@@ -108,6 +108,7 @@ public class Veicolo {
 			return 2;
 		}
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}

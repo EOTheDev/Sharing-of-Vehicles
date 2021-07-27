@@ -81,25 +81,25 @@ public class Utente {
 
 
 
-	public Utente() {
-	
-	}
-
-
-
-
-
-	public Utente(String userID, String nome, String cognome, String nascita, String email, String password,
-			LocalDate dataIscrizione) {
-		super();
-		this.userID = userID;
-		this.nome = nome;
-		this.cognome = cognome;
-		this.nascita = nascita;
-		this.email = email;
-		this.password = password;
-		this.dataIscrizione = dataIscrizione;
-	}
+//	public Utente() {
+//	
+//	}
+//
+//
+//
+//
+//
+//	public Utente(String userID, String nome, String cognome, String nascita, String email, String password,
+//			LocalDate dataIscrizione) {
+//		super();
+//		this.userID = userID;
+//		this.nome = nome;
+//		this.cognome = cognome;
+//		this.nascita = nascita;
+//		this.email = email;
+//		this.password = password;
+//		this.dataIscrizione = dataIscrizione;
+//	}
 	
 	
 	
