@@ -54,11 +54,12 @@ public class UtenteServiceImpl implements UtenteService{
 	
 	/*metodi supplementari Registrato*/
 	public Prenotazione prenotaVeicolo(Veicolo v) {
+		//TODO
 		return null;
 	}
 	public Prenotazione modificaPrenotazione(Prenotazione vecchia, Prenotazione nuova) {
+		//TODO
 		return null;
-
 	}
 	
 	
