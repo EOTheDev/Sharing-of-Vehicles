@@ -1,6 +1,27 @@
+:root{
+    --primaryDark:#ffffff;
+    --edit:#77da64;
+    --alert:#d22a1e;
+}
 .titoloPagina{
     text-align: center;
 }
 td, th{
     text-align: center;
+}
+.delete{
+    background-color: var(--alert);
+}
+.btn{
+    color: var(--primaryDark);
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+.edit{
+    background-color: var(--edit);
+   
+}
+
+#headerVis{
+    display: inline-block;
 }

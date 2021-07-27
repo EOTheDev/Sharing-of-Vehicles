@@ -13,12 +13,36 @@
     <nav class="navbar navbar-fixed">
         <img class="col-1 logo" src="../static/imgs/logo_large.png" alt="logo aziendale">
         <h1 class="col-10 titoloPagina">La tua dashboard</h1>
-        <i class="fas fa-home col-1"></i>
+        <button class="btn delete"><i class="fas fa-home"></i></button>
     </nav>
     <header>
+        <div class="row">
+            <h2 class="col-6-lg" id="headerVis">Visualizza
+                <span id="visualizza">
+                   <!-- cosa visualizzo? TODO -->
+                </span>
+            </h2>
+            <select class="col-6-lg" id="visualizzo">
+                <option value="-">
+                    Seleziona
+                </option>
+                <option value="prenotazioni">
+                    Prenotazioni
+                </option>
+                <option value="veicoli">
+                    Veicoli
+                </option>
+                <option value="clienti">
+                    Clienti
+                </option>
+            </select>
+        </div>
     </header>    
     <main>
-        <table class="table table-striped" id="prenotazioni">
+        <div class="container-fluid" id="tableContainer">
+            
+        </div>
+        <!-- <table class="table table-striped" id="prenotazioni">
             <h3>Le tue prenotazioni</h3>
             <tr>
                 <th>Referente</th>
@@ -27,8 +51,7 @@
                 <th>Risparmio in CO2</th>
                 <th>Data</th>
                 <th>Tariffa</th>
-                <th>Modifica</th>
-                <th>Elimina</th>
+                <th>Interagisci</th>
 
             </tr>
             <tr>
@@ -38,8 +61,7 @@
                 <td><span id="pesoCO2">0.8</span> g/m3</td>
                 <td><span id="giorno">3</span></td>
                 <td><span id="tariffa">10</span> €</td>
-                <td><i class="fas fa-edit col-1"></i></td>
-                <td><i class="fas fa-trash col-1"></i></td>
+                <td><button class="btn edit"><i class="fas fa-edit"></i></button> </i><button class="btn delete"><i class="fas fa-trash"></i></button></i></td>
             </tr>
             
         </table>
@@ -56,8 +78,7 @@
                 <th>Soldi spesi</th>
                 <th>Emissioni totali</th>
                 <th>Emissioni in percentuale</th>
-                <th>Modifica</th>
-                <th>Elimina</th>
+                <th>Interagisci</th>
             </tr>
             <tr>
                 <td><span id="username">elDiablo23</span></td>
@@ -69,8 +90,7 @@
                 <td><span id="totSpesaUtente">235,05</span> €</td>
                 <td><span id="totEmissioni">210</span> g/m3</td>
                 <td><span id="emissioniPercentuale">0.9</span> g/m3</td>
-                <td><i class="fas fa-edit col-1"></i></td>
-                <td><i class="fas fa-trash col-1"></i></td>
+                <td><button class="btn edit"><i class="fas fa-edit"></i></button> </i><button class="btn delete"><i class="fas fa-trash"></i></button></i></td>
             </tr>
             
         </table>
@@ -88,8 +108,7 @@
                 <th>Incasso Totale</th>
                 <th>E/R per viaggio</th>
                 <th>E/R totali</th>
-                <th>Modifica</th>
-                <th>Elimina</th>
+                <th>Interagisci</th>
             </tr>
             <tr>
                 <td><span id="idVeicolo">15</span></td>
@@ -102,12 +121,13 @@
                 <td><span id="incassoVeicolo">2500</span> €</td>
                 <td><span id="emissioniPercentuale">1</span> g/m3</td>
                 <td><span id="totEmissioni">25</span> g/m3</td>
-                <td><i class="fas fa-edit col-1"></i></td>
-                <td><i class="fas fa-trash col-1"></i></td>
+                <td><button class="btn edit"><i class="fas fa-edit"></i></button> </i><button class="btn delete"><i class="fas fa-trash"></i></button></i></td>
             </tr>
             
-        </table>
+        </table> -->
     </main>
     <footer></footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="dashboard.js"></script>
 </body>
 </html>
