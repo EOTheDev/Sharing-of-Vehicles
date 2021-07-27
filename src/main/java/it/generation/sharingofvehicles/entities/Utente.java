@@ -7,7 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 /*author Edoardo Orta*/
+
 @Entity
 @Table(name="utenti")
 public class Utente {
@@ -23,16 +25,56 @@ public class Utente {
 	protected String email;
 	protected String password;
 	protected LocalDate dataIscrizione;
-		
+	protected String tipo= "B";
+	protected String firma="Cliente dal "+this.getDataIscrizione();	
 	
 	
 	
 	
 	
+
+
+
+
+
+
 	@Override
 	public String toString() {
 		return "Utente [userID=" + userID + ", nome=" + nome + ", cognome=" + cognome + ", nascita=" + nascita
-				+ ", email=" + email + ", dataIscrizione=" + dataIscrizione + "]";
+				+ ", email=" + email + ", password=" + password + ", dataIscrizione=" + dataIscrizione + ", tipo="
+				+ tipo + ", firma=" + firma + "]";
+	}
+
+
+
+
+
+	public String getTipo() {
+		return tipo;
+	}
+
+
+
+
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+
+
+
+
+	public String getFirma() {
+		return firma;
+	}
+
+
+
+
+
+	public void setFirma(String firma) {
+		this.firma = firma;
 	}
 
 
@@ -40,7 +82,7 @@ public class Utente {
 
 
 	public Utente() {
-		super();
+	
 	}
 
 

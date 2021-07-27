@@ -28,7 +28,7 @@ public class Veicolo {
 	protected double prezzo;
 	@OneToOne
 	//Admin che ha creato il veicolo
-	protected Admin utenteID; 
+	protected Utente utenteID; 
 	
 	
 	//constructors
@@ -39,7 +39,7 @@ public class Veicolo {
 		return id;
 	}
 	public Veicolo(String tipologia, String alimentazione, String descrizione,
-			String posizioneAttuale, String immagineVeicolo, double prezzo, Admin utenteID) {
+			String posizioneAttuale, String immagineVeicolo, double prezzo, Utente utenteID) {
 		this.id = -1;
 		this.tipologia = tipologia;
 		this.alimentazione = alimentazione;
@@ -159,10 +159,10 @@ public class Veicolo {
 	public void setPrezzo(double prezzo) {
 		this.prezzo = prezzo;
 	}
-	public Admin getUtenteID() {
+	public Utente getUtenteID() {
 		return utenteID;
 	}
-	public void setUtenteID(Admin utenteID) {
+	public void setUtenteID(Utente utenteID) {
 		this.utenteID = utenteID;
 	}
 	@Override
