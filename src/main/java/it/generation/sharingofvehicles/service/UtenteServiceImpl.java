@@ -3,26 +3,19 @@ package it.generation.sharingofvehicles.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import it.generation.sharingofvehicles.entities.Prenotazione;
 import it.generation.sharingofvehicles.entities.Utente;
 import it.generation.sharingofvehicles.entities.Veicolo;
 import it.generation.sharingofvehicles.dal.UtenteDAO;
 
+@Service
 public class UtenteServiceImpl implements UtenteService{
 
 	@Autowired
 	private UtenteDAO repo;
 	
-	
-	
-	
-	
-	
-	
-	
-	
-
 	//metodi supporto Admin
 	public void setAdmin(Utente u) {
 		u.setTipo("A");
@@ -38,30 +31,30 @@ public class UtenteServiceImpl implements UtenteService{
 		//prenotazione 
 	}
 	
-	public void addVeicolo() {
-	//TODO
-	}
-	public void editVeicolo() {
-		//TODO
-	}
-	public void deleteVeicolo() {
-		//TODO
-		}
-	public void trovaPrenotazioni() {
-		//TODO
-		}
+//	public void addVeicolo() {
+//	//TODO
+//	}
+//	public void editVeicolo() {
+//		//TODO
+//	}
+//	public void deleteVeicolo() {
+//		//TODO
+//		}
+//	public void trovaPrenotazioni() {
+//		//TODO
+//		}
 	
 	
 	
 	/*metodi supplementari Registrato*/
-	public Prenotazione prenotaVeicolo(Veicolo v) {
-		//TODO
-		return null;
-	}
-	public Prenotazione modificaPrenotazione(Prenotazione vecchia, Prenotazione nuova) {
-		//TODO
-		return null;
-	}
+//	public Prenotazione prenotaVeicolo(Veicolo v) {
+//		//TODO
+//		return null;
+//	}
+//	public Prenotazione modificaPrenotazione(Prenotazione vecchia, Prenotazione nuova) {
+//		//TODO
+//		return null;
+//	}
 	
 	
 	
