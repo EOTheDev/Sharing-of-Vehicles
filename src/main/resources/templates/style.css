@@ -1,23 +1,25 @@
+
 body{
-    margin: 0;
-    padding: 0;
     background-image: url("SfondoLogin.jpg");
-    font-family: sans-serif;
-    padding: 70px 30px;
-    background-size: cover;
+    background-position: top;
     background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    font-family: sans-serif;
 }
 
 .Loginbox{
     width: 420px;
     height: 420px;
-    background:green;
+    background:#9dc119;
     color: #fff;
     top: 50%;
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
     box-sizing: border-box;
+    border-radius: 1rem;
 }
 
 .Avatar{
@@ -25,7 +27,7 @@ body{
     height: 60px;
     border-radius: 50%;
     position: absolute;
-    top: -50px;
+    top: -38px;
     left:calc(50% - 30px);
 }
 
