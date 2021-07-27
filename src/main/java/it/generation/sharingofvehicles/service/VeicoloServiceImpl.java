@@ -3,10 +3,12 @@ package it.generation.sharingofvehicles.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import it.generation.sharingofvehicles.dal.VeicoloDAO;
 import it.generation.sharingofvehicles.entities.Veicolo;
 
+@Service
 public class VeicoloServiceImpl implements VeicoloService {
 
 	@Autowired
@@ -37,9 +39,9 @@ public class VeicoloServiceImpl implements VeicoloService {
 	}
 
 	@Override
-	public void addVeicolo(Veicolo v) {
+	public Veicolo addVeicolo(Veicolo v) {
 		// TODO Auto-generated method stub
-		repo.save(v);
+		return repo.save(v);
 	}
 
 	@Override

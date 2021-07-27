@@ -35,6 +35,7 @@ public class UtenteServiceImpl implements UtenteService{
 	
 	public void setDisponibilita(Veicolo v) {
 	//TODO
+		//prenotazione 
 	}
 	
 	public void addVeicolo() {
@@ -94,6 +95,6 @@ public class UtenteServiceImpl implements UtenteService{
 	@Override
 	public Utente findUserByEmail(String email) {
 		// TODO Auto-generated method stub
-		return null;
+		return repo.findUserByEmail(email);
 	}
 }

@@ -10,7 +10,7 @@ public interface VeicoloService {
 	List<Veicolo> findVeicoloByTipologia(String tipologia);
 	List<Veicolo> findVeicoloByAlimentazione(String alimentazione);
 	Veicolo findVeicoloById(int id);
-	void addVeicolo(Veicolo v);
+	Veicolo addVeicolo(Veicolo v);
 	void deleteVeicoloById(int id);
 	List<Veicolo> findVeicoloByRuote(int ruote);
 	Veicolo updVeicolo(Veicolo v);
