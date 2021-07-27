@@ -1,10 +1,18 @@
-package it.generation.sharingofvehicles.integration;
+package it.generation.sharingofvehicles.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import it.generation.sharingofvehicles.entities.Prenotazione;
 import it.generation.sharingofvehicles.entities.Utente;
 import it.generation.sharingofvehicles.entities.Veicolo;
+import it.generation.sharingofvehicles.dal.UtenteDAO;
 
-public class UtenteCTRL {
+public class UtenteServiceImpl implements UtenteService{
+
+	@Autowired
+	private UtenteDAO repo;
 	
 	
 	
@@ -53,4 +61,38 @@ public class UtenteCTRL {
 
 	}
 	
+	
+	
+	//metodi service
+
+	@Override
+	public List<Utente> findAllUsers() {
+		return repo.findAll();
+	}
+
+	@Override
+	public Utente findUserById(int id) {
+		return repo.findById(id).get();
+	}
+
+	@Override
+	public void deleteUserById(int id) {
+		repo.deleteById(id);
+	}
+
+	@Override
+	public Utente updateUser(Utente user) {
+		return repo.save(user);
+	}
+
+	@Override
+	public Utente addUser(Utente user) {
+		return repo.save(user);
+	}
+
+	@Override
+	public Utente findUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
