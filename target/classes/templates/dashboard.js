@@ -17,3 +17,14 @@ $("#visualizzo").on("change", function () {
 
     }
 })
+
+
+
+$(document).on("change", function () {
+    
+    if ($(window).width()< $(window).height()) {
+        console.log("turn your device");
+        $("body").attr("class", "alarm")
+        $("body").append()
+        }
+})
