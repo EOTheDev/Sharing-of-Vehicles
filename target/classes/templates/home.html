@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/home.css">
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <header class="header">
+        <nav class="navbar navbar-fixed">
+
+            <div class="col-lg-1" id="imglogo"><img class="col-12" src="../imgs/logo_large.png" alt="Logo"></div>
+            <div class="col-lg-10" id="nomeAzienda">
+                <h1>BENVENUTO SU GREENSHARE</h1>
+                <H5><EM>Prendi parte alla scelta</EM></H5>
+            </div>
+            <div class="col-lg-1" id="login">
+            	<a href="/dashboard">
+            		<button class="col-10 btn btn-primary">login</button>
+           		</a>
+            </div>
+        </nav>
+
+    </header>
+
+    <main class="main container-fluid">
+        <!-- banner -->
+        <!-- calendario -->
+        <div class="row">
+            <div class="col-lg-4 latoCalendario">
+                <div id="calendar" >
+                    
+                    <div id="topCalendar">
+                        <input type="date">
+                    
+                    </div>
+                    <div id="dateCalendar">
+                        <button class="btn btn-primary"><i class="fas fa-arrow-left"></i></button>
+                        <span id="giorno">
+                            23
+                        </span>
+                        <button class="btn btn-primary"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <span id="mese">Aprile</span>
+                </div>
+
+            </div>
+<!-- fine calendario -->
+<!-- inizio veicoli -->
+            <div class="col-lg-8 elencoVeicoli">
+                <h1>I veicoli disponibili</h1>
+                <!-- singolo veicolo -->
+                <div id="veicoliDisponibili">
+                	<div class="row singoloVeicolo">
+                        <div class="col-lg-2 side">
+                            <img class="col-lg-12" src="https://www.you-go.it/wp-content/uploads/2020/11/volkswagen-id3-bianca-647x277.png" alt="" >
+                            <button class="btn edit">Prenota</button>
+                        </div>
+                        <div class="col-lg-10 rightSide">
+                            <h2 class="titolo">
+                                <span class="modello">BMW I8</span>
+                                <span class="text-muted alimentazione"> <i class="fas fa-smog"> </i> Ibrida</span>
+                            </h2>
+                            <div class="text">
+                                <!-- if auto fa-car-alt, else if fa-leaf -->                              
+                                    <i class="fas fa-car-alt">
+                                         <span class="tipo"> Auto</span>
+                                    </i>
+                                
+                                     <i class="fas fa-map-marker-alt">
+                                         <span class="posizione"> Via del Campo, Torino </span>
+                                     </i>
+                                <div class="descrizione">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iusto excepturi deserunt, error optio laboriosam expedita laudantium repellat. Impedit, laboriosam aliquid quibusdam deleniti dolores eaque ratione tenetur harum porro quis!*5</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- fine singolo veicolo -->
+                <!-- singolo veicolo per vedere differenze-->
+                <div id="veicoliDisponibili">
+                	<div class="row singoloVeicolo">
+                        <div class="col-lg-2 side">
+                            <img class="col-lg-12" src="https://banner2.cleanpng.com/20180413/plw/kisspng-segway-pt-electric-vehicle-electric-kick-scooter-kick-scooter-5ad15a49b62297.8687484915236695777461.jpg" alt="" >
+                            <button class="btn edit">Prenota</button>
+                        </div>
+                        <div class="col-lg-10 rightSide">
+                            <h2 class="titolo">
+                                <span class="modello">Ducati</span>
+                                <span class="text-muted alimentazione"> <i class="fas fa-bolt"> </i> Elettrica</span>
+                            </h2>
+                            <div class="text">
+                                <!-- if auto fa-car-alt, else if fa-leaf -->                              
+                                    <i class="fas fa-leaf">
+                                         <span class="tipo"> Auto</span>
+                                    </i>
+                                
+                                     <i class="fas fa-map-marker-alt">
+                                         <span class="posizione"> Milano Mirafiori </span>
+                                     </i>
+                                <div class="descrizione">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iusto excepturi deserunt, error optio laboriosam expedita laudantium repellat. Impedit, laboriosam aliquid quibusdam deleniti dolores eaque ratione tenetur harum porro quis!*5</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- fine singolo veicolo -->
+                <a href="/login"><button  id="loginBtn">Fai il login per noleggiare!</button></a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer"></footer>
+</body>
+</html>

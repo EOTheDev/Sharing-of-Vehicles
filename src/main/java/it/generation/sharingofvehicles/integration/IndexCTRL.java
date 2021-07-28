@@ -11,6 +11,6 @@ public class IndexCTRL {
 public String getIndex() {
 	
 	System.out.println("sono in index");
-	return "home1";
+	return "home";
 }
 }

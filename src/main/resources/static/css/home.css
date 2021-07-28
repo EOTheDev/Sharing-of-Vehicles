@@ -1,0 +1,106 @@
+:root{
+    --primaryDark:#ffffff;
+    --edit:#77da64;
+    --alert:#d22a1e;
+}
+.titoloPagina{
+    text-align: center;
+}
+td, th{
+    text-align: center;
+}
+.delete{
+    background-color: var(--alert);
+}
+.btn{
+    color: var(--primaryDark);
+    border-radius: 1rem;
+    padding: 0 1rem;
+}
+.edit{
+    background-color: var(--edit);
+   
+}
+
+#headerVis{
+    display: inline-block;
+}
+.alarm{
+    background-color: var(--alert);
+}
+
+
+
+nav{
+    background-color: green;
+}
+#nomeAzienda{
+    text-align: center;
+}
+/* Calendario NON TOCCARE, VI TRANCIO LE MANI */
+.latoCalendario{
+    box-sizing: border-box;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.imglogo{
+    width: 30px;
+    height: 30px;
+}
+#calendar{
+    width: 70%;
+    background-color: burlywood;
+    border-radius: 2rem;
+    font-size: 1rem;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+#dateCalendar{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+#topCalendar{
+    width: 110%;
+    left:-5%;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: black;
+    position: relative;
+    top: -10%;
+}
+#giorno, #mese{
+	position: relative;
+	left:-5%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+}
+#mese{
+    font-size: 5rem;
+
+}
+#giorno{
+    font-size: 10rem;
+}
+/* FINE CALENDARIO */
+.elencoVeicoli{
+    box-sizing: border-box;
+    padding: 2rem;
+}
+/* singolo veicolo */
+.singoloVeicolo{
+    border-bottom: 1px solid var(--alert);
+    margin-right: 2rem;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+.side, .rightSide{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+}
