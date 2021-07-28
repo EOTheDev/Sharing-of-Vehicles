@@ -1,5 +1,3 @@
-/*Author Giancarlo Borreo*/
-
 package it.generation.sharingofvehicles.integration;
 
 import java.util.List;
@@ -19,7 +17,7 @@ import it.generation.sharingofvehicles.service.UtenteService;
 import it.generation.sharingofvehicles.service.PrenotazioneService;
 
 @RestController
-@RequestMapping("/dashboard")
+@RequestMapping("/veicolo")
 public class VeicoloCTRL {
 	@Autowired 
 	private VeicoloService vs;
@@ -30,25 +28,20 @@ public class VeicoloCTRL {
 	
 	
 	
-	@GetMapping
+	@GetMapping("")
 	public ModelAndView login(Model m) {
-		return new ModelAndView("login");
+		return new ModelAndView("singoloVeicolo");
 	}
 	
-//	@GetMapping("/veicolo")
-//	public ModelAndView viewVeicolo(Model m, @RequestParam int id) {
+//	@GetMapping("/{id}")
+//	public ModelAndView viewAutomobile(Model m, @PathVariable("id") int id) {
 //		
-//		m.addAttribute("veicolo",vs.findVeicoloById(id));
+//		m.addAttribute("veicolo", vs.findVeicoloById(id));
 //		
-//		return new ModelAndView("dashboard");
+//		return new ModelAndView("singoloVeicolo");
 //	}
 	
-	@PostMapping
-	public ModelAndView enterDashboard(Model m) {
-		m.addAttribute("utenti", us.findAllUsers());
-		m.addAttribute("veicoli" , vs.findAllVeicoli());
-		return new ModelAndView("dashboard");
-	}
+
 	
 	
 }

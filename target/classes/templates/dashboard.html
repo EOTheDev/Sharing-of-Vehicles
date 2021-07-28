@@ -69,7 +69,7 @@
             <h3>I tuoi clienti
             </h3>
             <tr>
-                <th>Username</th>
+                <th>Ruolo</th>
                 <th>Nome</th>
                 <th>Cognome</th>
                 <th>Email</th>
@@ -82,7 +82,7 @@
             </tr>
 
             <tr th:each="utente:${utenti}">
-                <td><span th:text="${utente.username}" id="username">elDiablo23</span></td>
+                <td><span th:text="${utente.tipo}" id="ruolo">elDiablo23</span></td>
                 <td><span th:text="${utente.cognome}" id="cognome">Rossi</span></td>
                 <td><span th:text="${utente.nome}" id="nome">Mario</span></td>
                 <td><span th:text="${utente.email}" id="email">mariorossi@email.ru</span></td>
@@ -99,8 +99,9 @@
             <h3>I tuoi veicoli
             </h3>
             <tr>
-                <th>id</th>
+                <!--<th>id</th>  -->
                 <th>Tipo veicolo</th>
+                <th>Modello</th>
                 <th>Alimentazione</th>
                 <th>Descrizione</th>
                 <th>Ultima posizione</th>
@@ -112,8 +113,9 @@
                 <th>Interagisci</th>
             </tr>
             <tr th:each="veicolo:${veicoli}">
-                <td><span th:text="${veicolo.id}" id="idVeicolo">15</span></td>
+                <!-- <td><span th:text="${veicolo.id}" id="idVeicolo">15</span></td> -->
                 <td><span th:text="${veicolo.tipologia}" id="tipologia">Bici</span></td>
+                <td><span th:text="${veicolo.modello}" id="modello">Bella</span></td>
                 <td><span th:text="${veicolo.alimentazione}" id="alimentazione">Human Power</span></td>
                 <td><span th:text="${veicolo.descrizione}"id="descrizione">Bici rossa raggiante, il mezzo più sostenibile che ci sia</span></td>
                 <td><span th:text="${veicolo.posizioneAttuale}"id="posizione">via del Campo, 19, Torino</span></td>
