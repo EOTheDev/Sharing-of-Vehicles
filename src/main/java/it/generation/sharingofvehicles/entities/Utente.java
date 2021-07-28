@@ -17,7 +17,9 @@ public class Utente {
 
 
 	@Id
-	protected String userID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	protected int id;
+	protected String username;
 	protected String nome;
 	protected String cognome;
 	protected String nascita;
@@ -37,11 +39,54 @@ public class Utente {
 
 
 
-	@Override
-	public String toString() {
-		return "Utente [userID=" + userID + ", nome=" + nome + ", cognome=" + cognome + ", nascita=" + nascita
-				+ ", email=" + email + ", password=" + password + ", dataIscrizione=" + dataIscrizione + ", tipo="
-				+ tipo + ", firma=" + firma + "]";
+
+
+
+
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
+
+
+	public String getUsername() {
+		return username;
+	}
+
+
+
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+
+
+
+	public LocalDate getDataIscrizione() {
+		return dataIscrizione;
+	}
+
+
+
+
+
+	public void setDataIscrizione(LocalDate dataIscrizione) {
+		this.dataIscrizione = dataIscrizione;
 	}
 
 
@@ -108,12 +153,6 @@ public class Utente {
 	
 	
 	
-	public String getUserID() {
-		return userID;
-	}
-	public void setUserID(String userID) {
-		this.userID = userID;
-	}
 	public String getNome() {
 		return nome;
 	}
@@ -150,6 +189,18 @@ public class Utente {
 	public void setdataIscrizione(LocalDate dataIscrizione) {
 		this.dataIscrizione = dataIscrizione;
 	}
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "Utente [id=" + id + ", username=" + username + ", nome=" + nome + ", cognome=" + cognome + ", nascita="
+				+ nascita + ", email=" + email + ", password=" + password + ", dataIscrizione=" + dataIscrizione
+				+ ", tipo=" + tipo + ", firma=" + firma + "]";
+	}
+	
 	
 	
 	

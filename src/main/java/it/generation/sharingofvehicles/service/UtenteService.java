@@ -11,8 +11,8 @@ public interface UtenteService {
 
 	List<Utente> findAllUsers();
 	Utente findUserByEmail(String email);
-	Utente findUserById(String id);
-	void deleteUserById(String id);
+	Utente findUserById(int id);
+	void deleteUserById(int id);
 	Utente updateUser(Utente user);
 	Utente addUser(Utente user);
 	

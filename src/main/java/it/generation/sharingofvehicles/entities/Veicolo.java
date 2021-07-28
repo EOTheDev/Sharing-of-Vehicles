@@ -26,9 +26,9 @@ public class Veicolo {
 	protected String immagine;
 	protected double pesoCo2;
 	protected double prezzo;
-	@OneToOne
 	//Admin che ha creato il veicolo
-	protected Utente utenteId; 
+//	@OneToOne
+	protected int utente; 
 	
 	
 	//constructors
@@ -167,20 +167,45 @@ public class Veicolo {
 	public void setPrezzo(double prezzo) {
 		this.prezzo = prezzo;
 	}
-	public Utente getUtenteID() {
-		return utenteId;
+	
+	public double getPesoCo2() {
+		return pesoCo2;
 	}
-	public void setUtenteID(Utente utenteID) {
-		this.utenteId = utenteID;
+
+
+
+	public void setPesoCo2(double pesoCo2) {
+		this.pesoCo2 = pesoCo2;
 	}
+
+
+
+
+
+
+
+	public int getUtente() {
+		return utente;
+	}
+
+
+
+	public void setUtente(int utente) {
+		this.utente = utente;
+	}
+
+
+
 	@Override
 	public String toString() {
-		//TODO
 		return "Veicolo [id=" + id + ", ruote=" + ruote + ", tipologia=" + tipologia + ", alimentazione="
 				+ alimentazione + ", descrizione=" + descrizione + ", posizioneAttuale=" + posizioneAttuale
-				+ ", immagineVeicolo=" + immagine + ", pesoCO2=" + pesoCo2 + ", prezzo=" + prezzo + ", utenteID="
-				+ utenteId + "]";
+				+ ", immagine=" + immagine + ", pesoCo2=" + pesoCo2 + ", prezzo=" + prezzo + ", utente=" + utente + "]";
 	}
+
+
+
+
 	
 	
 	

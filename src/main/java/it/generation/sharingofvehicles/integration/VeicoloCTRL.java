@@ -35,13 +35,13 @@ public class VeicoloCTRL {
 		return new ModelAndView("login");
 	}
 	
-	@GetMapping("/veicolo")
-	public ModelAndView viewVeicolo(Model m, @RequestParam int id) {
-		
-		m.addAttribute("veicolo",vs.findVeicoloById(id));
-		
-		return new ModelAndView("dashboard");
-	}
+//	@GetMapping("/veicolo")
+//	public ModelAndView viewVeicolo(Model m, @RequestParam int id) {
+//		
+//		m.addAttribute("veicolo",vs.findVeicoloById(id));
+//		
+//		return new ModelAndView("dashboard");
+//	}
 	
 	@PostMapping
 	public ModelAndView enterDashboard(Model m) {
