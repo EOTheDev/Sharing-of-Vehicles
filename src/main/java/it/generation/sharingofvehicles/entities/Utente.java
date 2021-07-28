@@ -25,7 +25,7 @@ public class Utente {
 	protected String password;
 	protected LocalDate dataIscrizione;
 	protected String tipo= "B";
-	protected String firma="Cliente dal "+this.getDataIscrizione();	
+	protected String firma="Cliente dal "+this.getdataIscrizione();	
 	
 	
 	
@@ -144,10 +144,10 @@ public class Utente {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public LocalDate getDataIscrizione() {
+	public LocalDate getdataIscrizione() {
 		return dataIscrizione;
 	}
-	public void setDataIscrizione(LocalDate dataIscrizione) {
+	public void setdataIscrizione(LocalDate dataIscrizione) {
 		this.dataIscrizione = dataIscrizione;
 	}
 	
