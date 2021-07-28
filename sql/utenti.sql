@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Lug 28, 2021 alle 11:57
+-- Creato il: Lug 28, 2021 alle 16:19
 -- Versione del server: 10.4.19-MariaDB
 -- Versione PHP: 8.0.6
 
@@ -27,10 +27,9 @@ SET time_zone = "+00:00";
 -- Struttura della tabella `utenti`
 --
 
-/*Author Giancarlo Borreo*/
-
 CREATE TABLE `utenti` (
-  `userID` varchar(16) NOT NULL,
+  `id` int(11) NOT NULL,
+  `username` varchar(16) NOT NULL,
   `password` varchar(50) NOT NULL,
   `firma` text DEFAULT NULL,
   `tipo` varchar(1) NOT NULL,
@@ -45,9 +44,9 @@ CREATE TABLE `utenti` (
 -- Dump dei dati per la tabella `utenti`
 --
 
-INSERT INTO `utenti` (`userID`, `password`, `firma`, `tipo`, `nome`, `cognome`, `nascita`, `email`, `data_iscrizione`) VALUES
-('Amministratore', 'Amministratore', 'Amministratore dei servizi', 'A', 'Paolino', 'Paperino', '20/08/1900', 'paolino.paperino@paperopoli.com ', '2005-12-31 22:00:00'),
-('UtenteRegistrato', 'UtenteRegistrato1', 'Utente con diritti minimi', 'B', 'Mauro', 'Pierini01', '20/08/1987', 'Mauro.Pierini@paperopoli.com ', '2021-07-28 05:35:17');
+INSERT INTO `utenti` (`id`, `username`, `password`, `firma`, `tipo`, `nome`, `cognome`, `nascita`, `email`, `data_iscrizione`) VALUES
+(1, 'Admin', 'Amministratore', 'Amministratore dei servizi', 'A', 'Paolino', 'Paperino', '20/08/1900', 'paolino.paperino@paperopoli.com ', '2005-12-31 22:00:00'),
+(2, 'User', 'UtenteRegistrato1', 'Utente con diritti minimi', 'B', 'Mauro', 'Pierini01', '20/08/1987', 'Mauro.Pierini@paperopoli.com ', '2021-07-28 05:35:17');
 
 --
 -- Indici per le tabelle scaricate
@@ -57,8 +56,18 @@ INSERT INTO `utenti` (`userID`, `password`, `firma`, `tipo`, `nome`, `cognome`, 
 -- Indici per le tabelle `utenti`
 --
 ALTER TABLE `utenti`
-  ADD PRIMARY KEY (`userID`),
-  ADD UNIQUE KEY `IDX_Utente_1` (`userID`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `IDX_Utente_1` (`id`);
+
+--
+-- AUTO_INCREMENT per le tabelle scaricate
+--
+
+--
+-- AUTO_INCREMENT per la tabella `utenti`
+--
+ALTER TABLE `utenti`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

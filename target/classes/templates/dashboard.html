@@ -80,13 +80,14 @@
                 <th>Emissioni in percentuale</th>
                 <th>Interagisci</th>
             </tr>
-            <tr>
-                <td><span id="username">elDiablo23</span></td>
-                <td><span id="nome">Mario</span></td>
-                <td><span id="cognome">Rossi</span></td>
-                <td><span id="email">mariorossi@email.ru</span></td>
-                <td><span id="dataNascita">19</span></td>
-                <td><span id="iscrizione">16/12/2020</span></td>
+
+            <tr th:each="utente:${utenti}">
+                <td><span th:text="${utente.username}" id="username">elDiablo23</span></td>
+                <td><span th:text="${utente.cognome}" id="cognome">Rossi</span></td>
+                <td><span th:text="${utente.nome}" id="nome">Mario</span></td>
+                <td><span th:text="${utente.email}" id="email">mariorossi@email.ru</span></td>
+                <td><span th:text="${utente.nascita}" id="dataNascita">19</span></td>
+                <td><span th:text="${utente.dataIscrizione}"id="iscrizione">16/12/2020</span></td>
                 <td><span id="totSpesaUtente">235,05</span> €</td>
                 <td><span id="totEmissioni">210</span> g/m3</td>
                 <td><span id="emissioniPercentuale">0.9</span> g/m3</td>
@@ -110,9 +111,9 @@
                 <th>E/R totali</th>
                 <th>Interagisci</th>
             </tr>
-            <tr>
-                <td><span id="idVeicolo">15</span></td>
-                <td><span id="tipologia">Bici</span></td>
+            <tr th:each="veicolo:${veicoli}">
+                <td><span th:text="${veicolo.id}" id="idVeicolo">15</span></td>
+                <td><span th:text="${veicolo.tipologia}" id="tipologia">Bici</span></td>
                 <td><span id="alimentazione">Human Power</span></td>
                 <td><span id="descrizione">Bici rossa raggiante, il mezzo più sostenibile che ci sia</span></td>
                 <td><span id="posizione">via del Campo, 19, Torino</span></td>
@@ -120,7 +121,7 @@
                 <td><span id="tariffa">10</span> €/g</td>
                 <td><span id="incassoVeicolo">2500</span> €</td>
                 <td><span id="emissioniPercentuale">1</span> g/m3</td>
-                <td><span id="totEmissioni">25</span> g/m3</td>
+                <td><span th:text="${veicolo.utenteId.nome}" id="totEmissioni">25</span> g/m3</td>
                 <td><button class="btn edit"><i class="fas fa-edit"></i></button> </i><button class="btn delete"><i class="fas fa-trash"></i></button></i></td>
             </tr>
             

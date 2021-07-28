@@ -1,9 +1,12 @@
 package it.generation.sharingofvehicles.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -27,8 +30,11 @@ public class Veicolo {
 	protected double pesoCo2;
 	protected double prezzo;
 	//Admin che ha creato il veicolo
-//	@OneToOne
-	protected int utente; 
+//	@OneToMany(mappedBy = "viaggio", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	
+	@ManyToOne
+	@JoinColumn(name="utente_id", nullable = false)
+	protected Utente utenteId; 
 	
 	
 	//constructors
@@ -180,28 +186,21 @@ public class Veicolo {
 
 
 
-
-
-
-
-	public int getUtente() {
-		return utente;
+	public Utente getUtenteId() {
+		return utenteId;
 	}
 
 
 
-	public void setUtente(int utente) {
-		this.utente = utente;
+	public void setUtenteId(Utente utenteId) {
+		this.utenteId = utenteId;
 	}
 
 
 
-	@Override
-	public String toString() {
-		return "Veicolo [id=" + id + ", ruote=" + ruote + ", tipologia=" + tipologia + ", alimentazione="
-				+ alimentazione + ", descrizione=" + descrizione + ", posizioneAttuale=" + posizioneAttuale
-				+ ", immagine=" + immagine + ", pesoCo2=" + pesoCo2 + ", prezzo=" + prezzo + ", utente=" + utente + "]";
-	}
+
+
+
 
 
 
