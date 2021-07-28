@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 
 
-/*author Edoardo Orta*/
+/*author Edoardo Orta */
 @Entity
 @Table(name = "veicolo")
 public class Veicolo {
