@@ -1,4 +1,4 @@
-CREATE TABLE `prenotazione` (
+CREATE TABLE `prenotazioni` (
 	`utenteID` INT,
 	`veicoloID` INT,
 	`dataPrenotazione` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NULL DEFAULT NULL,

@@ -3,12 +3,17 @@ package it.generation.sharingofvehicles.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 /*author Edoardo Orta*/
 @Entity
 @Table(name="prenotazioni")
 public class Prenotazione {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@OneToOne
 	private Veicolo veicoloID;
