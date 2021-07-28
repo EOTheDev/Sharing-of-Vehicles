@@ -1,9 +1,52 @@
-.row{
+header .row{
     background-color: green;
 
 }
-
+.latoCalendario{
+    box-sizing: border-box;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 .imglogo{
     width: 30px;
     height: 30px;
+}
+#calendar{
+    width: 70%;
+    background-color: burlywood;
+    border-radius: 2rem;
+    font-size: 1rem;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+#topCalendar{
+    width: 110%;
+    left:-5%;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: black;
+    position: relative;
+    top: -10%;
+}
+#giorno, #mese{
+	position: relative;
+	left:-5%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+}
+#mese{
+    font-size: 5rem;
+
+}
+#giorno{
+    font-size: 10rem;
+}
+
+.elencoVeicoli{
+    box-sizing: border-box;
+    padding: 2rem;
 }
