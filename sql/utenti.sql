@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 -- Struttura della tabella `utenti`
 --
 
+/*Author Giancarlo Borreo*/
+
 CREATE TABLE `utenti` (
   `userID` varchar(16) NOT NULL,
   `password` varchar(50) NOT NULL,

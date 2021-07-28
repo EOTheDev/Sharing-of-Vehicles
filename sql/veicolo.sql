@@ -1,3 +1,5 @@
+/*Author Giancarlo Borreo*/
+
 CREATE TABLE `veicoli` (
 	`id` INT(50) NOT NULL AUTO_INCREMENT,
 	`ruote` TINYINT(50),
