@@ -51,12 +51,4 @@ public class VeicoloCTRL {
 	}
 	
 	
-	
-	
-	
-//	
-//	@GetMapping("/all")
-//	List<Veicolo> all() {
-//		return vs.findAllVeicoli();
-//	}
 }
