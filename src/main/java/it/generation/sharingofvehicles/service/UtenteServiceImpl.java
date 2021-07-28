@@ -66,15 +66,15 @@ public class UtenteServiceImpl implements UtenteService{
 	}
 
 	@Override
-	public Utente findUserById(String id) {
+	public Utente findUserById(int id) {
 //		return repo.findById(id).get();
-		return repo.findUtenteByUserID(id);
+		return repo.findUtenteById(id);
 	}
 
 	@Override
-	public void deleteUserById(String id) {
+	public void deleteUserById(int id) {
 		//repo.deleteById(id);
-		repo.deleteUtenteByUserID(id);;
+		repo.deleteUtenteById(id);;
 	}
 
 	@Override

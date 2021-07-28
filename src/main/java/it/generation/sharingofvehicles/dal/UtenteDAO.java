@@ -12,8 +12,8 @@ public interface UtenteDAO extends JpaRepository<Utente, Integer>{
 
 	Utente findUtenteByEmail(String email);
 	
-	void deleteUtenteByUserID(String userID);
+	void deleteUtenteById(int id);
 	
-	Utente findUtenteByUserID(String userID);
+	Utente findUtenteById(int id);
 	
 }
