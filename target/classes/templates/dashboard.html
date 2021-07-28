@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,7 @@
     <nav class="navbar navbar-fixed">
         <img class="col-1 logo" src="../imgs/logo_large.png" alt="logo aziendale">
         <h1 class="col-10 titoloPagina">La tua dashboard</h1>
-        <button class="btn delete"><i class="fas fa-home"></i></button>
+        <a href="/logout"><button class="btn delete"><i class="fas fa-home"></i></button></a>
     </nav>
     <header>
         <div class="row">

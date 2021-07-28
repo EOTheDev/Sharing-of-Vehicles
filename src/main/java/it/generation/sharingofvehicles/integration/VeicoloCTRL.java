@@ -33,8 +33,10 @@ public class VeicoloCTRL {
 	}
 	@PostMapping
 	public ModelAndView enterDashboard(Model m) {
+		m.addAttribute("utenti", us.findAllUsers());
 		return new ModelAndView("dashboard");
 	}
+	
 	
 	
 	
