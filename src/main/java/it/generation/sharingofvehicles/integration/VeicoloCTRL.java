@@ -46,6 +46,7 @@ public class VeicoloCTRL {
 	@PostMapping
 	public ModelAndView enterDashboard(Model m) {
 		m.addAttribute("utenti", us.findAllUsers());
+		m.addAttribute("veicoli" , vs.findAllVeicoli());
 		return new ModelAndView("dashboard");
 	}
 	
@@ -53,9 +54,9 @@ public class VeicoloCTRL {
 	
 	
 	
-	
-	@GetMapping("/all")
-	List<Veicolo> all() {
-		return vs.findAllVeicoli();
-	}
+//	
+//	@GetMapping("/all")
+//	List<Veicolo> all() {
+//		return vs.findAllVeicoli();
+//	}
 }

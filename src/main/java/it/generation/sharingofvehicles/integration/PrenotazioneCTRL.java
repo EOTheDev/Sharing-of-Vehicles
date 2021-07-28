@@ -15,12 +15,12 @@ import it.generation.sharingofvehicles.service.PrenotazioneService;
 @RestController
 @RequestMapping("/api/prenotazioni")
 public class PrenotazioneCTRL {
-
-	@Autowired
-	private PrenotazioneService ps;
-	
-	@GetMapping("/all")
-	List<Prenotazione> all(){
-		return ps.findAllPrenotazione();
-	}
+//
+//	@Autowired
+//	private PrenotazioneService ps;
+//	
+//	@GetMapping("/all")
+//	List<Prenotazione> all(){
+//		return ps.findAllPrenotazione();
+//	}
 }
