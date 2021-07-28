@@ -27,6 +27,7 @@ public class Veicolo {
 	protected String descrizione;
 	protected String posizioneAttuale;
 	protected String immagine;
+	protected String modello;
 	protected double pesoCo2;
 	protected double prezzo;
 	//Admin che ha creato il veicolo
@@ -196,6 +197,19 @@ public class Veicolo {
 		this.utenteId = utenteId;
 	}
 
+
+
+	public String getModello() {
+		return modello;
+	}
+
+
+
+	public void setModello(String modello) {
+		this.modello = modello;
+	}
+
+	
 
 
 
