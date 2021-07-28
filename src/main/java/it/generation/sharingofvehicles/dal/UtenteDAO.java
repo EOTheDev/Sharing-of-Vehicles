@@ -9,7 +9,7 @@ import it.generation.sharingofvehicles.entities.Utente;
 /*author Edoardo Orta*/
 public interface UtenteDAO extends JpaRepository<Utente, Integer>{
 
-	@Query(value="from ArchivioUtenti where Email=?1")
-	Utente findUserByEmail(String email);
+
+	Utente findUtenteByEmail(String email);
 	
 }

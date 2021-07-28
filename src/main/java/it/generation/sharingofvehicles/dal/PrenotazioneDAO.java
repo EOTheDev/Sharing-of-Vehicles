@@ -10,7 +10,7 @@ import it.generation.sharingofvehicles.entities.Prenotazione;
 
 public interface PrenotazioneDAO extends JpaRepository<Prenotazione, Integer> {
 
-	@Query(value="from prenotazioni where utenteId=?1")
-	List<Prenotazione> findPrenotazioneByUtenteId(int id);
+//	@Query(value="from prenotazioni where UtenteId=?1")
+	List<Prenotazione> findPrenotazioneByUtenteID(String utenteID);
 }
 

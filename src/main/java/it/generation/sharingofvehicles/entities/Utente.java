@@ -17,7 +17,6 @@ public class Utente {
 
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected String userID;
 	protected String nome;
 	protected String cognome;

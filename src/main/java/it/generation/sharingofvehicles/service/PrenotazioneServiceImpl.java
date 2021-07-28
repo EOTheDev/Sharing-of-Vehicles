@@ -27,9 +27,9 @@ public class PrenotazioneServiceImpl implements PrenotazioneService {
 	}
 
 	@Override
-	public List<Prenotazione> findPrenotazioneByUtenteId(int id) {
+	public List<Prenotazione> findPrenotazioneByUtenteId(String id) {
 		//TODO
-		return repo.findPrenotazioneByUtenteId(id);//repo.findById(utente.);
+		return null;//repo.findPrenotazioneByUtenteId(id);//repo.findById(utente.);
 	}
 
 	@Override
