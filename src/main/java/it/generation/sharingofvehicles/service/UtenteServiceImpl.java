@@ -88,6 +88,6 @@ public class UtenteServiceImpl implements UtenteService{
 	@Override
 	public Utente findUserByEmail(String email) {
 		// TODO Auto-generated method stub
-		return null; //repo.findUserByEmail(email);
+		return repo.findUtenteByEmail(email); //repo.findUserByEmail(email);
 	}
 }
