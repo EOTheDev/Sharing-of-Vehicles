@@ -63,17 +63,34 @@
                             <a class="col-lg-12" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}}"><button class="col-12 btn edit">Prenota</button></a> 
                         </div>
                         <div class="col-lg-10 rightSide">
-                            <h2 class="titolo">
+                            <h2 th:switch="${veicolo.alimentazione}" class="titolo">
                                 <span class="modello" th:text="${veicolo.modello}">BMW I8</span>
-                                <span class="text-muted alimentazione"> <i class="fas fa-smog"> </i> Ibrida</span> <!-- se implemento thymeleaf sovrascrive icona -->
+                                <i th:case="'diesel'" class="fas fa-smog text-muted">
+                                    <span class="text-muted alimentazione" th:text="${veicolo.alimentazione}"> 
+                                        Ibrida
+                                    </span> <!-- se implemento thymeleaf sovrascrive icona -->
+                                </i>
+                                <i th:case="'benzina'" class="fas fa-smog text-muted">
+                                    <span class="text-muted alimentazione" th:text="${veicolo.alimentazione}"> 
+                                        Ibrida
+                                    </span> <!-- se implemento thymeleaf sovrascrive icona -->
+                                </i>
+                                <i th:case="*" class="fas fa-bolt text-muted">
+                                    <span class="text-muted alimentazione" th:text="${veicolo.alimentazione}"> 
+                                        Ibrida
+                                    </span> <!-- se implemento thymeleaf sovrascrive icona -->
+                                </i>
                             </h2>
-                            <div class="text">
+                            <div th:switch="${veicolo.tipologia}" class="text">
                                 <!-- if auto fa-car-alt, else if fa-leaf -->                              
-                                    <i class="fas fa-car-alt">
+                                    <i th:case="'auto'" class="fas fa-car-alt text-muted">
                                          <span class="tipo" th:text="${veicolo.tipologia}"> Auto</span>
                                     </i>
-                                
-                                     <i class="fas fa-map-marker-alt">
+                                    <i th:case="*" class="fas fa-leaf text-muted">
+                                        <span class="tipo" th:text="${veicolo.tipologia}"> Auto</span>
+                                    </i>
+
+                                     <i class="fas fa-map-marker-alt text-muted">
                                          <span class="posizione" th:text="${veicolo.indirizzo}"> Via del Campo, Torino </span>
                                      </i>
                                 <div class="descrizione" th:text="${veicolo.descrizione}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iusto excepturi deserunt, error optio laboriosam expedita laudantium repellat. Impedit, laboriosam aliquid quibusdam deleniti dolores eaque ratione tenetur harum porro quis!*5</div>
