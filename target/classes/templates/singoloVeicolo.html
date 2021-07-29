@@ -46,7 +46,7 @@
                 
             <!-- costo -->
             <div class="prezzo p-2 bd-highlight">
-                <h3>30€</h3>
+                <h3 th:text="${veicolo.prezzo}">30€</h3>
             </div>
             
             <!-- bottone acquisto -->
@@ -62,13 +62,13 @@
         <div id="latoDx" class="col-lg-8 " style="background-color: #8dc63f;">
             <div class="top">
                 <!-- nome auto -->
-                <h1 id="nomeMacchina"><strong>Nome Macchina</strong></h1>
+                <h1 id="nomeMacchina" th:text="${veicolo.modello}"><strong>Nome Macchina</strong></h1>
                 <!-- tipo auto -->
-                <h3 id="tipoMacchina"><em>tipo Macchina</em></h3>
+                <h3 id="tipoMacchina" th:text="${veicolo.tipologia}"><em>tipo Macchina</em></h3>
                 <!-- descrizione auto -->
-                <h3 id="descrizioneMacchina ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias impedit odio architecto perferendis quo provident harum doloribus ducimus deserunt iste?</h3>
+                <h3 id="descrizioneMacchina" th:text="${veicolo.descrizione}">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias impedit odio architecto perferendis quo provident harum doloribus ducimus deserunt iste?</h3>
                 <!-- consumo co2 -->
-                <h3 id="risparmio">risparmi 0.6 g/m3 di co2</h3>
+                <h3 id="risparmio">Consumo: <span th:text="${veicolo.pesoCo2}">0.6 </span> g/m3 di co2</h3>
 
             </div>
 

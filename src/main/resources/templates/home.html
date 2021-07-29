@@ -60,7 +60,7 @@
                 	<div class="row singoloVeicolo">
                         <div class="col-lg-2 side">
                             <img class="col-lg-12" src="https://www.you-go.it/wp-content/uploads/2020/11/volkswagen-id3-bianca-647x277.png" alt="" >
-                            <a class="col-lg-12" href="/veicolo"><button class="col-12 btn edit">Prenota</button></a> <!-- implementare chiamata via get con parametro id di veicolo -->
+                            <a class="col-lg-12" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}}"><button class="col-12 btn edit">Prenota</button></a> <!-- implementare chiamata via get con parametro id di veicolo -->
                         </div>
                         <div class="col-lg-10 rightSide">
                             <h2 class="titolo">
