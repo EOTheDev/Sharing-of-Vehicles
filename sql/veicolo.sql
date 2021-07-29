@@ -86,3 +86,5 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+insert into veicoli (id, ruote, tipologia, modello, descrizione, alimentazione, indirizzo, latitudine, longitudine, immagine, peso_co2, prezzo, utente_id)  VALUES(2, 4, 'auto', 'ferrari','La auto più bella del mondo e veloce del mondo', 'benzina', 'Via Carlo Alberto, 36, 10123 Torino TO','45.063228','40.571','https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fe%2Fe5%2FLaFerrari_in_Beverly_Hills_(14563979888).jpg%2F1920px-LaFerrari_in_Beverly_Hills_(14563979888).jpg&f=1&nofb=1',6,99,1);
