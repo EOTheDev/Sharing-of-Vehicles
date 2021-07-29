@@ -17,10 +17,14 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
     border-radius: 5rem 0 0 5rem;
+    align-items: center;
 }
-
+@media (min-width:992px) {
+    #latoDx{
+        padding-top: 0;
+    }
+}
 
 #colonnaSx{
     text-align: center;
@@ -101,8 +105,8 @@
 }
 #mapid { 
     position: relative;
-    bottom: -3vh; 
-    padding: 1rem 0;
+     
+    padding: 0 0;
     height: 33vh;
     width: 100%;
     border-bottom-left-radius: 5rem;
