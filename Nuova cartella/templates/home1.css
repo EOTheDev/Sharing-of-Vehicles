@@ -1,16 +1,39 @@
 
 .row{
-    background-color: green;
-    
+    background-color: lightgreen;
     width: 100%;
+    align-items: center;
 
 }
 
-.imglogo{
-    width: 30px;
-    height: 30px;
+.footer{
+    padding-top: 1.5rem;
 }
+
+footer h1{
+    font-size: 2rem;
+}
+
+#imglogo{
+    height: 6rem;
+    
+}
+
+#login{
+    margin-bottom: 1.5rem;
+}
+
+.header{
+    width: 100%;
+    background-color: lightgreen;
+}
+
 #nome{
+    margin-bottom: 0.5%;
+}
+
+
+#nome h1{
     
     font-weight: 100;
     color: green;
@@ -18,6 +41,7 @@
 
 #nome span{
     font-weight: 800;
+    color: green;
 }
 
 .carousel slide{
@@ -29,12 +53,12 @@
     background-color: rgb(134, 223, 134);
 }
 
-.header{
+#carouselExampleCaptions{
     margin-left: 30%;
     margin-right: 30%;
-    background-color: lightblue;
-
 }
+
+
 
 .footer-container{
     background-color: lightgreen;
