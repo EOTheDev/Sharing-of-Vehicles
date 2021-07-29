@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Lug 29, 2021 alle 10:15
+-- Creato il: Lug 29, 2021 alle 12:02
 -- Versione del server: 10.4.19-MariaDB
 -- Versione PHP: 8.0.6
 
@@ -35,8 +35,8 @@ CREATE TABLE `veicoli` (
   `descrizione` varchar(225) DEFAULT NULL,
   `alimentazione` varchar(10) DEFAULT NULL,
   `indirizzo` varchar(200) DEFAULT NULL,
-  `latitudine` int(11) NOT NULL,
-  `longitudine` int(11) NOT NULL,
+  `latitudine` decimal(10,7) NOT NULL,
+  `longitudine` decimal(10,7) NOT NULL,
   `immagine` varchar(225) DEFAULT NULL,
   `peso_co2` decimal(50,0) DEFAULT NULL,
   `prezzo` decimal(65,0) DEFAULT NULL,
@@ -48,8 +48,8 @@ CREATE TABLE `veicoli` (
 --
 
 INSERT INTO `veicoli` (`id`, `ruote`, `tipologia`, `modello`, `descrizione`, `alimentazione`, `indirizzo`, `latitudine`, `longitudine`, `immagine`, `peso_co2`, `prezzo`, `utente_id`) VALUES
-(0, 4, 'auto', 'panda', '1200cc', 'elettrica', 'torino', 0, 0, 'panda.jpg', '1', '20', 1),
-(1, 4, 'auto', 'Lamborghini', 'L\'auto più bella del mondo, raggiante e sfuggente', 'elettrica', '44.899138, 8.206008', 0, 0, 'https://www.gelestatic.it/thimg/-bNdLgCtNRuKA4j9ecawOqOPUa8=/fit-in/960x540/filters:format(webp)/https%3A//www.lastampa.it/image/contentid/policy%3A1.39001420%3A1592925134/P90285406_highRes_the-new-bmw-i8-coupe.jpg%3Ff%3Ddeta', '1', '150', 1);
+(0, 4, 'auto', 'panda', '1200cc', 'elettrica', 'Via Roma, 15, 10123 Torino', '45.0701782', '7.6845458', 'panda.jpg', '2', '20', 1),
+(1, 4, 'auto', 'Lamborghini', 'L\'auto più bella del mondo, raggiante e sfuggente', 'elettrica', 'Via Giuseppe Gardini, 8, 14100 Asti ', '44.8991380', '8.2060080', 'https://www.gelestatic.it/thimg/-bNdLgCtNRuKA4j9ecawOqOPUa8=/fit-in/960x540/filters:format(webp)/https%3A//www.lastampa.it/image/contentid/policy%3A1.39001420%3A1592925134/P90285406_highRes_the-new-bmw-i8-coupe.jpg%3Ff%3Ddeta', '1', '150', 1);
 
 --
 -- Indici per le tabelle scaricate
