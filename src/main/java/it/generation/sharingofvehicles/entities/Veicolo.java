@@ -25,7 +25,9 @@ public class Veicolo {
 	protected String tipologia;
 	protected String alimentazione;
 	protected String descrizione;
-	protected String posizioneAttuale;
+	protected String indirizzo;
+	protected int latitudine;
+	protected int longitudine;
 	protected String immagine;
 	protected String modello;
 	protected double pesoCo2;
@@ -143,12 +145,6 @@ public class Veicolo {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-	public String getPosizioneAttuale() {
-		return posizioneAttuale;
-	}
-	public void setPosizioneAttuale(String posizioneAttuale) {
-		this.posizioneAttuale = posizioneAttuale;
-	}
 
 	public String getImmagine() {
 		return immagine;
@@ -209,6 +205,43 @@ public class Veicolo {
 		this.modello = modello;
 	}
 
+
+
+	public String getIndirizzo() {
+		return indirizzo;
+	}
+
+
+
+	public void setIndirizzo(String indirizzo) {
+		this.indirizzo = indirizzo;
+	}
+
+
+
+	public int getLatitudine() {
+		return latitudine;
+	}
+
+
+
+	public void setLatitudine(int latitudine) {
+		this.latitudine = latitudine;
+	}
+
+
+
+	public int getLongitudine() {
+		return longitudine;
+	}
+
+
+
+	public void setLongitudine(int longitudine) {
+		this.longitudine = longitudine;
+	}
+
+	
 	
 
 
