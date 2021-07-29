@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +56,7 @@
             <div class="col-lg-8 elencoVeicoli">
                 <h1>I veicoli disponibili</h1>
                 <!-- singolo veicolo -->
-                <div id="veicoliDisponibili">
+                <div id="veicoliDisponibili" th:each="veicolo:${veicoli}">
                 	<div class="row singoloVeicolo">
                         <div class="col-lg-2 side">
                             <img class="col-lg-12" src="https://www.you-go.it/wp-content/uploads/2020/11/volkswagen-id3-bianca-647x277.png" alt="" >
@@ -64,19 +64,19 @@
                         </div>
                         <div class="col-lg-10 rightSide">
                             <h2 class="titolo">
-                                <span class="modello">BMW I8</span>
-                                <span class="text-muted alimentazione"> <i class="fas fa-smog"> </i> Ibrida</span>
+                                <span class="modello" th:text="${veicolo.modello}">BMW I8</span>
+                                <span class="text-muted alimentazione"> <i class="fas fa-smog"> </i> Ibrida</span> <!-- se implemento thymeleaf sovrascrive icona -->
                             </h2>
                             <div class="text">
                                 <!-- if auto fa-car-alt, else if fa-leaf -->                              
                                     <i class="fas fa-car-alt">
-                                         <span class="tipo"> Auto</span>
+                                         <span class="tipo" th:text="${veicolo.tipologia}"> Auto</span>
                                     </i>
                                 
                                      <i class="fas fa-map-marker-alt">
                                          <span class="posizione"> Via del Campo, Torino </span>
                                      </i>
-                                <div class="descrizione">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iusto excepturi deserunt, error optio laboriosam expedita laudantium repellat. Impedit, laboriosam aliquid quibusdam deleniti dolores eaque ratione tenetur harum porro quis!*5</div>
+                                <div class="descrizione" th:text="${veicolo.descrizione}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iusto excepturi deserunt, error optio laboriosam expedita laudantium repellat. Impedit, laboriosam aliquid quibusdam deleniti dolores eaque ratione tenetur harum porro quis!*5</div>
                             </div>
                         </div>
                     </div>
