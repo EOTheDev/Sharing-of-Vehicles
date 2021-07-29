@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Lug 28, 2021 alle 17:13
+-- Creato il: Lug 29, 2021 alle 10:15
 -- Versione del server: 10.4.19-MariaDB
 -- Versione PHP: 8.0.6
 
@@ -34,7 +34,9 @@ CREATE TABLE `veicoli` (
   `modello` varchar(50) NOT NULL,
   `descrizione` varchar(225) DEFAULT NULL,
   `alimentazione` varchar(10) DEFAULT NULL,
-  `posizione_attuale` varchar(200) DEFAULT NULL,
+  `indirizzo` varchar(200) DEFAULT NULL,
+  `latitudine` int(11) NOT NULL,
+  `longitudine` int(11) NOT NULL,
   `immagine` varchar(225) DEFAULT NULL,
   `peso_co2` decimal(50,0) DEFAULT NULL,
   `prezzo` decimal(65,0) DEFAULT NULL,
@@ -45,9 +47,9 @@ CREATE TABLE `veicoli` (
 -- Dump dei dati per la tabella `veicoli`
 --
 
-INSERT INTO `veicoli` (`id`, `ruote`, `tipologia`, `modello`, `descrizione`, `alimentazione`, `posizione_attuale`, `immagine`, `peso_co2`, `prezzo`, `utente_id`) VALUES
-(0, 4, 'auto', 'panda', '1200cc', 'elettrica', 'torino', 'panda.jpg', '1', '20', 1),
-(1, 4, 'auto', 'Lamborghini', 'L\'auto più bella del mondo, raggiante e sfuggente', 'elettrica', '44.899138, 8.206008', 'https://www.gelestatic.it/thimg/-bNdLgCtNRuKA4j9ecawOqOPUa8=/fit-in/960x540/filters:format(webp)/https%3A//www.lastampa.it/image/contentid/policy%3A1.39001420%3A1592925134/P90285406_highRes_the-new-bmw-i8-coupe.jpg%3Ff%3Ddeta', '1', '150', 1);
+INSERT INTO `veicoli` (`id`, `ruote`, `tipologia`, `modello`, `descrizione`, `alimentazione`, `indirizzo`, `latitudine`, `longitudine`, `immagine`, `peso_co2`, `prezzo`, `utente_id`) VALUES
+(0, 4, 'auto', 'panda', '1200cc', 'elettrica', 'torino', 0, 0, 'panda.jpg', '1', '20', 1),
+(1, 4, 'auto', 'Lamborghini', 'L\'auto più bella del mondo, raggiante e sfuggente', 'elettrica', '44.899138, 8.206008', 0, 0, 'https://www.gelestatic.it/thimg/-bNdLgCtNRuKA4j9ecawOqOPUa8=/fit-in/960x540/filters:format(webp)/https%3A//www.lastampa.it/image/contentid/policy%3A1.39001420%3A1592925134/P90285406_highRes_the-new-bmw-i8-coupe.jpg%3Ff%3Ddeta', '1', '150', 1);
 
 --
 -- Indici per le tabelle scaricate
