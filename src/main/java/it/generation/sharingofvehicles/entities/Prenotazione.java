@@ -1,11 +1,14 @@
 package it.generation.sharingofvehicles.entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 /*author Edoardo Orta*/
@@ -15,25 +18,19 @@ public class Prenotazione {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@OneToOne
-	private Veicolo veicoloID;
-	@OneToOne
-	private Utente utenteID;
-	private Date dataPrenotazione;
 	
 	
+
+	@ManyToOne
+	@JoinColumn(name="veicolo_id", nullable = false)
+	private Veicolo veicoloId;
+
 	
-//	public Prenotazione(int id, Veicolo veicoloID, Utente utenteID, Date dataPrenotazione) {
-//		super();
-//		this.id = id;
-//		this.veicoloID = veicoloID;
-//		this.utenteID = utenteID;
-//		this.dataPrenotazione = dataPrenotazione;
-//	}
-//	
-//	public Prenotazione() {
-//		super();
-//	}
+	@ManyToOne
+	@JoinColumn(name="utente_id", nullable = false)
+	private Utente utenteId;
+	private LocalDate dataPrenotazione;
+	
 
 
 	public int getId() {
@@ -42,22 +39,23 @@ public class Prenotazione {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Veicolo getVeicoloID() {
-		return veicoloID;
+
+	public Veicolo getVeicoloId() {
+		return veicoloId;
 	}
-	public void setVeicoloID(Veicolo veicoloID) {
-		this.veicoloID = veicoloID;
+	public void setVeicoloId(Veicolo veicoloId) {
+		this.veicoloId = veicoloId;
 	}
-	public Utente getUtenteID() {
-		return utenteID;
+	public Utente getUtenteId() {
+		return utenteId;
 	}
-	public void setUtenteID(Utente utenteID) {
-		this.utenteID = utenteID;
+	public void setUtenteId(Utente utenteId) {
+		this.utenteId = utenteId;
 	}
-	public Date getDataPrenotazione() {
+	public LocalDate getDataPrenotazione() {
 		return dataPrenotazione;
 	}
-	public void setDataPrenotazione(Date dataPrenotazione) {
+	public void setDataPrenotazione(LocalDate dataPrenotazione) {
 		this.dataPrenotazione = dataPrenotazione;
 	}
 	

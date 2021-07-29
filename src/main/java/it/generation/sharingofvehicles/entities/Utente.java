@@ -36,6 +36,9 @@ public class Utente {
 	@OneToMany(mappedBy = "utenteId")
 	private List<Veicolo> veicoli;
 	
+	@OneToMany(mappedBy = "utenteId")
+	private List<Prenotazione> prenotazione;
+	
 	
 
 

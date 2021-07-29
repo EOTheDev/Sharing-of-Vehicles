@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.generation.sharingofvehicles.entities.Utente;
+import it.generation.sharingofvehicles.service.PrenotazioneService;
 import it.generation.sharingofvehicles.service.UtenteService;
 import it.generation.sharingofvehicles.service.VeicoloService;
 
@@ -23,7 +24,8 @@ public class UtenteCTRL {
 	private UtenteService us;
 	@Autowired
 	private VeicoloService vs;
-	
+	@Autowired
+	private PrenotazioneService ps;
 	@GetMapping
 	public ModelAndView login(Model m) {
 		return new ModelAndView("login");
@@ -33,6 +35,7 @@ public class UtenteCTRL {
 	public ModelAndView enterDashboard(Model m) {
 		m.addAttribute("utenti", us.findAllUsers());
 		m.addAttribute("veicoli" , vs.findAllVeicoli());
+		m.addAttribute("prenotazioni",ps.findAllPrenotazione());
 		return new ModelAndView("dashboard");
 	}
 	
