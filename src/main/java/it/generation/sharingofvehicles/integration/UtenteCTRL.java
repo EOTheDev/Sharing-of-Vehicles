@@ -36,6 +36,7 @@ public class UtenteCTRL {
 		m.addAttribute("utenti", us.findAllUsers());
 		m.addAttribute("veicoli" , vs.findAllVeicoli());
 		m.addAttribute("prenotazioni",ps.findAllPrenotazione());
+		
 		return new ModelAndView("dashboard");
 	}
 	

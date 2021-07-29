@@ -55,12 +55,12 @@
 
             </tr>
             <tr th:each="prenotazione:${prenotazioni}">
-                <td><span id="nome">Mario</span> <span id="cognome">Rossi</span></td>
+                <td><span id="nome" th:text="${prenotazione.utenteId.nome}">Mario</span> <span id="cognome" th:text="${prenotazione.utenteId.cognome}">Rossi</span></td>
                 <td><span id="idPrenotazione">X1A14B33</span></td>
-                <td><span id="veicolo">Bici</span></td>
-                <td><span id="pesoCO2">0.8</span> g/m3</td>
-                <td><span id="giorno">3</span></td>
-                <td><span id="tariffa">10</span> €</td>
+                <td><span id="veicolo" th:text="${prenotazione.veicoloId.modello}">Bici</span></td>
+                <td><span id="pesoCO2" th:text="${prenotazione.veicoloId.pesoCo2}">0.8</span> g/m3</td>
+                <td><span id="giorno" th:text="${prenotazione.dataPrenotazione}">3</span></td>
+                <td><span id="tariffa" th:text="${prenotazione.veicoloId.prezzo}">10</span> €</td>
                 <td><button class="btn edit"><i class="fas fa-edit"></i></button> </i><button class="btn delete"><i class="fas fa-trash"></i></button></i></td>
             </tr>
             
