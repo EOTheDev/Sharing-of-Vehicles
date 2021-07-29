@@ -83,14 +83,14 @@
                             </h2>
                             <div th:switch="${veicolo.tipologia}" class="text">
                                 <!-- if auto fa-car-alt, else if fa-leaf -->                              
-                                    <i th:case="'auto'" class="fas fa-car-alt text-muted">
+                                    <i th:case="'auto'" class="fas fa-car-alt">
                                          <span class="tipo" th:text="${veicolo.tipologia}"> Auto</span>
                                     </i>
-                                    <i th:case="*" class="fas fa-leaf text-muted">
+                                    <i th:case="*" class="fas fa-leaf ">
                                         <span class="tipo" th:text="${veicolo.tipologia}"> Auto</span>
                                     </i>
 
-                                     <i class="fas fa-map-marker-alt text-muted">
+                                     <i class="fas fa-map-marker-alt">
                                          <span class="posizione" th:text="${veicolo.indirizzo}"> Via del Campo, Torino </span>
                                      </i>
                                 <div class="descrizione" th:text="${veicolo.descrizione}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iusto excepturi deserunt, error optio laboriosam expedita laudantium repellat. Impedit, laboriosam aliquid quibusdam deleniti dolores eaque ratione tenetur harum porro quis!*5</div>
