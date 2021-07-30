@@ -51,6 +51,7 @@
                     <span id="mese">Aprile</span>
                 </div>
                 
+                <a href="/login"><button  id="loginBtn">Fai il login per noleggiare!</button></a>
             </div>
             <!-- fine calendario -->
             <!-- inizio veicoli -->
@@ -101,6 +102,7 @@
                     
                 </div>
                 <!-- fine singolo veicolo -->
+
                 <!-- singolo veicolo per vedere differenze-->
                 <div id="veicoliDisponibili">
                     <div class="row singoloVeicolo">
@@ -129,7 +131,6 @@
                     
                 </div>
                 <!-- fine singolo veicolo -->
-                <a href="/login"><button  id="loginBtn">Fai il login per noleggiare!</button></a>
             </div>
         </div>
         <!-- fine banner veicoli -->
@@ -185,20 +186,27 @@
     </main>
     
     <footer class="footer"></footer>
-    <script>
+    <script th:inline="javascript">
         /* grafico emissioni*/
         var ctx = document.getElementById('graficoEmissioni').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Auto Benzina', 'Auto Diesel', 'Auto Ibrida', 'Auto Elettrica', 'Bici Elettrica', 'Bici Human Power', "Monopattino Elettrico" ],
+                labels: [
+                    'Auto Benzina',
+                    'Auto Diesel',
+                    'Auto Ibrida', 
+                    'Auto Elettrica', 
+                    'Bici Elettrica', 
+                    'Bici Human Power', 
+                    "Monopattino Elettrico" ],
                 datasets: [{
                     label: 'Emissione risparmiate in g/m3',
-                    data: [ 0, 0, 50, 3, 5, 2, 3],
+                    data: [ 0, 0, 40, 60, 95, 100, 95],
                     backgroundColor: [
                     'rgba(255, 99, 132, 1)',
                     'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
+                    '#77777',
                     'rgba(75, 192, 192, 1)',
                     'rgba(153, 102, 255, 1)',
                     'rgba(255, 159, 64, 1)'
@@ -224,43 +232,65 @@
     });
 
     /* grafico veicoli */
+/*
+	var veicoliGrafici = [];
+    for (const veicolo of veicoliGrafici) {
+        console.log(veicolo)
+    }
+*/
+
+    
+    
+   
 
     var graficoVeicoli = document.getElementById('graficoVeicoli').getContext('2d');
     var newGraph = new Chart(graficoVeicoli, {
         type: 'radar',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+            labels: [
+            'g/m 3 di CO2 risparmati',
+            'prezzo',
+            'alimentazione',
+            ],
+            datasets: [
+            
+                {
 
+                    label: "veicolo" ,
+                    data: [1, 100, 0],
+                             
+
+
+
+
+
+
+                    fill: true,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    pointBackgroundColor: 'rgb(255, 99, 132)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(255, 99, 132)'
+                },
+                
+            {
+                label: 'Segway',
+                data: [1, 25, 100],
+                fill: true,
+                backgroundColor: '#777777',
+                borderColor: '#777777',
+                pointBackgroundColor: '#777777',
+                pointBorderColor: '#777777',
+                pointHoverBackgroundColor: '#777777',
+                pointHoverBorderColor: '#777777'
+            },
+            ]
+        },
+        
+    });
+ 
+    
     </script>
 </body>
 </html>

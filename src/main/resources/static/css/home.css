@@ -46,7 +46,8 @@ nav{
     padding: 2rem;
     display: flex;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: center;
+    flex-direction: column;
 }
 .imglogo{
     width: 30px;

@@ -9,6 +9,10 @@
 td, th{
     text-align: center;
 }
+td img{
+    max-height: 4rem;
+    width: 5rem;
+}
 .delete{
     background-color: var(--alert);
 }
