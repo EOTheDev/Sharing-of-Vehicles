@@ -1,10 +1,16 @@
 package it.generation.sharingofvehicles.integration;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -34,6 +40,7 @@ public ModelAndView getIndex(Model m) {
 	return  new ModelAndView("home");
 }
 
+//rimandano a login
 
 @GetMapping("login")
 public ModelAndView login(Model m) {
@@ -48,6 +55,8 @@ public ModelAndView login2(Model m) {
 	
 	return new ModelAndView("login");
 }
+
+//rimandano a dashboard
 
 @PostMapping("/dashboard")
 public ModelAndView enterDashboard(Model m, 
@@ -78,41 +87,89 @@ public ModelAndView enterDashboard(Model m,
 		}
 	}
 		else {
+
 			return new ModelAndView("registrazione");
 		}
+}
 		
 //	return new ModelAndView("dashboard");
-}
+
 
 @PostMapping("/dashboard/insert")
-	public ModelAndView insertCliente(Model m,
-			@RequestParam String username,
-			@RequestParam String email,
-			@RequestParam String nome,
-			@RequestParam String cognome,
-			@RequestParam String nascita,
-			@RequestParam String tipo,
+public ModelAndView insertCliente(Model m,
+		@RequestParam String username,
+		@RequestParam String email,
+		@RequestParam String nome,
+		@RequestParam String cognome,
+		@RequestParam String nascita,
+		@RequestParam String tipo,
+		@RequestParam String emailAdmin
+		) {
+	
+	Utente u = new Utente();
+	u.setUsername(username);
+	u.setEmail(email);
+	u.setNome(nome);
+	u.setCognome(cognome);
+	u.setNascita(nascita);
+	u.setTipo(tipo);
+	u.setPassword("ciao15");
+	
+	
+	LocalDate time = LocalDate.now();
+	u.setDataIscrizione(time);
+	us.addUser(u);
+	
+	return this.enterDashboard(m, emailAdmin);
+	
+	
+
+}
+
+
+@PostMapping("/dashboard/delete")
+public ModelAndView deleteCliente(
+		@RequestParam int id,
+		@RequestParam String emailAdmin,
+		Model m) {
+	
+	System.out.println("sono in delete");
+	
+	us.deleteUserById(id);
+	
+	m.addAttribute("utenti",us.findAllUsers());
+	
+	return this.enterDashboard(m, emailAdmin);
+	
+}
+
+
+@PostMapping("/dashboard/update")
+	public ModelAndView updateCliente(Model m,
+			@RequestParam int id,
 			@RequestParam String emailAdmin
 			) {
 		
-		Utente u = new Utente();
-		u.setUsername(username);
-		u.setEmail(email);
-		u.setNome(nome);
-		u.setCognome(cognome);
-		u.setNascita(nascita);
-		u.setTipo(tipo);
-		u.setPassword("ciao15");
+		Utente utente = us.findUserById(id);
 		
-		us.addUser(u);
+		
+	
+//		Utente u = new Utente();
+//		u.setUsername(username);
+//		u.setEmail(email);
+//		u.setNome(nome);
+//		u.setCognome(cognome);
+//		u.setNascita(nascita);
+//		u.setTipo(tipo);
+		
+		
+//		us.addUser(u);
 		
 		return this.enterDashboard(m, emailAdmin);
 		
 		
 
-	}
-	
-
-
+}
 
 }
+	
