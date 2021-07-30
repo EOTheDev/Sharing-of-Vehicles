@@ -212,6 +212,7 @@
                 <th>Alimentazione</th>
                 <th>Descrizione</th>
                 <th>Ultima posizione</th>
+                <th>Url Immagine</th>
                 <th>Immagine</th>
                 <th>Tariffa</th>
                 <th>Incasso Totale</th>
@@ -226,6 +227,7 @@
                 <td><span th:text="${veicolo.alimentazione}" id="alimentazione">Human Power</span></td>
                 <td><span th:text="${veicolo.descrizione}"id="descrizione">Bici rossa raggiante, il mezzo più sostenibile che ci sia</span></td>
                 <td><span th:text="${veicolo.indirizzo}"id="posizione">via del Campo, 19, Torino</span></td>
+                <td><span th:text="${veicolo.immagine}"id="urlImmagine">questa immagine.png</span></td>
                 <td><img src="img/veicolo.jpg" th:src="@{${veicolo.immagine}}" alt="immagine del veicolo" srcset=""></td>
                 <td><span th:text="${veicolo.prezzo}" id="tariffa">10</span> €/g</td>
                 <td><span id="incassoVeicolo">2500</span> €</td>
