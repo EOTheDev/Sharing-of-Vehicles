@@ -28,7 +28,10 @@ td, th{
 .alarm{
     background-color: var(--alert);
 }
-
+.main canvas#graficoEmissioni{
+    height: 100vh;
+    width: 50vw;
+}
 
 
 nav{
@@ -98,9 +101,12 @@ nav{
     padding-bottom: 1rem;
     margin-bottom: 2rem;
 }
-.side, .rightSide{
+.side, .rightSide, .sinistraGrafico{
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
 
+}
+.graphicMaster{
+    margin-top: 3rem;
 }
