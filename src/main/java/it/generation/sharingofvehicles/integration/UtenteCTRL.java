@@ -30,7 +30,7 @@ public class UtenteCTRL {
 	@Autowired
 	private PrenotazioneService ps;
 	
-	@GetMapping("/insert")
+	@PostMapping("/insert")
 	public String insertCliente(
 			@RequestParam String username,
 			@RequestParam String email,
@@ -51,7 +51,7 @@ public class UtenteCTRL {
 		
 		us.addUser(u);
 		
-		return "dashboard.html";
+		return "dashboard";
 		
 		
 
