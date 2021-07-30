@@ -20,7 +20,7 @@
             <h2 class="col-6-lg" id="headerVis">Visualizza
                 <span id="pizzaBoy">
                    <!-- cosa visualizzo? TODO --> <i class="fas fa-arrow-down"></i>
-                </span>
+                </span>, bentornato, <span th:text="${admin.nome}"></span>!
             </h2>
             <select class="col-6-lg" id="visualizzo">
                 <option value="-">
@@ -170,6 +170,7 @@
                                         <option value="B">No</option>                                       
                                     </select>
                                 </div>
+                                <input type="hidden" name="emailAdmin" th:value="${admin.email}">
                                 
                                 <button id="btn-ins-cli" class="btn edit"> <h4>Inserisci</h4> </button>
                                 <!-- </div> -->

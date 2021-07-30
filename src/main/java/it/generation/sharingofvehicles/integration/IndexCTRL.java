@@ -64,6 +64,7 @@ public ModelAndView enterDashboard(Model m,
 			m.addAttribute("utenti", us.findAllUsers());
 			m.addAttribute("veicoli" , vs.findAllVeicoli());
 			m.addAttribute("prenotazioni",ps.findAllPrenotazione());
+			m.addAttribute("admin", u);
 			return new ModelAndView("dashboard");
 			
 		case "B":
@@ -83,6 +84,34 @@ public ModelAndView enterDashboard(Model m,
 //	return new ModelAndView("dashboard");
 }
 
+@PostMapping("/dashboard/insert")
+	public ModelAndView insertCliente(Model m,
+			@RequestParam String username,
+			@RequestParam String email,
+			@RequestParam String nome,
+			@RequestParam String cognome,
+			@RequestParam String nascita,
+			@RequestParam String tipo,
+			@RequestParam String emailAdmin
+			) {
+		
+		Utente u = new Utente();
+		u.setUsername(username);
+		u.setEmail(email);
+		u.setNome(nome);
+		u.setCognome(cognome);
+		u.setNascita(nascita);
+		u.setTipo(tipo);
+		u.setPassword("ciao15");
+		
+		us.addUser(u);
+		
+		return this.enterDashboard(m, emailAdmin);
+		
+		
+
+	}
+	
 
 
 
