@@ -28,3 +28,12 @@ td, th{
 .alarm{
     background-color: var(--alert);
 }
+.accBody{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+.casellaForm{
+    display: flex;
+    flex-direction: column;
+}

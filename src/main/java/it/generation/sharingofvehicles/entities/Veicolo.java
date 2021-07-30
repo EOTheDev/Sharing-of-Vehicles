@@ -24,7 +24,6 @@ public class Veicolo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected int id;
-	protected int ruote;
 	protected String tipologia;
 	protected String alimentazione;
 	protected String descrizione;
@@ -35,6 +34,7 @@ public class Veicolo {
 	protected String modello;
 	protected double pesoCo2;
 	protected double prezzo;
+	protected int ruote;
 	//Admin che ha creato il veicolo
 //	@OneToMany(mappedBy = "viaggio", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	
@@ -111,7 +111,13 @@ public class Veicolo {
 		return ruote;
 	}
 	public void setRuote(int ruote) {
-		this.ruote = ruote;
+		
+		if (tipologia.equalsIgnoreCase("auto")){
+			this.ruote = 4;
+		} else { //bici, scooter, monopattino
+			this.ruote = 2;
+		}
+		
 	}
 	public String getTipologia() {
 		return tipologia;

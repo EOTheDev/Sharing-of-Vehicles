@@ -1,41 +1,74 @@
-#latoDx{
-    border-radius: 5rem 0 0 5rem;
-    padding-bottom: 0%;
+
+:root{
+
+    --sfumatino: rgba(255, 255, 255, 0.8);
 }
+
+#sfondo{
+    background-image: url("../imgs/SfondoLogin.jpg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#latoDx{
+    height: 100vh;
+    padding-top:5rem ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 5rem 0 0 5rem;
+    align-items: center;
+}
+@media (min-width:992px) {
+    #latoDx{
+        padding-top: 0;
+    }
+}
+
 #colonnaSx{
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .imglogo{
-    width: 150px;
-    height: 100px;
-}
-.calendario{
-    margin: 3rem 0;
-    text-align: center;
+    background-color: var(--sfumatino);
+    padding: 1.5rem;
+    box-sizing: border-box;
+    width: 200px;
+    
+    border-radius: 1rem;
 }
 
+
 #calendar{
+    margin-top: 2rem;
+    background-color: #e7eecc;
+    min-width: fit-content;
     border-style: solid;
     border-color: #8dc63f;
     width: 70%;
     border-radius: 2rem;
     font-size: 1rem;
+    padding: 1rem;
     /* padding-top: -1rem;
     padding-bottom: 0rem; */
     text-align: center;
 
 }
 #topCalendar{
-    width: 110%;
-    left:-5%;
+    width: 130%;
+    left:-15%;
     padding: 1rem 0;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     background-color: black;
     position: relative;
-    /* top: -10%; */
+    top: -2rem;
 }
 #giorno, #mese{
 	position: relative;
@@ -52,23 +85,58 @@
 }
 
 .top{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
     padding-top: 3rem;
     padding-left: 2rem;
 }
 
-#autoImg{
-    width: 23rem;
-}
+
 .bottom{
-    padding-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    /* padding-bottom: 0.8rem; */
     text-align: center;
 }
 #mapid { 
-    height: 23rem; 
-    border-radius: 5rem ;
+    position: relative;
+     
+    padding: 0 0;
+    height: 33vh;
+    width: 100%;
+    border-bottom-left-radius: 5rem;
+    
 }
-
+#autoImg{
+    max-width: 100vw;
+    /* max-height: 30vh; */
+}
 .leaflet-top{
     /* margin-left:%; */
     margin-top: 4%;
+}
+#btns, #btns div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+
+#btns #noleggia{
+    width: 12rem;
+}
+#prezzo{
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 2rem;
+    box-sizing: border-box;
+    border-radius: 2.5rem;
+    background-color: var(--sfumatino);
 }

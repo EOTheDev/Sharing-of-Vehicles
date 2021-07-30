@@ -18,7 +18,7 @@
 <body>
 
 <!-- pagina divisa in due colonne -->
-<div class="container" >
+<div class="container-fluid" id="sfondo" >
     <div class="row">
 
 <!-- colonna sx -->
@@ -28,11 +28,11 @@
             <img class="imglogo" src="../imgs/logo_large.png" alt="logo" >
             
             <!-- calendario -->
-            <div class="calendario p-2 bd-highlight">
-                <div id="calendar" >
+            <!-- <div class="calendario col-lg-10 p-2 bd-highlight"> -->
+                <div class="col-12" id="calendar" >
                     
-                    <div id="topCalendar">
-                        <h1 style="color: aliceblue;">Data</h1>
+                    <div class="col-12" id="topCalendar">
+                        <h1 style="color: aliceblue; ">Data</h1>
                     </div>
                     <div id="dateCalendar">
                         <span id="giorno">
@@ -41,18 +41,21 @@
                     </div>
                     <span id="mese">Aprile</span>
                 </div>
-            </div>  
+            <!-- </div>   -->
                 
                 
+            
             <!-- costo -->
             <div class="prezzo p-2 bd-highlight">
-                <h3 th:text="${veicolo.prezzo}">30€</h3>
+                <h1  id="prezzo"><span th:text="${veicolo.prezzo}">30</span> €</h1>
             </div>
-            
             <!-- bottone acquisto -->
-            <div class="d-grid gap-2 d-md-block p-2 bd-highlight">
-                <button class="btn btn-success rounded-pill" type="button">Noleggia</button>
+            <div class="d-grid gap-2 d-md-block p-2 bd-highlight" id="btns">
+                
+                <button class="btn btn-success rounded-pill" type="button" id="noleggia">Noleggia</button>
                 <button class="btn btn-danger rounded-pill" type="button">Annulla</button>
+                
+                
             </div>
         </div>
 
@@ -68,14 +71,14 @@
                 <!-- descrizione auto -->
                 <h3 id="descrizioneMacchina" th:text="${veicolo.descrizione}">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias impedit odio architecto perferendis quo provident harum doloribus ducimus deserunt iste?</h3>
                 <!-- consumo co2 -->
-                <h3 id="risparmio">Consumo: <span th:text="${veicolo.pesoCo2}">0.6 </span> g/m3 di co2</h3>
+                <h3 id="risparmio">Risparmi <span th:text="${veicolo.pesoCo2}">0.6 </span> g di CO2 al m3 <i class="fas fa-leaf"></i></h3>
 
             </div>
 
             <div class="bottom">
                 <!-- img auto -->
 
-                <img src="../imgs/lamborghini.png" th:src="@{${veicolo.immagine}}" alt="immagine del veicolo" srcset="" id="autoImg">
+                <img src="../imgs/BMWI8.png" th:src="@{${veicolo.immagine}}" alt="immagine del veicolo" srcset="" class="col-lg-6" id="autoImg">
                 
                 <!-- mappa -->
                 <div id="mapid"></div>
