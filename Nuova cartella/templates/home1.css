@@ -133,6 +133,39 @@ footer h1{
 
 .footer-container{
  height: 10%;   
-
-
 }
+
+.Noleggio{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    
+   
+}
+
+.row1{
+    justify-content: center;
+    
+    
+}
+
+.row1 h1{
+    font-size: 2rem;
+    font-style: italic ;
+}
+
+.row1 p{
+    font-size: 1.1rem;
+}
+
+.sfondo{
+    background-image: url(Sfondologint.jpg);
+    margin-left: 0;
+    margin-right: 0;
+}
+
+

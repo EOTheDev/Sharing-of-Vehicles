@@ -1,0 +1,86 @@
+<head>
+    <link rel="stylesheet" href="carouselprova.css">
+</head>
+<body onload="load()">
+
+    <h2>Esercizio Carosello Edoardo Orta</h2>
+    <div class="animate__heartBeat" id="caroselloWrapper">
+        <div class="caroselloSide" id="left">
+            
+        </div>
+        <div class="caroselloSide" id="center" >
+           
+        <div class="caroselloSide" id="right">
+         
+        </div>
+    </div>
+    
+    
+</body>
+
+
+
+<script>
+    var filmArray = ['autodiesel.jpg','autoelettr.jpg','monopatt.jpg','noleggioscooter.jpg'];
+
+
+/* Carosello Center */
+var caroselloC= document.getElementById("center");
+
+/* Carosello Left */
+var caroselloL= document.getElementById("left");
+
+
+/* Carosello Right */
+var caroselloR= document.getElementById("right");
+
+
+
+
+
+
+/*load() */
+var indice=0;
+
+function load() {
+    if (indice<0) {
+        indice=filmArray.length-1;
+    } else if (indice>=filmArray.length){
+        indice=0;
+    }
+    var film=filmArray[indice];
+    /*Stampa carosello centrale */
+    caroselloC.innerHTML='<h1></h1><img  src="'+film+'"><div><h2>Main Cast</h2><p></p></div>';
+    
+    /*Stampa carosello sinistro */
+    var indiceLeft;
+    if(indice-1<0){
+        indiceLeft=filmArray.length-1;
+    } else{
+        indiceLeft=indice-1;
+    }
+    var filmL=filmArray[indiceLeft];
+    /*Stampa carosello centrale */
+    caroselloL.innerHTML='<img src="'+filmL+'"><button class="caroselloButton" onclick="cambia(-1)">Precedente</button>';
+    
+    
+    /*Stampa carosell
+   o destro */
+    var indiceRight;
+    if(indice+1>=filmArray.length){
+        indiceRight=0;
+    } else{
+        indiceRight=indice+1;
+    }
+    var filmR=filmArray[indiceRight];
+    /*Stampa carosello centrale */
+    caroselloR.innerHTML='<img src="'+filmR+'"><button class="caroselloButton" onclick="cambia(1)">Precedente</button>';
+    
+    
+}
+/* cambia(incremento) scorre il carosello*/
+function cambia(incremento) {
+    indice=indice+incremento;
+    load();
+}
+</script>

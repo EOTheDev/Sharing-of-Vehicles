@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+}
+#caroselloWrapper{
+    flex-wrap: wrap;
+    background-color: rgb(27, 25, 26);
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    color:rgb(204, 237, 244);
+    
+}
+#center div{
+    width: 70%;
+}
+.caroselloSide{
+    width: 10%;
+    
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.caroselloButton{
+    display:block;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin:2rem;
+    padding: 1rem;
+    background-color: black;
+    border-radius: 1.5rem;
+    border-color: rgb(70, 13, 13);
+    width: 50%;
+}
+
+.caroselloSide img{
+    width: 100%;
+}
