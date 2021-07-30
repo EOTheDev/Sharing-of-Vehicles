@@ -12,7 +12,7 @@ public interface UtenteDAO extends JpaRepository<Utente, Integer>{
 
 	Utente findUtenteByEmail(String email);
 	
-	void deleteUtenteById(int id);
+	
 	
 	Utente findUtenteById(int id);
 	

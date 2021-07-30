@@ -23,7 +23,7 @@ public class UtenteServiceImpl implements UtenteService{
 		}
 	public void unsetAdmin(Utente u) {
 		u.setTipo("B");
-		u.setFirma("Cliente dal "+u.getdataIscrizione());
+		u.setFirma("Cliente dal "+u.getDataIscrizione());
 		}
 	
 	public void setDisponibilita(Veicolo v) {

@@ -115,6 +115,9 @@ public ModelAndView insertCliente(Model m,
 	u.setTipo(tipo);
 	u.setPassword("ciao15");
 	
+	
+	LocalDate time = LocalDate.now();
+	u.setDataIscrizione(time);
 	us.addUser(u);
 	
 	return this.enterDashboard(m, emailAdmin);

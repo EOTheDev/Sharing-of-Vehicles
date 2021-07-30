@@ -31,7 +31,7 @@ public class Utente {
 	protected String password;
 	protected LocalDate dataIscrizione;
 	protected String tipo= "B";
-	protected String firma="Cliente dal "+this.getdataIscrizione();	
+	protected String firma="Cliente dal "+this.getDataIscrizione();	
 	
 	@OneToMany(mappedBy = "utenteId")
 	private List<Veicolo> veicoli;
@@ -144,32 +144,6 @@ public class Utente {
 		this.firma = firma;
 	}
 
-
-
-
-
-//	public Utente() {
-//	
-//	}
-//
-//
-//
-//
-//
-//	public Utente(String userID, String nome, String cognome, String nascita, String email, String password,
-//			LocalDate dataIscrizione) {
-//		super();
-//		this.userID = userID;
-//		this.nome = nome;
-//		this.cognome = cognome;
-//		this.nascita = nascita;
-//		this.email = email;
-//		this.password = password;
-//		this.dataIscrizione = dataIscrizione;
-//	}
-	
-	
-	
 	
 	
 	//getters e setters
@@ -205,12 +179,6 @@ public class Utente {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public LocalDate getdataIscrizione() {
-		return dataIscrizione;
-	}
-	public void setdataIscrizione(LocalDate dataIscrizione) {
-		this.dataIscrizione = dataIscrizione;
 	}
 
 
