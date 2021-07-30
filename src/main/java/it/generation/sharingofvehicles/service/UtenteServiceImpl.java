@@ -26,37 +26,10 @@ public class UtenteServiceImpl implements UtenteService{
 		u.setFirma("Cliente dal "+u.getDataIscrizione());
 		}
 	
-	public void setDisponibilita(Veicolo v) {
+	public void setDisponibilita(Veicolo v) {}
 	//TODO
 		//prenotazione 
-	}
-	
-//	public void addVeicolo() {
-//	//TODO
-//	}
-//	public void editVeicolo() {
-//		//TODO
-//	}
-//	public void deleteVeicolo() {
-//		//TODO
-//		}
-//	public void trovaPrenotazioni() {
-//		//TODO
-//		}
-	
-	
-	
-	/*metodi supplementari Registrato*/
-//	public Prenotazione prenotaVeicolo(Veicolo v) {
-//		//TODO
-//		return null;
-//	}
-//	public Prenotazione modificaPrenotazione(Prenotazione vecchia, Prenotazione nuova) {
-//		//TODO
-//		return null;
-//	}
-	
-	
+
 	
 	//metodi service
 
