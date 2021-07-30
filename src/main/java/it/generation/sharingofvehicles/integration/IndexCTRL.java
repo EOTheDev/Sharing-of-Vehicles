@@ -67,7 +67,7 @@ public ModelAndView enterDashboard(Model m,
 			return new ModelAndView("dashboard");
 			
 		case "B":
-//			IndexCTRL ic = new IndexCTRL();
+
 			return this.getIndex(m);
 			
 		

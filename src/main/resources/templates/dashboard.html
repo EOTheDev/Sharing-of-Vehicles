@@ -141,31 +141,31 @@
 
                     <div id="collapseInsCli" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#tableContainer">
 
-                            <div class="accordion-body accBody" id="formBody">
+                            <form class="accordion-body accBody" action="/dashboard/insert"  method="get" id="formBody">
                                 <div class="casellaForm">
                                     <h3>username:</h3>
-                                    <input type="text" class="form-control" id="username" placeholder="username" required>
+                                    <input type="text" class="form-control" name="username" id="username" placeholder="username" required>
                                 </div>
                                 <div class="casellaForm">
                                     <h3>email:</h3>
-                                    <input type="email" class="form-control" id="username" placeholder="username" required>
+                                    <input type="email" class="form-control" name="email" id="username" placeholder="username" required>
                                 </div>
                                 <div class="casellaForm">
                                     <h3>nome:</h3>
-                                    <input type="text" class="form-control" id="nome" placeholder="nome" required>
+                                    <input type="text" class="form-control" name="nome" id="nome" placeholder="nome" required>
                                 </div>
                                 <div class="casellaForm">
                                     <h3>Cognome:</h3>
-                                    <input type="text" class="form-control" id="cognome" placeholder="cognome" required>
+                                    <input type="text" class="form-control" name="cognome" id="cognome" placeholder="cognome" required>
                                 </div>
                                 <div class="casellaForm">
                                     <h3>data nascita:</h3>
-                                    <input type="date" class="form-control" id="dateBirth" required>
+                                    <input type="date" class="form-control" name="nascita" id="dateBirth" required>
                                 </div>
                                 <div class="casellaForm">
                                     <h3>amministratore:</h3>
-                                    <select id="tipo" required>
-                                        <option value="B">-</option>
+                                    <select id="tipo" name="tipo"required>
+                                        <option value="B" >-</option>
                                         <option value="A">Sì</option>
                                         <option value="B">No</option>                                       
                                     </select>
@@ -173,7 +173,7 @@
                                 
                                 <button id="btn-ins-cli" class="btn edit"> <h4>Inserisci</h4> </button>
                                 <!-- </div> -->
-                            </div>
+                            </form>
                         </div>
                     </div>
 
