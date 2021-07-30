@@ -15,12 +15,12 @@
 
         <h1>Login</h1>
 
-        <form action="/dashboard" method="post" id="formlogin">
-            <p>Username</p>
-            <input type="text" name="" placeholder="Inserisci Username">
+        <form action="/dashboard" th:action="@{/dashboard}" method="post" id="formlogin">
+            <p>Email</p>
+            <input type="email" name="email" placeholder="Inserisci Email">
 
             <p>Password</p>
-            <input type="password" name="" placeholder="Inserisci password">
+            <input type="password" name="password" placeholder="Inserisci password">
 			
 			
             <input type="submit" name="" value="Login"><br>
