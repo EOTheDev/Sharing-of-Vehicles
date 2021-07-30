@@ -74,7 +74,7 @@ public class UtenteServiceImpl implements UtenteService{
 	@Override
 	public void deleteUserById(int id) {
 		//repo.deleteById(id);
-		repo.deleteUtenteById(id);;
+		repo.deleteById(id);;
 	}
 
 	@Override
