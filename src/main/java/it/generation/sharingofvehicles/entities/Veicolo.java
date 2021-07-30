@@ -36,8 +36,23 @@ public class Veicolo {
 	protected double prezzo;
 	protected int ruote;
 	//Admin che ha creato il veicolo
+	protected String colore;
+	
 //	@OneToMany(mappedBy = "viaggio", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	
+	public String getColore() {
+		return colore;
+	}
+
+
+
+
+	public void setColore(String colore) {
+		this.colore = colore;
+	}
+
+
+
 	@ManyToOne
 	@JoinColumn(name="utente_id", nullable = false)
 	protected Utente utenteId; 

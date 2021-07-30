@@ -103,34 +103,6 @@
                 </div>
                 <!-- fine singolo veicolo -->
 
-                <!-- singolo veicolo per vedere differenze-->
-                <div id="veicoliDisponibili">
-                    <div class="row singoloVeicolo">
-                        <div class="col-lg-2 side">
-                            <img class="col-lg-12" src="https://banner2.cleanpng.com/20180413/plw/kisspng-segway-pt-electric-vehicle-electric-kick-scooter-kick-scooter-5ad15a49b62297.8687484915236695777461.jpg" alt="" >
-                            <button class="btn edit">Prenota</button>
-                        </div>
-                        <div class="col-lg-10 rightSide">
-                            <h2 class="titolo">
-                                <span class="modello">Ducati</span>
-                                <span class="text-muted alimentazione"> <i class="fas fa-bolt"> </i> Elettrica</span>
-                            </h2>
-                            <div class="text">
-                                <!-- if auto fa-car-alt, else if fa-leaf -->                              
-                                <i class="fas fa-leaf">
-                                    <span class="tipo"> Auto</span>
-                                </i>
-                                
-                                <i class="fas fa-map-marker-alt">
-                                    <span class="posizione"> Milano Mirafiori </span>
-                                </i>
-                                <div class="descrizione">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iusto excepturi deserunt, error optio laboriosam expedita laudantium repellat. Impedit, laboriosam aliquid quibusdam deleniti dolores eaque ratione tenetur harum porro quis!*5</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                <!-- fine singolo veicolo -->
             </div>
         </div>
         <!-- fine banner veicoli -->
@@ -239,7 +211,19 @@
     }
 */
 
+function checkAlimentazione(ali=""){
+    switch (ali) {
+        case "human power":
+            return 100;
+        case "elettrica":
+            return 75;
+        case "ibrida":
+            return 66;
     
+        default:
+            return 1;
+    }
+}
     
    
 
@@ -253,38 +237,29 @@
             'alimentazione',
             ],
             datasets: [
+        [# th:each="veicolo : ${veicoli}"]
+        {
+          
+          label: [[${veicolo.modello}]] ,
+          data: [ [[${veicolo.pesoCo2}]]*100, [[${veicolo.prezzo}]], checkAlimentazione([[${veicolo.alimentazione}]])],
+          
+          
+          
+          
+          
+          
+          
+          fill: true,
+          backgroundColor:  [[${veicolo.colore}]]+"4D",
+          borderColor: [[${veicolo.colore}]]+"4D",
+          pointBackgroundColor: [[${veicolo.colore}]]+"4D",
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: [[${veicolo.colore}]]+"4D",
+        },
+        
+        [/]
             
-                {
-
-                    label: "veicolo" ,
-                    data: [1, 100, 0],
-                             
-
-
-
-
-
-
-                    fill: true,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    pointBackgroundColor: 'rgb(255, 99, 132)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgb(255, 99, 132)'
-                },
-                
-            {
-                label: 'Segway',
-                data: [1, 25, 100],
-                fill: true,
-                backgroundColor: '#777777',
-                borderColor: '#777777',
-                pointBackgroundColor: '#777777',
-                pointBorderColor: '#777777',
-                pointHoverBackgroundColor: '#777777',
-                pointHoverBorderColor: '#777777'
-            },
             ]
         },
         
