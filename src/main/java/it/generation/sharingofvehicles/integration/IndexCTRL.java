@@ -51,7 +51,7 @@ public ModelAndView login(Model m) {
 
 
 @GetMapping("/dashboard")
-public ModelAndView login2(Model m) {
+public ModelAndView errorDashboard(Model m) {
 	
 	System.out.println("sono in get");
 	
