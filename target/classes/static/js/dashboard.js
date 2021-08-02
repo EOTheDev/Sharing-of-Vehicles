@@ -1,6 +1,7 @@
 var visualizza=document.getElementById("visualizzo");
 var tableContainer=document.getElementById("tableContainer");
 
+
 $("#visualizzo").on("change", function () {
     if ($("#visualizzo").val()=="-") {
         console.log("sono qui nel change");
@@ -20,6 +21,11 @@ $("#visualizzo").on("change", function () {
 
     }
 })
+
+
+
+
+
 
 
 

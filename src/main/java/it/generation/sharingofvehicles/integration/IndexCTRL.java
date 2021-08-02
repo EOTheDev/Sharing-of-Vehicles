@@ -36,12 +36,14 @@ public ModelAndView getIndex(Model m) {
 	
 	m.addAttribute("veicoli",vs.findAllVeicoli());
 	
-	System.out.println("sono in index");
+//	System.out.println("sono in index");
 	return  new ModelAndView("home");
 }
 
-//rimandano a login
 
+
+
+//login per dashboard
 @GetMapping("login")
 public ModelAndView login(Model m) {
 	return new ModelAndView("login");
@@ -53,8 +55,12 @@ public ModelAndView login2(Model m) {
 	
 	System.out.println("sono in get");
 	
-	return new ModelAndView("login");
+	return new ModelAndView("errore");
 }
+
+
+
+
 
 //rimandano a dashboard
 
