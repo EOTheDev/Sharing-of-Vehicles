@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.generation.sharingofvehicles.entities.Utente;
@@ -177,5 +178,37 @@ public ModelAndView deleteCliente(
 
 }
 
-}
+
+
+
+
+@PostMapping("insertUser")
+public ModelAndView insertUser(Model m,
+		@RequestParam String username,
+		@RequestParam String email,
+		@RequestParam String nome,
+		@RequestParam String cognome,
+		@RequestParam String nascita,
+		@RequestParam String password
+		) {
 	
+	Utente u = new Utente();
+	u.setUsername(username);
+	u.setEmail(email);
+	u.setNome(nome);
+	u.setCognome(cognome);
+	u.setNascita(nascita);
+	u.setTipo("B");
+	u.setPassword(password);
+	
+	
+	LocalDate time = LocalDate.now();
+	u.setDataIscrizione(time);
+	us.addUser(u);
+	//loggedUser
+	return this.enterDashboard(m, email);
+	
+
+}
+
+}

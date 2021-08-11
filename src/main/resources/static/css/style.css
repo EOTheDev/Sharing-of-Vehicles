@@ -11,7 +11,6 @@ body{
 
 .Loginbox{
     width: 420px;
-    height: 420px;
     background:#9dc119;
     color: #fff;
     top: 50%;
@@ -54,7 +53,7 @@ h1{
 
 
 
-.Loginbox input[type="text"], input[type="password"]
+.Loginbox input[type="email"], input[type="password"], input[type="text"], input[type="date"]
 {
     border: none;
     border-bottom: 1px solid #fff;
@@ -71,8 +70,7 @@ h1{
     border: none;
     outline: none;
     height: 40px;
-    backgroud: #fb2525;
-    color:grey;
+    color: rgb(65, 58, 58);
     font-size: 18px;
     border-radius: 20px;
 }
@@ -89,7 +87,7 @@ h1{
     text-decoration: none;
     font-size: 12px;
     line-height: 20px;
-    color: darkgray;
+    color: rgb(65, 58, 58);
 }
 
 .Loginbox a:hover
@@ -97,7 +95,7 @@ h1{
     color: #ffc107
 }
 
-#formlogin{
+#formlogin, #formRegistrazione{
     display:flex;
     justify-content: space-between;
     align-items: center;

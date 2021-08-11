@@ -39,34 +39,8 @@
         </div>
     </header>    
     <main>
-        <div class="container" id="tableContainer">
-            
-        </div>
-        <table class="table table-striped" id="prenotazioni">
-            <h3>Le tue prenotazioni</h3>
-            <tr>
-                <th>Referente</th>
-                <th>Numero prenotazione</th>
-                <th>Veicolo</th>
-                <th>Risparmio in CO2</th>
-                <th>Data</th>
-                <th>Tariffa</th>
-                <th>Interagisci</th>
-
-            </tr>
-            <tr th:each="prenotazione:${prenotazioni}">
-                <td><span id="nome" th:text="${prenotazione.utenteId.nome}">Mario</span> <span id="cognome" th:text="${prenotazione.utenteId.cognome}">Rossi</span></td>
-                <td><span id="idPrenotazione">X1A14B33</span></td>
-                <td><span id="veicolo" th:text="${prenotazione.veicoloId.modello}">Bici</span></td>
-                <td><span id="pesoCO2" th:text="${prenotazione.veicoloId.pesoCo2}">0.8</span> g/m3</td>
-                <td><span id="giorno" th:text="${prenotazione.dataPrenotazione}">3</span></td>
-                <td><span id="tariffa" th:text="${prenotazione.veicoloId.prezzo}">10</span> €</td>
-                <td><button class="btn edit"><i class="fas fa-edit"></i></button> </i><button class="btn delete"><i class="fas fa-trash"></i></button></i></td>
-            </tr>
-        </table>
-
-        <!-- inizio accordion -->
-        <div class="accordion col-12" id="formPrenotazione">
+         <!-- inizio accordion -->
+         <div class="accordion col-12" id="formPrenotazione">
             <h2  class="col-12 accordion-header" id="headingTwo">
                 <button id="insAcc" class=" col-12 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFormAcc" aria-expanded="true" aria-controls="collapseTwo"> 
                     <span id="enterPrenotazione">Inserisci nuova prenotazione</span>
@@ -99,63 +73,14 @@
             </h2>
         </div>
         <!-- fine accordion -->
-
-        <table class="table table-striped" id="clienti">
-            <h3>I tuoi clienti
-            </h3>
-            <tr>
-                <th>Ruolo</th>
-                <th>Nome</th>
-                <th>Cognome</th>
-                <th>Email</th>
-                <th>Età</th>
-                <th>Data di iscrizione</th>
-                <th>Soldi spesi</th>
-                <th>Emissioni totali</th>
-                <th>Emissioni in percentuale</th>
-                <th>Interagisci</th>
-            </tr>
-
-            <tr th:each="utente:${utenti}">
-                <td><span th:text="${utente.tipo}" id="ruolo">elDiablo23</span></td>
-                <td><span th:text="${utente.cognome}" id="cognome">Rossi</span></td>
-                <td><span th:text="${utente.nome}" id="nome">Mario</span></td>
-                <td><span th:text="${utente.email}" id="email">mariorossi@email.ru</span></td>
-                <td><span th:text="${utente.nascita}" id="dataNascita">19</span></td>
-                <td><span th:text="${utente.dataIscrizione}"id="iscrizione">16/12/2020</span></td>
-                <td><span id="totSpesaUtente">235,05</span> €</td>
-                <td><span id="totEmissioni">210</span> g/m3</td>
-                <td><span id="emissioniPercentuale">0.9</span> g/m3</td>
-                <td>
-                
-                <form action="/dashboard/update" method="post">
-                	<input type="hidden" name="emailAdmin" th:value="${admin.email}">
-                	<input type="hidden" name="id" th:value="${utente.id}">
-                	<button class="btn edit" id="btnMod">
-                		<i class="fas fa-edit"></i>
-                	</button> 
-                	</form>
-                	
-                	
-                	<form action="/dashboard/delete" method="post">
-                	<input type="hidden" name="emailAdmin" th:value="${admin.email}">
-                	<input type="hidden" name="id" th:value="${utente.id}">
-	                	<button class="btn delete" >
-	                		<i class="fas fa-trash"></i>
-	                	</button>
-                	</form>
-                </td>
-            </tr>
-            
-        </table>
-        <!-- inizio accordion -->
+        <!-- inizio accordion cliente -->
         <div class="accordion col-12" id="formCliente">
             <h2  class="col-12 accordion-header" id="headingTwo">
                 <button id="insCli" class=" col-12 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInsCli" aria-expanded="true" aria-controls="collapseTwo"> 
                     <span id="enterCliente">Inserisci nuovo cliente</span>
                 </button>
 
-                  
+                
 
                     <div id="collapseInsCli" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#tableContainer">
 
@@ -199,46 +124,8 @@
             </h2>
         </div>
         <!-- fine accordion -->
-
-
-
-        <table class="table table-striped" id="veicoli">
-            <h3>I tuoi veicoli
-            </h3>
-            <tr>
-                <!--<th>id</th>  -->
-                <th>Tipo veicolo</th>
-                <th>Modello</th>
-                <th>Alimentazione</th>
-                <th>Descrizione</th>
-                <th>Ultima posizione</th>
-                <th>Url Immagine</th>
-                <th>Immagine</th>
-                <th>Tariffa</th>
-                <th>Incasso Totale</th>
-                <th>E/R per viaggio</th>
-                <th>E/R totali</th>
-                <th>Interagisci</th>
-            </tr>
-            <tr th:each="veicolo:${veicoli}">
-                <!-- <td><span th:text="${veicolo.id}" id="idVeicolo">15</span></td> -->
-                <td><span th:text="${veicolo.tipologia}" id="tipologia">Bici</span></td>
-                <td><span th:text="${veicolo.modello}" id="modello">Bella</span></td>
-                <td><span th:text="${veicolo.alimentazione}" id="alimentazione">Human Power</span></td>
-                <td><span th:text="${veicolo.descrizione}"id="descrizione">Bici rossa raggiante, il mezzo più sostenibile che ci sia</span></td>
-                <td><span th:text="${veicolo.indirizzo}"id="posizione">via del Campo, 19, Torino</span></td>
-                <td><span th:text="${veicolo.immagine}"id="urlImmagine">questa immagine.png</span></td>
-                <td><img src="img/veicolo.jpg" th:src="@{${veicolo.immagine}}" alt="immagine del veicolo" srcset=""></td>
-                <td><span th:text="${veicolo.prezzo}" id="tariffa">10</span> €/g</td>
-                <td><span id="incassoVeicolo">2500</span> €</td>
-                <td><span id="emissioniPercentuale">1</span> g/m3</td>
-                <td><span th:text="${veicolo.utenteId.nome}" id="totEmissioni">25</span> g/m3</td>
-                <td><button class="btn edit"><i class="fas fa-edit"></i></button> </i><button class="btn delete"><i class="fas fa-trash"></i></button></i></td>
-            </tr>
-            
-        </table>
-               <!-- inizio accordion -->
-               <div class="accordion col-12" id="formVeicolo">
+             <!-- inizio accordion veicolo-->
+             <div class="accordion col-12" id="formVeicolo">
                 <h2  class="col-12 accordion-header" id="headingTwo">
                     <button id="insVei" class=" col-12 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInsVei" aria-expanded="true" aria-controls="collapseTwo"> 
                         <span id="enterVeicolo">Inserisci nuovo veicolo</span>
@@ -294,6 +181,130 @@
                
             </div>
             <!-- fine accordion -->
+
+        <div class="container" id="tableContainer">
+            
+        </div>
+        <table class="table table-striped" id="prenotazioni">
+            <h3>Le tue prenotazioni</h3>
+            <tr>
+                <th>Referente</th>
+                <th>Numero prenotazione</th>
+                <th>Veicolo</th>
+                <th>Risparmio in CO2</th>
+                <th>Data</th>
+                <th>Tariffa</th>
+                <th>Interagisci</th>
+
+            </tr>
+            <tr th:each="prenotazione:${prenotazioni}">
+                <td><span id="nome" th:text="${prenotazione.utenteId.nome}">Mario</span> <span id="cognome" th:text="${prenotazione.utenteId.cognome}">Rossi</span></td>
+                <td><span id="idPrenotazione"  th:text="${prenotazione.id}">X1A14B33</span></td>
+                <td><span id="veicolo" th:text="${prenotazione.veicoloId.modello}">Bici</span></td>
+                <td><span id="pesoCO2" th:text="${prenotazione.veicoloId.pesoCo2}">0.8</span> g/m3</td>
+                <td><span id="giorno" th:text="${prenotazione.dataPrenotazione}">3</span></td>
+                <td><span id="tariffa" th:text="${prenotazione.veicoloId.prezzo}">10</span> €</td>
+                <td><button class="btn edit"><i class="fas fa-edit"></i></button> </i><button class="btn delete"><i class="fas fa-trash"></i></button></i></td>
+            </tr>
+        </table>
+
+       
+
+        <table class="table table-striped" id="clienti">
+            <h3>I tuoi clienti
+            </h3>
+            <tr>
+                <th>id
+</th>
+                <th>username</th>
+                <th>Ruolo</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Email</th>
+                <th>Data di Nascita</th>
+                <th>Data di iscrizione</th>
+                <!-- <th>Soldi spesi</th>
+                <th>Emissioni totali</th>
+                <th>Emissioni in percentuale</th> -->
+                <th>Interagisci</th>
+            </tr>
+
+            <tr th:each="utente:${utenti}">
+                <td><span th:text="${utente.id}" id="id">elDiablo23</span></td>
+                <td><span th:text="${utente.username}" id="username">elDiablo23</span></td>
+                <td><span th:text="${utente.tipo}" id="ruolo">elDiablo23</span></td>
+                <td><span th:text="${utente.cognome}" id="cognome">Rossi</span></td>
+                <td><span th:text="${utente.nome}" id="nome">Mario</span></td>
+                <td><span th:text="${utente.email}" id="email">mariorossi@email.ru</span></td>
+                <td><span th:text="${utente.nascita}" id="dataNascita">19</span></td>
+                <td><span th:text="${utente.dataIscrizione}"id="iscrizione">16/12/2020</span></td>
+                <!--TODO <td><span id="totSpesaUtente">235,05</span> €</td>
+                <td><span id="totEmissioni">210</span> g/m3</td>
+                <td><span id="emissioniPercentuale">0.9</span> g/m3</td> -->
+                <td>
+                
+                <form action="/dashboard/update" method="post">
+
+                	<input type="hidden" name="emailAdmin" th:value="${admin.email}">
+                	
+                    <input type="hidden" name="id" th:value="${utente.id}">
+                	
+                    <button class="btn edit" id="btnMod">
+                		<i class="fas fa-edit"></i>
+                	</button> 
+                	</form>
+                	
+                	
+                	<form action="/dashboard/delete" method="post">
+                	<input type="hidden" name="emailAdmin" th:value="${admin.email}">
+                	<input type="hidden" name="id" th:value="${utente.id}">
+	                	<button class="btn delete" >
+	                		<i class="fas fa-trash"></i>
+	                	</button>
+                	</form>
+                </td>
+            </tr>
+            
+        </table>
+        
+
+
+        <table class="table table-striped" id="veicoli">
+            <h3>I tuoi veicoli
+            </h3>
+            <tr>
+                <!--<th>id</th>  -->
+                <th>Tipo veicolo</th>
+                <th>Modello</th>
+                <th>Alimentazione</th>
+                <th>Descrizione</th>
+                <th>Ultima posizione</th>
+                <th>Url Immagine</th>
+                <th>Immagine</th>
+                <th>Tariffa</th>
+                <th>Incasso Totale</th>
+                <th>E/R per viaggio</th>
+                <th>E/R totali</th>
+                <th>Interagisci</th>
+            </tr>
+            <tr th:each="veicolo:${veicoli}">
+                <!-- <td><span th:text="${veicolo.id}" id="idVeicolo">15</span></td> -->
+                <td><span th:text="${veicolo.tipologia}" id="tipologia">Bici</span></td>
+                <td><span th:text="${veicolo.modello}" id="modello">Bella</span></td>
+                <td><span th:text="${veicolo.alimentazione}" id="alimentazione">Human Power</span></td>
+                <td><span th:text="${veicolo.descrizione}"id="descrizione">Bici rossa raggiante, il mezzo più sostenibile che ci sia</span></td>
+                <td><span th:text="${veicolo.indirizzo}"id="posizione">via del Campo, 19, Torino</span></td>
+                <td><span th:text="${veicolo.immagine}"id="urlImmagine">questa immagine.png</span></td>
+                <td><img src="img/veicolo.jpg" th:src="@{${veicolo.immagine}}" alt="immagine del veicolo" srcset=""></td>
+                <td><span th:text="${veicolo.prezzo}" id="tariffa">10</span> €/g</td>
+                <td><span id="incassoVeicolo">2500</span> €</td>
+                <td><span id="emissioniPercentuale">1</span> g/m3</td>
+                <td><span th:text="${veicolo.utenteId.nome}" id="totEmissioni">25</span> g/m3</td>
+                <td><button class="btn edit"><i class="fas fa-edit"></i></button> </i><button class="btn delete"><i class="fas fa-trash"></i></button></i></td>
+            </tr>
+            
+        </table>
+          
 
     </main>
     <footer></footer>
