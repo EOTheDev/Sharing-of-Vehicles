@@ -12,11 +12,7 @@ td, th{
 .delete{
     background-color: var(--alert);
 }
-.btn{
-    color: var(--primaryDark);
-    border-radius: 1rem;
-    padding: 0 1rem;
-}
+
 .edit{
     background-color: var(--edit);
    
@@ -34,12 +30,6 @@ td, th{
 }
 
 
-nav{
-    background-color: green;
-}
-#nomeAzienda{
-    text-align: center;
-}
 /* Calendario NON TOCCARE, VI TRANCIO LE MANI */
 .latoCalendario{
     box-sizing: border-box;
