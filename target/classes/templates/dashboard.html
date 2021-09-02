@@ -18,16 +18,16 @@
 
     </header>
     
-        <h1 class="col-10 titoloPagina">La tua dashboard</h1>
-        <a href="/"><button class="btn delete"><i class="fas fa-home"></i></button></a>
-    
-    <header>
-        <div class="row">
-            <h2 class="col-6-lg" id="headerVis">Visualizza
-                <span id="pizzaBoy">
-                   <!-- cosa visualizzo? TODO --> <i class="fas fa-arrow-down"></i>
-                </span>, bentornato, <span th:text="${admin.nome}"></span>!
-            </h2>
+        <h1 class="titoloPagina">La tua dashboard</span>, bentornato, <span th:text="${admin.nome}"></span>!
+        </h1>
+        <!-- <a href="/"><button class="btn delete"><i class="fas fa-home"></i></button></a> -->
+        
+        <!-- <header>
+            <div class="row">
+                <h2 class="col-6-lg" id="headerVis">Visualizza
+                    <span id="pizzaBoy">
+                        <!-- cosa visualizzo? TODO  <i class="fas fa-arrow-down"></i>
+                    </h2>
             <select class="col-6-lg" id="visualizzo">
                 <option value="-">
                     Seleziona
@@ -42,152 +42,155 @@
                     Clienti
                 </option>
             </select>
-        </div>
+        </div> -->
     </header>    
     <main>
-         <!-- inizio accordion -->
-         <div class="accordion col-12" id="formPrenotazione">
-            <h2  class="col-12 accordion-header" id="headingTwo">
-                <button id="insAcc" class=" col-12 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFormAcc" aria-expanded="true" aria-controls="collapseTwo"> 
-                    <span id="enterPrenotazione">Inserisci nuova prenotazione</span>
-                </button>
-
-                  
-
-                    <div id="collapseFormAcc" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#tableContainer">
-
-                            <div class="accordion-body accBody" id="formBody">
-                                <div class="casellaForm">
-                                    <h3>id utente:</h3>
-                                    <input type="number" class="form-control" id="idUtente" placeholder="id utente" required>
+        <div class="row">
+             <div class="col">
+                 <!-- inizio accordion -->
+                 <div class="accordion col-12" id="formPrenotazione">
+                    <h2  class="col-12 accordion-header" id="headingTwo">
+                        <button id="insAcc" class=" col-12 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFormAcc" aria-expanded="true" aria-controls="collapseTwo">
+                            <span id="enterPrenotazione">Inserisci nuova prenotazione</span>
+                        </button>
+                 
+                            <div id="collapseFormAcc" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#tableContainer">
+                                    <div class="accordion-body accBody" id="formBody">
+                                        <div class="casellaForm">
+                                            <h3>id utente:</h3>
+                                            <input type="number" class="form-control" id="idUtente" placeholder="id utente" required>
+                                        </div>
+                                        <div class="casellaForm">
+                                            <h3>data:</h3>
+                                            <input type="date" class="form-control" id="datePrenotazione" required>
+                                        </div>
+                                        <div class="casellaForm">
+                                            <h3>id veicolo:</h3>
+                                            <input type="number" class="form-control" id="idVeicolo" placeholder="id veicolo" required>
+                                        </div>
+                 
+                                        <div class="casellaForm" style="padding: 0.5rem 0 0 0;">
+                                            <input type="hidden" name="emailAdmin" th:value="${admin.email}">
+                                            <button id="btn-ins-pre" class="btn edit"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
+                                        </div>
+                                        <!-- </div> -->
+                                    </div>
                                 </div>
-                                <div class="casellaForm">
-                                    <h3>data:</h3>
-                                    <input type="date" class="form-control" id="datePrenotazione" required>
+                            </div>
+                    </h2>
+                </div>
+                <!-- fine accordion -->
+                         <div class="col">
+                             <!-- inizio accordion cliente -->
+                             <div class="accordion col-12" id="formCliente">
+                                             <h2  class="col-12 accordion-header" id="headingTwo">
+                                                 <button id="insCli" class=" col-12 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInsCli" aria-expanded="true" aria-controls="collapseTwo">
+                                <span id="enterCliente">Inserisci nuovo cliente</span>
+                                                 </button>
+                                <div id="collapseInsCli" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#tableContainer">
+                                        <form class="accordion-body accBody" action="/dashboard/insert"  method="post" id="formBody">
+                                            <div class="casellaForm">
+                                                <h3>username:</h3>
+                                                <input type="text" class="form-control" name="username" id="username" placeholder="username" required>
+                                            </div>
+                                            <div class="casellaForm">
+                                                <h3>email:</h3>
+                                                <input type="email" class="form-control" name="email" id="username" placeholder="username" required>
+                                            </div>
+                                            <div class="casellaForm">
+                                                <h3>nome:</h3>
+                                                <input type="text" class="form-control" name="nome" id="nome" placeholder="nome" required>
+                                            </div>
+                                            <div class="casellaForm">
+                                                <h3>Cognome:</h3>
+                                                <input type="text" class="form-control" name="cognome" id="cognome" placeholder="cognome" required>
+                                            </div>
+                                            <div class="casellaForm">
+                                                <h3>data nascita:</h3>
+                                                <input type="date" class="form-control" name="nascita" id="dateBirth" required>
+                                            </div>
+                                            <div class="casellaForm">
+                                                <h3>amministratore:</h3>
+                                                <select class="form-select" id="tipo" name="tipo" required>
+                                                    <option value="B" >-</option>
+                                                    <option value="A">Sì</option>
+                                                    <option value="B">No</option>
+                                                </select>
+                                            </div>
+                                            <div class="casellaForm" style="padding: 0.5rem 0 0 0;">
+                                                <input type="hidden" name="emailAdmin" th:value="${admin.email}">
+                                                <button id="btn-ins-cli" class="btn edit"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
+                                            </div>
+                                            <!-- </div> -->
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="casellaForm">
-                                    <h3>id veicolo:</h3>
-                                    <input type="number" class="form-control" id="idVeicolo" placeholder="id veicolo" required>
+                                </h2>
+                            </div>
+                            <!-- fine accordion -->
+                            <div class="col">
+                                <!-- inizio accordion veicolo-->
+                                <div class="accordion col-12" id="formVeicolo">
+                                    <h2  class="col-12 accordion-header" id="headingTwo">
+                                        <button id="insVei" class=" col-12 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInsVei" aria-expanded="true" aria-controls="collapseTwo">
+                                            <span id="enterVeicolo">Inserisci nuovo veicolo</span>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseInsVei" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#tableContainer">
+                                        <div class="accordion-body accBody" id="formBody">
+                                            <div class="casellaForm">
+                                                <h3>Nome veicolo:</h3>
+                                                <input type="text" class="form-control" id="username" placeholder="Modello" required>
+                                            </div>
+                                            <div class="casellaForm">
+                                                <h3>Tipo veicolo:</h3>
+                                                <select  class="form-select" id="tipoVeicolo" required>
+                                                    <option value="">-</option>
+                                                    <option value="Auto">Automobile</option>
+                                                    <option value="Monopattino">Monopattino</option>
+                                                    <option value="Moto">Moto</option>
+                                                    <option value="Bici">Bicicletta</option>
+                                                </select>
+                                            </div>
+                                            <div class="casellaForm">
+                                                <h3>Alimentazione:</h3>
+                                                <select  class="form-select" id="alimentazione" required>
+                                                    <option value="">-</option>
+                                                    <option value="Benzina">Benzina</option>
+                                                    <option value="Diesel">Diesel</option>
+                                                    <option value="Ibrida">Ibrida</option>
+                                                    <option value="Elettrica">Elettrica</option>
+                                                    <option value="Human power">Human power</option>
+                                                </select>
+                                            </div>
+                                            <div class="casellaForm">
+                                                <h3>Posizione:</h3>
+                                                <input type="text" class="form-control" id="posizione" placeholder="Indirizzo" required>
+                                            </div>
+                                            <div class="casellaForm">
+                                                <h3>Prezzo:</h3>
+                                                <input type="text" class="form-control" id="prezzo" placeholder="€uro" required>
+                                            </div>
+                                            <!-- <div class="casellaForm"> -->
+                                                <div class="casellaForm">
+                                                    <input type="file" class="form-control" id="customFile">
+                                                </div>
+                                            <!-- </div> -->
+                                            <div class="casellaForm" style="padding: 0.5rem 0 0 0;">
+                                                <button id="btn-ins-vei" class="btn edit"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
+                                            </div>
+                                            <!-- else sbagliato <i class="fas fa-times"></i> -->
+                                        </div>
+                                    </div>
                                 </div>
                                 
-                                    <button id="btn-ins-pre" class="btn edit"> <h4>Inserisci</h4> </button>
-                                <!-- </div> -->
                             </div>
                         </div>
                     </div>
-
-            </h2>
-        </div>
-        <!-- fine accordion -->
-        <!-- inizio accordion cliente -->
-        <div class="accordion col-12" id="formCliente">
-            <h2  class="col-12 accordion-header" id="headingTwo">
-                <button id="insCli" class=" col-12 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInsCli" aria-expanded="true" aria-controls="collapseTwo"> 
-                    <span id="enterCliente">Inserisci nuovo cliente</span>
-                </button>
-
-                
-
-                    <div id="collapseInsCli" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#tableContainer">
-
-                            <form class="accordion-body accBody" action="/dashboard/insert"  method="post" id="formBody">
-                                <div class="casellaForm">
-                                    <h3>username:</h3>
-                                    <input type="text" class="form-control" name="username" id="username" placeholder="username" required>
-                                </div>
-                                <div class="casellaForm">
-                                    <h3>email:</h3>
-                                    <input type="email" class="form-control" name="email" id="username" placeholder="username" required>
-                                </div>
-                                <div class="casellaForm">
-                                    <h3>nome:</h3>
-                                    <input type="text" class="form-control" name="nome" id="nome" placeholder="nome" required>
-                                </div>
-                                <div class="casellaForm">
-                                    <h3>Cognome:</h3>
-                                    <input type="text" class="form-control" name="cognome" id="cognome" placeholder="cognome" required>
-                                </div>
-                                <div class="casellaForm">
-                                    <h3>data nascita:</h3>
-                                    <input type="date" class="form-control" name="nascita" id="dateBirth" required>
-                                </div>
-                                <div class="casellaForm">
-                                    <h3>amministratore:</h3>
-                                    <select class="form-select" id="tipo" name="tipo" required>
-                                        <option value="B" >-</option>
-                                        <option value="A">Sì</option>
-                                        <option value="B">No</option>                                       
-                                    </select>
-                                </div>
-                                <input type="hidden" name="emailAdmin" th:value="${admin.email}">
-                                
-                                <button id="btn-ins-cli" class="btn edit"> <h4>Inserisci</h4> </button>
-                                <!-- </div> -->
-                            </form>
-                        </div>
-                    </div>
-
-            </h2>
-        </div>
-        <!-- fine accordion -->
-             <!-- inizio accordion veicolo-->
-             <div class="accordion col-12" id="formVeicolo">
-                <h2  class="col-12 accordion-header" id="headingTwo">
-                    <button id="insVei" class=" col-12 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInsVei" aria-expanded="true" aria-controls="collapseTwo"> 
-                        <span id="enterVeicolo">Inserisci nuovo veicolo</span>
-                    </button>
-                </h2>
-                      
-    
-                        <div id="collapseInsVei" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#tableContainer">
-    
-                                <div class="accordion-body accBody" id="formBody">
-                                    <div class="casellaForm">
-                                        <h3>Nome veicolo:</h3>
-                                        <input type="text" class="form-control" id="username" placeholder="Modello" required>
-                                    </div>
-                                    <div class="casellaForm">
-                                        <h3>Tipo veicolo:</h3>
-                                        <select  class="form-select" id="tipoVeicolo" required>
-                                            <option value="">-</option>
-                                            <option value="Auto">Automobile</option>
-                                            <option value="Monopattino">Monopattino</option>      
-                                            <option value="Moto">Moto</option>         
-                                            <option value="Bici">Bicicletta</option>                                                                       
-                                        </select>
-                                    </div>
-                                    <div class="casellaForm">
-                                        <h3>Alimentazione:</h3>
-                                        <select  class="form-select" id="alimentazione" required>
-                                            <option value="">-</option>
-                                            <option value="Benzina">Benzina</option>
-                                            <option value="Diesel">Diesel</option>      
-                                            <option value="Ibrida">Ibrida</option>         
-                                            <option value="Elettrica">Elettrica</option>                                      
-                                            <option value="Human power">Human power</option>                                      
-                                        </select>
-                                    </div>
-                                    <div class="casellaForm">
-                                        <h3>Posizione:</h3>
-                                        <input type="text" class="form-control" id="posizione" placeholder="Indirizzo" required>
-                                    </div>
-                                    <div class="casellaForm">
-                                        <h3>Prezzo:</h3>
-                                        <input type="text" class="form-control" id="prezzo" placeholder="€uro" required>
-                                    </div>
-                                    <div class="casellaForm">
-                                        <button id="uploadImg" class="btn btn-primary"><i class="far fa-image"></i> carica immagine</button>
-                                        <button id="btn-ins-vei" class="btn edit"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
-                                    </div>
-                                    <!-- else sbagliato <i class="fas fa-times"></i> -->
-                                </div>
-                            </div>
-                        </div>
-    
-               
+                    <!-- fine accordion -->
+                </div>
             </div>
-            <!-- fine accordion -->
-
+                
         <div class="container" id="tableContainer">
             
         </div>

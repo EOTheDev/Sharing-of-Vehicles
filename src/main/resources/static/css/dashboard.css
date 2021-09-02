@@ -42,3 +42,7 @@ td img{
     display: flex;
     flex-direction: column;
 }
+body.container-fluid{
+    width: 100vw;
+    padding: 0;
+}

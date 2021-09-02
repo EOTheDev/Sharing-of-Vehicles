@@ -41,8 +41,8 @@
                     </div>
                     <span id="mese">Aprile</span>
                 </div>
-                
-                <a href="/login"><button  id="loginBtn">Fai il login per noleggiare!</button></a>
+                <a style="padding: 1rem 0;" href="/login"><button class="btn btn-primary" id="loginBtn">Fai il login per noleggiare!</button></a>
+                <i class="fas fa-leaf" style="font-size: 4rem; color:#9dc119;padding: 1rem 0;"></i>
             </div>
             <!-- fine calendario -->
             <!-- inizio veicoli -->
@@ -58,7 +58,7 @@
                         <div class="col-lg-10 rightSide">
                             <h2 th:switch="${veicolo.alimentazione}" class="titolo">
                                 <span class="modello" th:text="${veicolo.modello}">BMW I8</span>
-                                <i th:case="'diesel'" class="fas fa-smog text-muted">
+                                <i th:case="'Diesel'" class="fas fa-smog text-muted">
                                     <span class="text-muted alimentazione" th:text="${veicolo.alimentazione}"> 
                                         Ibrida
                                     </span> <!-- se implemento thymeleaf sovrascrive icona -->
@@ -149,118 +149,118 @@
     </main>
     
     <footer class="footer" id="footerContainer"></footer>
-    <!-- JQUERY NECESSARIO PER NAV -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <!-- aggiungo la navigazione -->
-    <script src="js/nav.js"></script>
-    <script th:inline="javascript">
-        /* grafico emissioni*/
-        var ctx = document.getElementById('graficoEmissioni').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: [
-                    'Auto Benzina',
-                    'Auto Diesel',
-                    'Auto Ibrida', 
-                    'Auto Elettrica', 
-                    'Bici Elettrica', 
-                    'Bici Human Power', 
-                    "Monopattino Elettrico" ],
-                datasets: [{
-                    label: 'Emissione risparmiate in g/m3',
-                    data: [ 0, 0, 40, 60, 95, 100, 95],
-                    backgroundColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    '#77777',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                    ],
-                    borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
+</body>
+<!-- JQUERY NECESSARIO PER NAV -->
+<script src="https://code.jquery.com/jquery-3.6.0.js"        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<!-- aggiungo la navigazione -->
+<script src="js/nav.js"></script>
+<script th:inline="javascript">
+    /* grafico emissioni*/
+    var ctx = document.getElementById('graficoEmissioni').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [
+                'Auto Benzina',
+                'Auto Diesel',
+                'Auto Ibrida', 
+                'Auto Elettrica', 
+                'Bici Elettrica', 
+                'Bici Human Power', 
+                "Monopattino Elettrico" ],
+            datasets: [{
+                label: 'Emissione risparmiate in g/m3',
+                data: [ 0, 0, 40, 60, 95, 100, 95],
+                backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                '#77777',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+                ],
+                borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+    scales: {
+        y: {
+            beginAtZero: true
         }
     }
-    });
+}
+});
 
-    /* grafico veicoli */
+/* grafico veicoli */
 /*
-	var veicoliGrafici = [];
-    for (const veicolo of veicoliGrafici) {
-        console.log(veicolo)
-    }
+var veicoliGrafici = [];
+for (const veicolo of veicoliGrafici) {
+    console.log(veicolo)
+}
 */
 
 function checkAlimentazione(ali=""){
-    switch (ali) {
-        case "human power":
-            return 100;
-        case "elettrica":
-            return 75;
-        case "ibrida":
-            return 66;
-    
-        default:
-            return 1;
-    }
-}
-    
-   
+switch (ali) {
+    case "human power":
+        return 100;
+    case "elettrica":
+        return 75;
+    case "ibrida":
+        return 66;
 
-    var graficoVeicoli = document.getElementById('graficoVeicoli').getContext('2d');
-    var newGraph = new Chart(graficoVeicoli, {
-        type: 'radar',
-        data: {
-            labels: [
-            'g/m 3 di CO2 risparmati',
-            'prezzo',
-            'alimentazione',
-            ],
-            datasets: [
-        [# th:each="veicolo : ${veicoli}"]
-        {
-          
-          label: [[${veicolo.modello}]] ,
-          data: [ [[${veicolo.pesoCo2}]]*100, [[${veicolo.prezzo}]], checkAlimentazione([[${veicolo.alimentazione}]])],
-          
-          
-          
-          
-          
-          
-          
-          fill: true,
-          backgroundColor:  [[${veicolo.colore}]]+"4D",
-          borderColor: [[${veicolo.colore}]]+"4D",
-          pointBackgroundColor: [[${veicolo.colore}]]+"4D",
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: [[${veicolo.colore}]]+"4D",
-        },
-        
-        [/]
-            
-            ]
-        },
-        
-    });
- 
+    default:
+        return 1;
+}
+}
+
+
+
+var graficoVeicoli = document.getElementById('graficoVeicoli').getContext('2d');
+var newGraph = new Chart(graficoVeicoli, {
+    type: 'radar',
+    data: {
+        labels: [
+        'g/m 3 di CO2 risparmati',
+        'prezzo',
+        'alimentazione',
+        ],
+        datasets: [
+    [# th:each="veicolo : ${veicoli}"]
+    {
+      
+      label: [[${veicolo.modello}]] ,
+      data: [ [[${veicolo.pesoCo2}]]*100, [[${veicolo.prezzo}]], checkAlimentazione([[${veicolo.alimentazione}]])],
+      
+      
+      
+      
+      
+      
+      
+      fill: true,
+      backgroundColor:  [[${veicolo.colore}]]+"4D",
+      borderColor: [[${veicolo.colore}]]+"4D",
+      pointBackgroundColor: [[${veicolo.colore}]]+"4D",
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: [[${veicolo.colore}]]+"4D",
+    },
     
-    </script>
-</body>
+    [/]
+        
+        ]
+    },
+    
+});
+
+
+</script>
 </html>

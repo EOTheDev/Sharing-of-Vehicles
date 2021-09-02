@@ -27,15 +27,15 @@
     </header>
     
 <!-- pagina divisa in due colonne -->
-<div class="container-fluid" id="sfondo" >
-    <div class="row">
+    <div class="container-fluid" id="sfondo" >
+        <div class="row">
 
 <!-- colonna sx -->
         <div id="colonnaSx" class="col-lg-4 d-flex flex-column bd-highlight mb-3" >
-            
-            <!-- logo -->
+<!--             
+            <!-- logo 
             <img class="imglogo" src="../imgs/logo_large.png" alt="logo" >
-            
+             -->
             <!-- calendario -->
             <!-- <div class="calendario col-lg-10 p-2 bd-highlight"> -->
                 <div class="col-12" id="calendar" >
@@ -97,7 +97,7 @@
         </div>
 
     </div>
-
+    </div>
     
     <footer class="footer" id="footerContainer"></footer>
 </body>
@@ -110,9 +110,11 @@
 <script src="/js/nav.js"></script>
 
 <script type="text/javascript">
-
+    var lt=[[${veicolo.latitudine}]];
+    var lg=[[${veicolo.longitudine}]];
+    var via= "<b>[[${veicolo.indirizzo}]]</b>";
     //setta il centro della mappa(coordinate di torino)
-    var mymap = L.map('mapid').setView([45.0677551, 7.6824892], 14);
+    var mymap = L.map('mapid').setView([lt, lg], 14);
     
     //aggiunge layer delle mappe
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -125,10 +127,10 @@
     }).addTo(mymap);
     
     //crea marker nelle coordinate di via roma
-    var marker = L.marker([45.06532351, 7.6808557]).addTo(mymap);
+    var marker = L.marker([lt, lg]).addTo(mymap);
     
     //aggiunge evento popup a marker 
-    marker.bindPopup("<b>Via Roma</b>").openPopup();
+    marker.bindPopup(via).openPopup();
 
 </script>
 </html>

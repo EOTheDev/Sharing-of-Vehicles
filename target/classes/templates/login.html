@@ -18,29 +18,22 @@
     <header class="header" id="navbarContainer">
 
     </header>
-    
-    <div class="Loginbox">
-
-        <img src="imgs/avatar.png" class="Avatar"> 
-
-        <h1>Login</h1>
-
-        <form action="/dashboard" th:action="@{/dashboard}" method="post" id="formlogin">
-            <p>Email</p>
-            <input type="email" name="email" placeholder="Inserisci Email">
-
-            <p>Password</p>
-            <input type="password" name="password" placeholder="Inserisci password">
-			
-			
-            <input type="submit" name="" value="Login"><br>
-
-            <a href="#">Password smarrita</a><br>
-            <a href="#">Registrati </a>
-
-        </form>
-
-    </div>
+    <main>
+        
+        <div class="Loginbox">
+            <img src="imgs/avatar.png" class="Avatar">
+            <h1>Login</h1>
+            <form action="/dashboard" th:action="@{/dashboard}" method="post" id="formlogin">
+                <p>Email</p>
+                <input type="email" name="email" placeholder="Inserisci Email">
+                <p>Password</p>
+                <input type="password" name="password" placeholder="Inserisci password">
+                <input type="submit" name="" value="Login"><br>
+                <a href="#">Password smarrita</a><br>
+                <a href="#">Registrati </a>
+            </form>
+        </div>
+    </main>
 
 
 

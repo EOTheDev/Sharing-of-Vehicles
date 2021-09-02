@@ -1,8 +1,4 @@
-:root{
-    --primaryDark:#ffffff;
-    --edit:#77da64;
-    --alert:#d22a1e;
-}
+
 .titoloPagina{
     text-align: center;
 }
@@ -14,7 +10,7 @@ td, th{
 }
 
 .edit{
-    background-color: var(--edit);
+    background-color: var(--logoGreen);
    
 }
 
@@ -28,10 +24,20 @@ td, th{
     height: 100vh;
     width: 50vw;
 }
-
+#loginBtn{
+        background-color: var(--light);
+        border-color: var(--logoGreen);
+        color: var(--dark);
+    }
+#loginBtn:hover{
+    background-color: var(--logoGreen);
+    border-color: var(--light);
+    color: var(--dark);
+}
 
 /* Calendario NON TOCCARE, VI TRANCIO LE MANI */
 .latoCalendario{
+    margin: 1rem 0;
     box-sizing: border-box;
     padding: 2rem;
     display: flex;
@@ -92,12 +98,36 @@ td, th{
     padding-bottom: 1rem;
     margin-bottom: 2rem;
 }
+.singoloVeicolo span{
+    text-transform: capitalize;
+}
+
+/* grafici */
 .side, .rightSide, .sinistraGrafico{
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
 
 }
+.graphicMaster:nth-child(odd) .sinistraGrafico{
+    text-align: right;
+}
 .graphicMaster{
     margin-top: 3rem;
+}
+/* grafici su cell in ordine diverso */
+@media (max-width: 576px) {
+    .graphicMaster:nth-child(odd) .sinistraGrafico{
+        text-align: left;
+    }
+
+
+
+
+    .graphicMaster:nth-child(even) .col-lg-4{
+        order: 1;
+    }
+    .graphicMaster:nth-child(even) .sinistraGrafico{
+        order: 0;
+    }
 }

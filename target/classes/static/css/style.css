@@ -8,6 +8,9 @@ body{
     margin: 0;
     font-family: sans-serif;
 }
+main{
+    position: relative;
+}
 
 .Loginbox{
     width: 420px;
@@ -30,7 +33,7 @@ body{
     left:calc(50% - 30px);
 }
 
-h1{
+.Loginbox h1{
     
     padding: 0 0 20px;
     text-align: center;

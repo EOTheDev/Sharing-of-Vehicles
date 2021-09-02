@@ -79,7 +79,7 @@ public ModelAndView enterDashboard(Model m,
 		case "A":
 			m.addAttribute("utenti", us.findAllUsers());
 			m.addAttribute("veicoli" , vs.findAllVeicoli());
-			m.addAttribute("prenotazioni",ps.findAllPrenotazione());
+			m.addAttribute("prenotazioni", ps.findAllPrenotazione());
 			m.addAttribute("admin", u);
 			return new ModelAndView("dashboard");
 			
