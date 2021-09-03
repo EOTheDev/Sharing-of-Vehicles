@@ -70,31 +70,37 @@ public ModelAndView enterDashboard(Model m,
 		@RequestParam String email
 		) {
 	
-	Utente u = us.findUserByEmail(email);
+	Utente utente = us.findUserByEmail(email);
 	
-	if(u != null) {
+	if(utente != null) {
 		
-		switch (u.getTipo()) {
+		switch (utente.getTipo()) {
 		
 		case "A":
-			m.addAttribute("utenti", us.findAllUsers());
-			m.addAttribute("veicoli" , vs.findAllVeicoli());
-			m.addAttribute("prenotazioni", ps.findAllPrenotazione());
-			m.addAttribute("admin", u);
+			//m.addAttribute("admin", u); //admin
+			//System.out.println(u);
+			// m.addAttribute("listaUtenti", us.findAllUsers());
+			// m.addAttribute("veicoli" , vs.findAllVeicoli());
+			// m.addAttribute("prenotazioni", ps.findAllPrenotazione());
+			//u=new Utente();
+			m.addAttribute("utente", utente);
 			return new ModelAndView("dashboard");
-			
+			// return "dashboard";
 		case "B":
-			m.addAttribute("utente", u);
+			m.addAttribute("utente", utente);
+			// return "redirect:/";
 			return this.getIndex(m);
 			
 		
 		default:
+			// return "registrazione";
 			return new ModelAndView("registrazione");
 			
 		}
 	}
 		else {
 
+			// return "registrazione";
 			return new ModelAndView("registrazione");
 		}
 }

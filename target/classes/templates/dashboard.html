@@ -18,7 +18,7 @@
     <header class="header" th:replace="html/nav" id="navbarContainer">
     </header>
     
-        <h1 class="titoloPagina">La tua dashboard</span>, bentornato, <span th:text="${admin.nome}"></span>!
+        <h1 class="titoloPagina">La tua dashboard</span>, bentornato, <span th:text="${utente.nome}"></span>!
         </h1>
         <!-- <a href="/"><button class="btn delete"><i class="fas fa-home"></i></button></a> -->
         
@@ -70,7 +70,7 @@
                                         </div>
                  
                                         <div class="casellaForm" style="padding: 0.5rem 0 0 0;">
-                                            <input type="hidden" name="emailAdmin" th:value="${admin.email}">
+                                            <!-- <input type="hidden" name="emailAdmin" th:value="${utente.email}"> -->
                                             <button id="btn-ins-pre" class="btn edit"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
                                         </div>
                                         <!-- </div> -->
@@ -118,7 +118,7 @@
                                                 </select>
                                             </div>
                                             <div class="casellaForm" style="padding: 0.5rem 0 0 0;">
-                                                <input type="hidden" name="emailAdmin" th:value="${admin.email}">
+                                                <!-- <input type="hidden" name="emailAdmin" th:value="${utente.email}"> -->
                                                 <button id="btn-ins-cli" class="btn edit"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
                                             </div>
                                             <!-- </div> -->
@@ -218,8 +218,16 @@
             </table>
         </div>
 
-       
-
+       <!--TABELLA CLIENTI 
+    
+    
+    
+    
+    
+    
+    
+    -->
+<!-- 
         <div class="table-responsive">
             <table class="table table-striped" id="clienti">
                 <h3>I tuoi clienti
@@ -236,27 +244,27 @@
                     <th>Data di iscrizione</th>
                     <!-- <th>Soldi spesi</th>
                     <th>Emissioni totali</th>
-                    <th>Emissioni in percentuale</th> -->
+                    <th>Emissioni in percentuale</th> 
                     <th>Interagisci</th>
                 </tr>
-                <tr th:each="utente:${utenti}">
-                    <td><span th:text="${utente.id}" id="id">elDiablo23</span></td>
-                    <td><span th:text="${utente.username}" id="username">elDiablo23</span></td>
-                    <td><span th:text="${utente.tipo}" id="ruolo">elDiablo23</span></td>
-                    <td><span th:text="${utente.cognome}" id="cognome">Rossi</span></td>
-                    <td><span th:text="${utente.nome}" id="nome">Mario</span></td>
-                    <td><span th:text="${utente.email}" id="email">mariorossi@email.ru</span></td>
-                    <td><span th:text="${utente.nascita}" id="dataNascita">19</span></td>
-                    <td><span th:text="${utente.dataIscrizione}"id="iscrizione">16/12/2020</span></td>
+                <tr th:each="user:${listaUtenti}">
+                    <td><span th:text="${user.id}" id="id">elDiablo23</span></td>
+                    <td><span th:text="${user.username}" id="username">elDiablo23</span></td>
+                    <td><span th:text="${user.tipo}" id="ruolo">elDiablo23</span></td>
+                    <td><span th:text="${user.cognome}" id="cognome">Rossi</span></td>
+                    <td><span th:text="${user.nome}" id="nome">Mario</span></td>
+                    <td><span th:text="${user.email}" id="email">mariorossi@email.ru</span></td>
+                    <td><span th:text="${user.nascita}" id="dataNascita">19</span></td>
+                    <td><span th:text="${user.dataIscrizione}"id="iscrizione">16/12/2020</span></td>
                     <!--TODO <td><span id="totSpesaUtente">235,05</span> €</td>
                     <td><span id="totEmissioni">210</span> g/m3</td>
-                    <td><span id="emissioniPercentuale">0.9</span> g/m3</td> -->
+                    <td><span id="emissioniPercentuale">0.9</span> g/m3</td> 
                     <td>
             
                     <form action="/dashboard/update" method="post">
-                        <input type="hidden" name="emailAdmin" th:value="${admin.email}">
+                        <input type="hidden" name="emailAdmin" th:value="${utente.email}">
             
-                        <input type="hidden" name="id" th:value="${utente.id}">
+                        <input type="hidden" name="id" th:value="${user.id}">
             
                         <button class="btn edit" id="btnMod">
                             <i class="fas fa-edit"></i>
@@ -265,8 +273,8 @@
             
             
                         <form action="/dashboard/delete" method="post">
-                        <input type="hidden" name="emailAdmin" th:value="${admin.email}">
-                        <input type="hidden" name="id" th:value="${utente.id}">
+                        <input type="hidden" name="emailAdmin" th:value="${utente.email}">
+                        <input type="hidden" name="id" th:value="${user.id}">
                                     <button class="btn delete" >
                                         <i class="fas fa-trash"></i>
                                     </button>
@@ -277,7 +285,7 @@
             </table>
         </div>
         
-
+ -->
 
         <div class="table-responsive">
             <table class="table table-striped " id="veicoli">
@@ -323,12 +331,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script th:inline="javascript"> 
+      
         /* manteniamo il login*/
         var utente = [[${utente}]];
-        
+        console.log(utente);
     </script>
     <!-- aggiungo la navigazione -->
     <script src="js/nav.js"></script>
-    <script src="../js/dashboard.js"></script>
+    <!-- <script src="../js/dashboard.js"></script> -->
 </body>
 </html>
