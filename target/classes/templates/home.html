@@ -16,9 +16,8 @@
     
 </head>
 <body>
-    
-    <header class="header" id="navbarContainer">
-
+    <!-- carico header con thymeleaf -->
+    <header class="header" th:replace="html/nav" id="navbarContainer">
     </header>
     
     <main class="main container-fluid">
@@ -30,7 +29,6 @@
                     
                     <div id="topCalendar">
                         <input type="date">
-                        
                     </div>
                     <div id="dateCalendar">
                         <button class="btn btn-primary"><i class="fas fa-arrow-left"></i></button>
@@ -41,7 +39,10 @@
                     </div>
                     <span id="mese">Aprile</span>
                 </div>
-                <a style="padding: 1rem 0;" href="/login"><button class="btn btn-primary" id="loginBtn">Fai il login per noleggiare!</button></a>
+                <a th:switch="${utente}" style="padding: 1rem 0;" href="/login">
+                    <button th:case="null" class="btn btn-primary" id="loginBtn">Fai il login per noleggiare!</button>
+                    <button th:case="*" class="btn btn-primary" id="loginBtn">Grazie, [[${utente.nome}]], per inquinare meno!</button>
+                </a>
                 <i class="fas fa-leaf" style="font-size: 4rem; color:#9dc119;padding: 1rem 0;"></i>
             </div>
             <!-- fine calendario -->
@@ -51,9 +52,11 @@
                 <!-- singolo veicolo -->
                 <div id="veicoliDisponibili" th:each="veicolo:${veicoli}">
                     <div class="row singoloVeicolo">
-                        <div class="col-lg-2 side">
-                            <img class="col-lg-12" src="https://www.you-go.it/wp-content/uploads/2020/11/volkswagen-id3-bianca-647x277.png" th:attr="src=@{'../imgs/' +${veicolo.immagine}}"alt="" >
-                            <a class="col-lg-12" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}}"><button class="col-12 btn edit">Prenota</button></a> 
+                        <div th:switch="${utente}"class="col-lg-2 side">
+                            <img class="col-lg-12" src="https://www.you-go.it/wp-content/uploads/2020/11/volkswagen-id3-bianca-647x277.png" th:attr="src=@{${veicolo.immagine}}"alt="" >
+                            <a th:case="null" class="col-lg-12" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}}"><button class="col-12 btn edit">Iscriviti</button></a> 
+                            <a th:case="*" class="col-lg-12" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}+'/'+${utente.id}}"><button class="col-12 btn edit">Prenota</button></a> 
+                            
                         </div>
                         <div class="col-lg-10 rightSide">
                             <h2 th:switch="${veicolo.alimentazione}" class="titolo">
@@ -109,10 +112,15 @@
                         Calcolo delle emissioni risparmiate per ogni nostro tipo di veicolo 
                     </h4>
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi labore vitae, quas laboriosam tempora error repudiandae? Velit molestias aperiam aliquam exercitationem quos dignissimos accusamus laudantium totam quia neque. Optio, fuga.
-                        Aliquid dolores fugiat adipisci possimus et enim accusantium earum aliquam eligendi repellendus expedita rem, odit omnis dicta, tempore asperiores ea praesentium nihil perferendis exercitationem. Optio tempore in temporibus alias dolore?
-                        Quos veritatis ipsum necessitatibus amet quo eius inventore quam esse illum dolorem autem ratione soluta, suscipit rem molestiae enim beatae. Quidem quasi quam omnis modi adipisci aliquid iste expedita cumque.
-                    </p>
+                        Per il rispetto dell'ambiente e per la lotta al cambiamento climatico è bene avere in mente delle informazioni chiare sull'impatto ambientale delle nostre scelte.
+                        <br>E' noto che:
+                        <ul> 
+                        <li>Un'auto diesel produce 2380g di Co2 per ogni litro consumato.</li>
+                        <li>Un'auto ibrida produce 60g di Co2 per ogni km percorso.</li>
+                        <li>Un'auto benzina produce 1610g di Co2 per ogni litro di benzina consumato.</li>
+                        <li>Un'auto elettrica non produce Co2 per consumo diretto ma soltanto nella sua creazione.</li>
+                        </ul>
+                        Come mostrato nel grafico, possiamo notare le emissioni risparmiate con l'utilizzo di un veicolo ibrido o elttrico.</p>
                     
                 </div>
                 
@@ -137,9 +145,8 @@
                         Grafico che compara i nostri veicoli per prezzo, emissioni risparmiate, tipologia ed alimentazione
                     </h4>
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi labore vitae, quas laboriosam tempora error repudiandae? Velit molestias aperiam aliquam exercitationem quos dignissimos accusamus laudantium totam quia neque. Optio, fuga.
-                        Aliquid dolores fugiat adipisci possimus et enim accusantium earum aliquam eligendi repellendus expedita rem, odit omnis dicta, tempore asperiores ea praesentium nihil perferendis exercitationem. Optio tempore in temporibus alias dolore?
-                        Quos veritatis ipsum necessitatibus amet quo eius inventore quam esse illum dolorem autem ratione soluta, suscipit rem molestiae enim beatae. Quidem quasi quam omnis modi adipisci aliquid iste expedita cumque.
+                        <p>Come si può notare nel grafico, la scelta green è sempre la migliore soluzione, verso la quale cerchiamo di indirizzare i nostri clienti, consigliando un'alimentazione ecosostenibile.</p>
+                        <p>Comparando le nostre tipologie di veicoli, anche per fascia di prezzo, possiamo vedere che oltre a veicoli con poche emissioni ma a prezzi elevati, disponiamo inoltre di prodotti più economici, ma allo stesso tempo eco-friendly, come ad esempio la bicicletta "Kinky Segway 500", o le stampelle "Power 2000".</p>
                     </p>
                     
                 </div>
@@ -152,9 +159,18 @@
 </body>
 <!-- JQUERY NECESSARIO PER NAV -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<!-- aggiungo la navigazione -->
-<script src="js/nav.js"></script>
+
 <script th:inline="javascript">
+
+    /* manteniamo il login*/
+    var utente = [[${utente}]];
+
+
+    /*modifico impostazioni se utente loggato*/
+
+
+
+
     /* grafico emissioni*/
     var ctx = document.getElementById('graficoEmissioni').getContext('2d');
     var myChart = new Chart(ctx, {
@@ -263,4 +279,6 @@ var newGraph = new Chart(graficoVeicoli, {
 
 
 </script>
+<!-- aggiungo la navigazione -->
+<script src="js/nav.js"></script>
 </html>

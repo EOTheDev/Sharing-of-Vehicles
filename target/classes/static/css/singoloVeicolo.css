@@ -8,6 +8,13 @@
     background-size: cover;
     background-attachment: fixed;
 }
+
+/*mobile bg*/
+@media (max-width:576px) {
+    #sfondo{
+        background-position: center;
+    }
+}
 /* leggero spazio vitale */
 #sfondo>.row{
     padding: 2rem 0;
@@ -72,13 +79,13 @@
     position: relative;
     top: -2rem;
 }
-#giorno, #mese{
+#giorno, #mese, #anno{
 	position: relative;
 	left:-5%;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-style: italic;
 }
-#mese{
+#mese, #anno{
     font-size: 2rem;
 
 }

@@ -24,6 +24,18 @@ nav .btn-primary:hover{
     border-color: var(--light);
     color: var(--dark);
 }
+nav button.btn-alert{
+    background-color: var(--verdeGiallo);
+    border-color: var(--light);
+    color: var(--dark);
+}
+nav .btn-alert:hover{
+    background-color: var(--light);
+    border-color: var(--verdeGiallo);
+    color: var(--dark);
+}
+
+
 .navbar{
     display: flex;
     flex-direction: row;
@@ -49,6 +61,7 @@ a:hover, a::after, a{
 
 /* bottoni */
 button.btn{
+    margin: 0.2rem;
     color: var(--primaryDark);
     border-radius: 1rem;
     padding: 0 1rem;

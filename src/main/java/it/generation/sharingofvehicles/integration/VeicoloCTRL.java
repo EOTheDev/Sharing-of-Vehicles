@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import it.generation.sharingofvehicles.entities.Utente;
 import it.generation.sharingofvehicles.entities.Veicolo;
 import it.generation.sharingofvehicles.service.VeicoloService;
 import it.generation.sharingofvehicles.service.UtenteService;
@@ -39,6 +40,14 @@ public class VeicoloCTRL {
 		
 		m.addAttribute("veicolo", vs.findVeicoloById(id));
 		
+		return new ModelAndView("singoloVeicolo");
+	}
+	
+	@GetMapping("/{id}/{utenteId}")
+	public ModelAndView viewAutomobile(Model m, @PathVariable("id") int id, @PathVariable("utenteId") int utenteId) {
+		Utente u= us.findUserById(utenteId);
+		m.addAttribute("veicolo", vs.findVeicoloById(id));
+		m.addAttribute("utente", u);
 		return new ModelAndView("singoloVeicolo");
 	}
 	

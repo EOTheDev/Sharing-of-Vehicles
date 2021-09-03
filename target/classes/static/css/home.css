@@ -109,6 +109,9 @@ td, th{
     flex-direction: column;
 
 }
+.sinistraGrafico ul{
+    list-style-type: none;
+}
 .graphicMaster:nth-child(odd) .sinistraGrafico{
     text-align: right;
 }

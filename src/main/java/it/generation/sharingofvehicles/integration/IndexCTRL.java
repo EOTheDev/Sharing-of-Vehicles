@@ -84,7 +84,7 @@ public ModelAndView enterDashboard(Model m,
 			return new ModelAndView("dashboard");
 			
 		case "B":
-
+			m.addAttribute("utente", u);
 			return this.getIndex(m);
 			
 		
