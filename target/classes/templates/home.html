@@ -28,22 +28,24 @@
                 <div id="calendar" >
                     
                     <div id="topCalendar">
-                        <input type="date">
+                        <input type="date" onchange="aggiornoDisponibilita()" id="dataPrenotazione">
                     </div>
                     <div id="dateCalendar">
-                        <button class="btn btn-primary"><i class="fas fa-arrow-left"></i></button>
+                        <!-- <button class="btn btn-primary"><i class="fas fa-arrow-left"></i></button> -->
                         <span id="giorno">
                             23
                         </span>
-                        <button class="btn btn-primary"><i class="fas fa-arrow-right"></i></button>
+        
+                        <!-- <button class="btn btn-primary"><i class="fas fa-arrow-right"></i></button> -->
                     </div>
-                    <span id="mese">Aprile</span>
+                    <span id="mese">Aprile</span><br>
+                    <span id="anno">2021</span>
                 </div>
+                <i class="fas fa-leaf" style="font-size: 4rem; color:#9dc119;padding: 1rem 0;"></i>
                 <a th:switch="${utente}" style="padding: 1rem 0;" href="/login">
                     <button th:case="null" class="btn btn-primary" id="loginBtn">Fai il login per noleggiare!</button>
                     <button th:case="*" class="btn btn-primary" id="loginBtn">Grazie, [[${utente.nome}]], per inquinare meno!</button>
                 </a>
-                <i class="fas fa-leaf" style="font-size: 4rem; color:#9dc119;padding: 1rem 0;"></i>
             </div>
             <!-- fine calendario -->
             <!-- inizio veicoli -->
@@ -165,11 +167,60 @@
     /* manteniamo il login*/
     var utente = [[${utente}]];
 
+    /*Prendo input data*/
+    function aggiornoDisponibilita(){
+        var dataPrenotazione= $("#dataPrenotazione").val();
+        /*aggiorno il calendario*/
+        dataPrenotazione=dataPrenotazione.split("-");
+        console.log(dataPrenotazione);
+        $("#giorno").text(dataPrenotazione[2]);
+        switch (dataPrenotazione[1]){
+            case "01":
+            $("#mese").text("Gennaio");
+            break;
+            case "02":
+            $("#mese").text("Febbraio");
+            break;
+            case "03":
+            $("#mese").text("Marzo");
+            break;
+            case "04":
+            $("#mese").text("Aprile");
+            break;
+            case "05":
+            $("#mese").text("Maggio");
+            break;
+            case "06":
+            $("#mese").text("Giugno");
+            break;
+            case "07":
+            $("#mese").text("Luglio");
+            break;
+            case "08":
+            $("#mese").text("Agosto");
+            break;
+            case "09":
+            $("#mese").text("Settembre");
+            break;
+            case "10":
+            $("#mese").text("Ottobre");
+            break;
+            case "11":
+            $("#mese").text("Novembre");
+            break;
+            case "12":
+            $("#mese").text("Dicembre");
+            break;
+            default:
+            $("#mese").text("Errore");
+            break;
+        }
+        
+        $("#anno").text(dataPrenotazione[0]);
 
-    /*modifico impostazioni se utente loggato*/
+        
 
-
-
+    }
 
     /* grafico emissioni*/
     var ctx = document.getElementById('graficoEmissioni').getContext('2d');

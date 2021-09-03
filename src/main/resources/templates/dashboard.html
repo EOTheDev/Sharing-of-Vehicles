@@ -70,7 +70,7 @@
                                         </div>
                  
                                         <div class="casellaForm" style="padding: 0.5rem 0 0 0;">
-                                            <!-- <input type="hidden" name="emailAdmin" th:value="${utente.email}"> -->
+                                            <input type="hidden" name="emailAdmin" th:value="${utente.email}">
                                             <button id="btn-ins-pre" class="btn edit"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
                                         </div>
                                         <!-- </div> -->
@@ -118,7 +118,7 @@
                                                 </select>
                                             </div>
                                             <div class="casellaForm" style="padding: 0.5rem 0 0 0;">
-                                                <!-- <input type="hidden" name="emailAdmin" th:value="${utente.email}"> -->
+                                                <input type="hidden" name="emailAdmin" th:value="${utente.email}">
                                                 <button id="btn-ins-cli" class="btn edit"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
                                             </div>
                                             <!-- </div> -->
@@ -227,7 +227,7 @@
     
     
     -->
-<!-- 
+
         <div class="table-responsive">
             <table class="table table-striped" id="clienti">
                 <h3>I tuoi clienti
@@ -245,7 +245,7 @@
                     <!-- <th>Soldi spesi</th>
                     <th>Emissioni totali</th>
                     <th>Emissioni in percentuale</th> 
-                    <th>Interagisci</th>
+                    <th>Interagisci</th>-->
                 </tr>
                 <tr th:each="user:${listaUtenti}">
                     <td><span th:text="${user.id}" id="id">elDiablo23</span></td>
@@ -258,7 +258,7 @@
                     <td><span th:text="${user.dataIscrizione}"id="iscrizione">16/12/2020</span></td>
                     <!--TODO <td><span id="totSpesaUtente">235,05</span> €</td>
                     <td><span id="totEmissioni">210</span> g/m3</td>
-                    <td><span id="emissioniPercentuale">0.9</span> g/m3</td> 
+                    <td><span id="emissioniPercentuale">0.9</span> g/m3</td> -->
                     <td>
             
                     <form action="/dashboard/update" method="post">
@@ -285,7 +285,7 @@
             </table>
         </div>
         
- -->
+
 
         <div class="table-responsive">
             <table class="table table-striped " id="veicoli">
@@ -338,6 +338,5 @@
     </script>
     <!-- aggiungo la navigazione -->
     <script src="js/nav.js"></script>
-    <!-- <script src="../js/dashboard.js"></script> -->
 </body>
 </html>

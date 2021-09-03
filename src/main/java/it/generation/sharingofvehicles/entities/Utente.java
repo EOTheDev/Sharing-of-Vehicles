@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /*author Edoardo Orta*/
 
 @Entity
@@ -33,9 +35,11 @@ public class Utente {
 	protected String tipo= "B";
 	protected String firma="Cliente dal "+this.getDataIscrizione();	
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "utenteId")
 	private List<Veicolo> veicoli;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "utenteId")
 	private List<Prenotazione> prenotazione;
 	

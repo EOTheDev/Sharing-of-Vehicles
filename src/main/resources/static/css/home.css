@@ -51,15 +51,17 @@ td, th{
 }
 #calendar{
     width: 70%;
-    background-color: burlywood;
-    border-radius: 2rem;
+    background-color: var(--light);
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
     font-size: 1rem;
     padding-bottom: 2rem;
+    color: var(--dark);
     text-align: center;
 }
 #dateCalendar{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-end;
 }
 #topCalendar{
@@ -69,17 +71,18 @@ td, th{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: black;
+    background-color: var(--dark);
     position: relative;
+    border-radius: 8px;
     top: -10%;
 }
-#giorno, #mese{
+#giorno, #mese, #anno{
 	position: relative;
 	left:-5%;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-style: italic;
 }
-#mese{
+#mese,#anno{
     font-size: 5rem;
 
 }
