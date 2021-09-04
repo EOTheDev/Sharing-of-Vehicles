@@ -11,7 +11,7 @@
     <!-- icone -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- css pagina -->
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="/css/home.css">
     <title>Document</title>
     
 </head>
@@ -167,12 +167,39 @@
     /* manteniamo il login*/
     var utente = [[${utente}]];
 
+
+
+    /*verifico la data e aggiorno*/
+    const url= new URLSearchParams();
+
+    /* metodo malvagio che rompe tutto ricorsivamente
+    var dataPrenotazione= url.get("data");
+    if ((dataPrenotazione==null)){
+        var dataPrenotazione = new Date().toISOString().substring(0, 10);
+        $("#dataPrenotazione").val(dataPrenotazione);
+        //if (dataPrenotazione!=today){
+            console.log("sono qui")
+        //  console.log(dataPrenotazione!=today)
+            aggiornoCalendarioHTML();
+            //aggiornoDisponibilita();
+        //}
+    }
+*/
+
+
     /*Prendo input data*/
     function aggiornoDisponibilita(){
-        var dataPrenotazione= $("#dataPrenotazione").val();
+       var dataPrenotazione= $("#dataPrenotazione").val();
+             
+        
+        //redirect pagina prenotazione con quella data
+        //richiedendo al db tutti i veicoli che non hanno una prenotazione in quella data
+        window.location.replace("/booking/data="+dataPrenotazione);
+       
+        
         /*aggiorno il calendario*/
         dataPrenotazione=dataPrenotazione.split("-");
-        console.log(dataPrenotazione);
+        //console.log(dataPrenotazione);
         $("#giorno").text(dataPrenotazione[2]);
         switch (dataPrenotazione[1]){
             case "01":
@@ -217,10 +244,13 @@
         }
         
         $("#anno").text(dataPrenotazione[0]);
-
-        
-
+        /*fine funzione calendario*/
     }
+
+
+    
+    
+
 
     /* grafico emissioni*/
     var ctx = document.getElementById('graficoEmissioni').getContext('2d');
@@ -331,5 +361,5 @@ var newGraph = new Chart(graficoVeicoli, {
 
 </script>
 <!-- aggiungo la navigazione -->
-<script src="js/nav.js"></script>
+<script src="/js/nav.js"></script>
 </html>

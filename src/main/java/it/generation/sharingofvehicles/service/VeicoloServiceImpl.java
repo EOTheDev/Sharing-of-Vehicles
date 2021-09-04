@@ -1,5 +1,6 @@
 package it.generation.sharingofvehicles.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,17 @@ public class VeicoloServiceImpl implements VeicoloService {
 	public Veicolo updVeicolo(Veicolo v) {
 		// TODO Auto-generated method stub
 		return repo.save(v);
+	}
+
+	@Override
+	public List<Veicolo> findVeicoloByDate(LocalDate data) {
+		List veicoli=repo.findVeicoloByDate(data);
+		System.out.println(veicoli);
+		if (veicoli.size()==0) {
+			System.out.println("sono un drago, olè olè olè olè");
+			veicoli=repo.findAll();
+		}
+		return veicoli;
 	}
 
 }
