@@ -83,11 +83,11 @@ td, th{
     font-style: italic;
 }
 #mese,#anno{
-    font-size: 5rem;
+    font-size: 10vw;
 
 }
 #giorno{
-    font-size: 10rem;
+    font-size: 20vw;
 }
 /* FINE CALENDARIO */
 .elencoVeicoli{
