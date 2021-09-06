@@ -1,5 +1,6 @@
 package it.generation.sharingofvehicles.integration;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,20 +36,36 @@ public class VeicoloCTRL {
 		return new ModelAndView("singoloVeicolo");
 	}
 	
-	@GetMapping("/{id}")
-	public ModelAndView viewAutomobile(Model m, @PathVariable("id") int id) {
+	@GetMapping("/{id}/data={data}")
+	public ModelAndView viewAutomobile(Model m, @PathVariable("id") int id, @PathVariable("data") String dataPrenotazione) {
+		
+		int[] data = dataDaStringaAdArrayInt(dataPrenotazione);
+		LocalDate dataDellaPrenotazione = LocalDate.of(data[0], data[1], data[2]);
 		
 		m.addAttribute("veicolo", vs.findVeicoloById(id));
 		
 		return new ModelAndView("singoloVeicolo");
 	}
 	
-	@GetMapping("/{id}/{utenteId}")
-	public ModelAndView viewAutomobile(Model m, @PathVariable("id") int id, @PathVariable("utenteId") int utenteId) {
+	@GetMapping("/{id}/{utenteId}/data={data}")
+	public ModelAndView viewAutomobile(Model m, @PathVariable("id") int id, @PathVariable("utenteId") int utenteId, @PathVariable("data") String dataPrenotazione) {
+		int[] data = dataDaStringaAdArrayInt(dataPrenotazione);
+		LocalDate dataDellaPrenotazione = LocalDate.of(data[0], data[1], data[2]);
+
 		Utente u= us.findUserById(utenteId);
 		m.addAttribute("veicolo", vs.findVeicoloById(id));
 		m.addAttribute("utente", u);
 		return new ModelAndView("singoloVeicolo");
+	}
+
+	private int[] dataDaStringaAdArrayInt(String dataPrenotazione) {
+		// prendo la data come stringa e la trasformo in un array di int per creare la data
+		int[] data= new int[3];
+		String[] dataStrArr=dataPrenotazione.split("-");
+		for (int i = 0; i < data.length; i++) {
+			data[i]= Integer.parseInt(dataStrArr[i]);
+		}
+		return data;
 	}
 	
 

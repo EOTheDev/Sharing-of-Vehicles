@@ -56,8 +56,8 @@
                     <div class="row singoloVeicolo">
                         <div th:switch="${utente}"class="col-lg-2 side">
                             <img class="col-lg-12" src="https://www.you-go.it/wp-content/uploads/2020/11/volkswagen-id3-bianca-647x277.png" th:attr="src=@{${veicolo.immagine}}"alt="" >
-                            <a th:case="null" class="col-lg-12" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}}"><button class="col-12 btn edit">Iscriviti</button></a> 
-                            <a th:case="*" class="col-lg-12" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}+'/'+${utente.id}}"><button class="col-12 btn edit">Prenota</button></a> 
+                            <a th:case="null" class="col-lg-12 linkVeicolo" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}}"><button class="col-12 btn edit">Iscriviti</button></a> 
+                            <a th:case="*" class="col-lg-12 linkVeicolo" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}+'/'+${utente.id}}"><button class="col-12 btn edit">Prenota</button></a> 
                             
                         </div>
                         <div class="col-lg-10 rightSide">
@@ -161,19 +161,14 @@
 </body>
 <!-- JQUERY NECESSARIO PER NAV -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
+<script src="/js/calendar.js"></script>
 <script th:inline="javascript">
 
     /* manteniamo il login*/
     var utente = [[${utente}]];
 
 
-
     /*verifico la data e aggiorno*/
-
-
-
-    // metodo malvagio che rompe tutto ricorsivamente
     var urlData= document.URL;
     var dataURL="";
     console.log(urlData)
@@ -190,23 +185,22 @@
             console.log(utenteId);
         }
     }
+
+      
+
     var dataPrenotazione=$("#dataPrenotazione").val();
     console.log(dataPrenotazione);
 
     if ((dataURL=="")){
         var dataPrenotazione = new Date().toISOString().substring(0, 10);
         $("#dataPrenotazione").val(dataPrenotazione);
-        //if (dataPrenotazione!=today){
-            console.log("sono qui")
-        //  console.log(dataPrenotazione!=today)
-            //aggiornoCalendarioHTML();
-            aggiornoDisponibilita();
-        //}
+        aggiornoDisponibilita();
+        
     }
 
 
-    /*Prendo input data*/
     function aggiornoDisponibilita(){
+        /*Prendo input data*/
        var dataPrenotazione= $("#dataPrenotazione").val();
              
         
@@ -222,65 +216,9 @@
         
         
     }
-    
-    
-    
-    
-    /*aggiorno il calendario*/
-    function aggiornoCalendarioHTML(dataPrenotazione){
-        var data= new Date(dataPrenotazione);
-        $("#dataPrenotazione").val(data.toISOString().substring(0, 10));
 
 
-
-        dataPrenotazione=dataPrenotazione.split("-");
-        //console.log(dataPrenotazione);
-        $("#giorno").text(dataPrenotazione[2]);
-        switch (dataPrenotazione[1]){
-            case "01":
-            $("#mese").text("Gennaio");
-            break;
-            case "02":
-            $("#mese").text("Febbraio");
-            break;
-            case "03":
-            $("#mese").text("Marzo");
-            break;
-            case "04":
-            $("#mese").text("Aprile");
-            break;
-            case "05":
-            $("#mese").text("Maggio");
-            break;
-            case "06":
-            $("#mese").text("Giugno");
-            break;
-            case "07":
-            $("#mese").text("Luglio");
-            break;
-            case "08":
-            $("#mese").text("Agosto");
-            break;
-            case "09":
-            $("#mese").text("Settembre");
-            break;
-            case "10":
-            $("#mese").text("Ottobre");
-            break;
-            case "11":
-            $("#mese").text("Novembre");
-            break;
-            case "12":
-            $("#mese").text("Dicembre");
-            break;
-            default:
-            $("#mese").text("Errore");
-            break;
-        }
-        
-        $("#anno").text(dataPrenotazione[0]);
-    }
-    /*fine funzione calendario*/
+    /*continua poi su calendar.js*/
 
 
     /* grafico emissioni*/
@@ -393,4 +331,6 @@ var newGraph = new Chart(graficoVeicoli, {
 </script>
 <!-- aggiungo la navigazione -->
 <script src="/js/nav.js"></script>
+
+<script src="/js/home.js"></script>
 </html>

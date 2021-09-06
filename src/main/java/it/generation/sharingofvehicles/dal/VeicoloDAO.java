@@ -22,6 +22,6 @@ public interface VeicoloDAO extends JpaRepository<Veicolo, Integer> {
 	List<Veicolo> findVeicoloByRuote(int ruote);
 	
 	
-	@Query(value = "Select * FROM veicoli v LEFT JOIN prenotazioni p ON !(veicolo_id=v.id) WHERE data_prenotazione= ?1 ;", nativeQuery = true)
-	List<Veicolo> findVeicoloByDate(LocalDate data);
+	@Query(value ="SELECT * FROM veicoli v	WHERE v.id NOT IN ?1", nativeQuery = true)
+	List<Veicolo> findVeicoloByVeicoliPrenotati(List <Integer> vp);
 }

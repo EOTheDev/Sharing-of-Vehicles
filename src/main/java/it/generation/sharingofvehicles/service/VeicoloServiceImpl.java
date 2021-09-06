@@ -6,12 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import it.generation.sharingofvehicles.dal.PrenotazioneDAO;
 import it.generation.sharingofvehicles.dal.VeicoloDAO;
 import it.generation.sharingofvehicles.entities.Veicolo;
 
 @Service
 public class VeicoloServiceImpl implements VeicoloService {
-
+	@Autowired
+	PrenotazioneDAO prenotazioneRepo;
 	@Autowired
 	VeicoloDAO repo;
 	
@@ -65,10 +67,11 @@ public class VeicoloServiceImpl implements VeicoloService {
 
 	@Override
 	public List<Veicolo> findVeicoloByDate(LocalDate data) {
-		List veicoli=repo.findVeicoloByDate(data);
+		List<Integer> veicoliPrenotati=	prenotazioneRepo.findIdVeicolobyDate(data);
+		List veicoli=repo.findVeicoloByVeicoliPrenotati(veicoliPrenotati);
 		System.out.println(veicoli);
 		if (veicoli.size()==0) {
-			System.out.println("sono un drago, olè olè olè olè");
+			// System.out.println("sono un drago, olè olè olè olè");
 			veicoli=repo.findAll();
 		}
 		return veicoli;
