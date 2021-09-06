@@ -28,7 +28,7 @@
                 <div id="calendar" >
                     
                     <div id="topCalendar">
-                        <input type="date" onchange="aggiornoDisponibilita()" id="dataPrenotazione">
+                        <input type="date" id="dataPrenotazione">
                     </div>
                     <div id="dateCalendar">
                         <!-- <button class="btn btn-primary"><i class="fas fa-arrow-left"></i></button> -->
@@ -170,21 +170,42 @@
 
 
     /*verifico la data e aggiorno*/
-    const url= new URLSearchParams();
+    function parseURLParams(window.location.href) {
+        var queryStart = url.indexOf("/") + 1,
+            queryEnd   = url.indexOf("#") + 1 || url.length + 1,
+            query = url.slice(queryStart, queryEnd - 1),
+            pairs = query.replace(/\+/g, " ").split("&"),
+            parms = {}, i, n, v, nv;
+    
+        if (query === url || query === "") return;
+    
+        for (i = 0; i < pairs.length; i++) {
+            nv = pairs[i].split("=", 2);
+            n = decodeURIComponent(nv[0]);
+            v = decodeURIComponent(nv[1]);
+    
+            if (!parms.hasOwnProperty(n)) parms[n] = [];
+            parms[n].push(nv.length === 2 ? v : null);
+        }
+        return parms;
+    }
 
-    /* metodo malvagio che rompe tutto ricorsivamente
+
+
+    // metodo malvagio che rompe tutto ricorsivamente
     var dataPrenotazione= url.get("data");
+    console.log(url.get("data"))
+
     if ((dataPrenotazione==null)){
         var dataPrenotazione = new Date().toISOString().substring(0, 10);
         $("#dataPrenotazione").val(dataPrenotazione);
         //if (dataPrenotazione!=today){
             console.log("sono qui")
         //  console.log(dataPrenotazione!=today)
-            aggiornoCalendarioHTML();
+            //aggiornoCalendarioHTML();
             //aggiornoDisponibilita();
         //}
     }
-*/
 
 
     /*Prendo input data*/
@@ -194,7 +215,11 @@
         
         //redirect pagina prenotazione con quella data
         //richiedendo al db tutti i veicoli che non hanno una prenotazione in quella data
-        window.location.replace("/booking/data="+dataPrenotazione);
+        if (utente!= null){
+            window.location.replace("/booking/data="+dataPrenotazione+"/utente="+utente.id+"#");
+        } else{
+            window.location.replace("/booking/data="+dataPrenotazione+"#");
+        }
        
         
         /*aggiorno il calendario*/
