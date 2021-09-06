@@ -28,7 +28,7 @@
                 <div id="calendar" >
                     
                     <div id="topCalendar">
-                        <input type="date" id="dataPrenotazione">
+                        <input type="date" onblur="aggiornoDisponibilita()" id="dataPrenotazione">
                     </div>
                     <div id="dateCalendar">
                         <!-- <button class="btn btn-primary"><i class="fas fa-arrow-left"></i></button> -->
@@ -170,40 +170,36 @@
 
 
     /*verifico la data e aggiorno*/
-    function parseURLParams(window.location.href) {
-        var queryStart = url.indexOf("/") + 1,
-            queryEnd   = url.indexOf("#") + 1 || url.length + 1,
-            query = url.slice(queryStart, queryEnd - 1),
-            pairs = query.replace(/\+/g, " ").split("&"),
-            parms = {}, i, n, v, nv;
-    
-        if (query === url || query === "") return;
-    
-        for (i = 0; i < pairs.length; i++) {
-            nv = pairs[i].split("=", 2);
-            n = decodeURIComponent(nv[0]);
-            v = decodeURIComponent(nv[1]);
-    
-            if (!parms.hasOwnProperty(n)) parms[n] = [];
-            parms[n].push(nv.length === 2 ? v : null);
-        }
-        return parms;
-    }
 
 
 
     // metodo malvagio che rompe tutto ricorsivamente
-    var dataPrenotazione= url.get("data");
-    console.log(url.get("data"))
+    var urlData= document.URL;
+    var dataURL="";
+    console.log(urlData)
+    var arrayURL=urlData.split("/");
+    if(arrayURL.size>=4){
+        var arrayURLperData=arrayURL[4].split("data=");
+        dataURL=arrayURLperData[1];
+        console.log(dataURL);
+        aggiornoCalendarioHTML(dataURL);
+        if(arrayURL.size>=5){
+            var arrayURLperUtente=arrayURL[5].split("utente=");
+            var utenteId=arrayURLperUtente[1];
+            console.log(utenteId);
+        }
+    }
+    var dataPrenotazione=$("#dataPrenotazione").val();
+    console.log(dataPrenotazione);
 
-    if ((dataPrenotazione==null)){
+    if ((dataURL=="")){
         var dataPrenotazione = new Date().toISOString().substring(0, 10);
         $("#dataPrenotazione").val(dataPrenotazione);
         //if (dataPrenotazione!=today){
             console.log("sono qui")
         //  console.log(dataPrenotazione!=today)
             //aggiornoCalendarioHTML();
-            //aggiornoDisponibilita();
+            aggiornoDisponibilita();
         //}
     }
 
@@ -216,13 +212,26 @@
         //redirect pagina prenotazione con quella data
         //richiedendo al db tutti i veicoli che non hanno una prenotazione in quella data
         if (utente!= null){
-            window.location.replace("/booking/data="+dataPrenotazione+"/utente="+utente.id+"#");
+            window.location.replace("/booking/data="+dataPrenotazione+"/utente="+utente.id);
         } else{
-            window.location.replace("/booking/data="+dataPrenotazione+"#");
+            window.location.replace("/booking/data="+dataPrenotazione);
         }
        
         
-        /*aggiorno il calendario*/
+        
+        
+    }
+    
+    
+    
+    
+    /*aggiorno il calendario*/
+    function aggiornoCalendarioHTML(dataPrenotazione){
+        var data= new Date(dataPrenotazione);
+        $("#dataPrenotazione").val(data.toISOString());
+
+
+        
         dataPrenotazione=dataPrenotazione.split("-");
         //console.log(dataPrenotazione);
         $("#giorno").text(dataPrenotazione[2]);
@@ -269,12 +278,8 @@
         }
         
         $("#anno").text(dataPrenotazione[0]);
-        /*fine funzione calendario*/
     }
-
-
-    
-    
+    /*fine funzione calendario*/
 
 
     /* grafico emissioni*/
