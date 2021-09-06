@@ -178,12 +178,13 @@
     var dataURL="";
     console.log(urlData)
     var arrayURL=urlData.split("/");
-    if(arrayURL.size>=4){
+    console.log(arrayURL)
+    if(arrayURL.length>=5){
         var arrayURLperData=arrayURL[4].split("data=");
         dataURL=arrayURLperData[1];
         console.log(dataURL);
         aggiornoCalendarioHTML(dataURL);
-        if(arrayURL.size>=5){
+        if(arrayURL.length>=6){
             var arrayURLperUtente=arrayURL[5].split("utente=");
             var utenteId=arrayURLperUtente[1];
             console.log(utenteId);
@@ -228,10 +229,10 @@
     /*aggiorno il calendario*/
     function aggiornoCalendarioHTML(dataPrenotazione){
         var data= new Date(dataPrenotazione);
-        $("#dataPrenotazione").val(data.toISOString());
+        $("#dataPrenotazione").val(data.toISOString().substring(0, 10));
 
 
-        
+
         dataPrenotazione=dataPrenotazione.split("-");
         //console.log(dataPrenotazione);
         $("#giorno").text(dataPrenotazione[2]);
