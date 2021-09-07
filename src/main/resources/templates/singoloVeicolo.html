@@ -100,7 +100,7 @@
             <div class="bottom">
                 <!-- img auto -->
 
-                <img src="/imgs/BMWI8.png" th:src="@{${veicolo.immagine}}" alt="immagine del veicolo" srcset="" class="col-lg-6" id="autoImg">
+                <img src="/imgs/BMWI8.png" th:attr="src=@{'/imgUpl/'+${veicolo.id}+'/'+${veicolo.immagine}}" alt="immagine del veicolo" srcset="" class="col-lg-6" id="autoImg">
                 
                 <!-- mappa -->
                 <div id="mapid"></div>
@@ -114,21 +114,43 @@
     
     <footer class="footer" id="footerContainer"></footer>
 </body>
-
 <!-- bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <!-- JQUERY NECESSARIO PER NAV -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<!-- aggiungo calendario con data-->
+<script src="/js/calendar.js"></script>
 <script th:inline="javascript" >
+
     
     /* manteniamo il login*/
     var utente = [[${utente}]];
     console.log("sono vivo");
 
 
+    
+    /*verifico la data e aggiorno*/
+    var urlData= document.URL;
+    var dataURL="";
+    console.log(urlData)
+    var arrayURL=urlData.split("/");
+    console.log(arrayURL)
+    if(arrayURL.length>=7){
+        var arrayURLperData=arrayURL[6].split("data=");
+        dataURL=arrayURLperData[1];
+        console.log(dataURL);
+        aggiornoCalendarioHTML(dataURL);
+    
+    }
+    /*continua poi su calendar.js*/
 
 
-    /*form per la prenotazione*/
+
+    /*form per la prenotazione aggiungo la data*/
+    var arrDataPerForm=dataURL.split("-");
+    $("#giornoForm").val(arrDataPerForm[2]);
+    $("#meseForm").val(arrDataPerForm[1]);
+    $("#annoForm").val(arrDataPerForm[0]);
 
 
 
@@ -163,4 +185,5 @@
 </script>
 <!-- aggiungo la navigazione -->
 <script src="/js/nav.js"></script>
+
 </html>

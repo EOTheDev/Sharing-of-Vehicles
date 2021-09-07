@@ -55,9 +55,9 @@
                 <div id="veicoliDisponibili" th:each="veicolo:${veicoli}">
                     <div class="row singoloVeicolo">
                         <div th:switch="${utente}"class="col-lg-2 side">
-                            <img class="col-lg-12" src="https://www.you-go.it/wp-content/uploads/2020/11/volkswagen-id3-bianca-647x277.png" th:attr="src=@{${veicolo.immagine}}"alt="" >
-                            <a th:case="null" class="col-lg-12" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}}"><button class="col-12 btn edit">Iscriviti</button></a> 
-                            <a th:case="*" class="col-lg-12" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}+'/'+${utente.id}}"><button class="col-12 btn edit">Prenota</button></a> 
+                            <img class="col-lg-12" src="https://www.you-go.it/wp-content/uploads/2020/11/volkswagen-id3-bianca-647x277.png" th:attr="src=@{'/imgUpl/'+${veicolo.id}+'/'+${veicolo.immagine}}"alt="" >
+                            <a th:case="null" class="col-lg-12 linkVeicolo" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}}"><button class="col-12 btn edit">Iscriviti</button></a> 
+                            <a th:case="*" class="col-lg-12 linkVeicolo" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}+'/'+${utente.id}}"><button class="col-12 btn edit">Prenota</button></a> 
                             
                         </div>
                         <div class="col-lg-10 rightSide">
@@ -331,6 +331,5 @@ var newGraph = new Chart(graficoVeicoli, {
 </script>
 <!-- aggiungo la navigazione -->
 <script src="/js/nav.js"></script>
-
 <script src="/js/home.js"></script>
 </html>

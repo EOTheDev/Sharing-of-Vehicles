@@ -165,6 +165,17 @@
                                                 </select>
                                             </div>
                                             <div class="casellaForm">
+                                                <h3>Colore:</h3>
+                                                <select  class="form-select" name="colore" id="alimentazione" required>
+                                                    <option value="">-</option>
+                                                    <option value="#BBDEF0" style="background-color: #BBDEF0;">Azzurro</option>
+                                                    <option value="#">Diesel</option>
+                                                    <option value="#">Ibrida</option>
+                                                    <option value="#">Elettrica</option>
+                                                    <option value="#">Human power</option>
+                                                </select>
+                                            </div>
+                                            <div class="casellaForm">
                                                 <h3>Posizione:</h3>
                                                 <input type="text" class="form-control" name="indirizzo" id="posizione" placeholder="Indirizzo" required>
                                             </div>
@@ -311,7 +322,7 @@
                         <td><span style="max-height: 4rem;" th:text="${veicolo.descrizione}"id="descrizione">Bici rossa raggiante, il mezzo più sostenibile che ci sia</span></td>
                         <td><span th:text="${veicolo.indirizzo}"id="posizione">via del Campo, 19, Torino</span></td>
                         <td><span th:text="${veicolo.immagine}"id="urlImmagine">questa immagine.png</span></td>
-                        <td><img src="img/veicolo.jpg" th:src="@{${veicolo.immagine}}" alt="immagine del veicolo" srcset=""></td>
+                        <td><img src="img/veicolo.jpg"  th:attr="src=@{'/imgUpl/'+${veicolo.id}+'/'+${veicolo.immagine}}" alt="immagine del veicolo" srcset=""></td>
                         <td><span th:text="${veicolo.prezzo}" id="tariffa">10</span> €/g</td>
                         <!-- <td><span id="incassoVeicolo">2500</span> €</td> -->
                         <td><span id="emissioniPercentuale" th:text="${veicolo.pesoCo2}">1</span> g/m3</td>
