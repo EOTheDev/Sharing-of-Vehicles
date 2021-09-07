@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Source+Code+Pro&display=swap');
+
 :root{
     --primaryDark:#ffffff;
     --edit:#77da64;
@@ -7,10 +9,17 @@
     --verdeGiallo:#9dc119;
     --light:#e7eecd;
     --sfumatino: rgba(255, 255, 255, 0.8);
+    --font-header: 'Source Code Pro', monospace;
+    --font-main:'Fira Sans', sans-serif;
 }
+body{
+    font-family: var(--font-main);
+}
+
 
 /* nav header */
 nav{
+    font-family:var(--font-header) ;
     background-color: var(--dark);
     color: var(--logoGreen);
 }

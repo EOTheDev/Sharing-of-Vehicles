@@ -121,7 +121,7 @@
                                                 <input type="hidden" name="emailAdmin" th:value="${utente.email}">
                                                 <button id="btn-ins-cli" class="btn edit"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
                                             </div>
-                                            <!-- </div> -->
+                                            
                                         </form>
                                     </div>
                                 </div>
@@ -281,15 +281,20 @@
                         <td><span id="emissioniPercentuale">0.9</span> g/m3</td> -->
                         <td>
                 
-                        <form action="/dashboard/update" method="post">
-                            <input type="hidden" name="emailAdmin" th:value="${utente.email}">
-                
-                            <input type="hidden" name="id" th:value="${user.id}">
-                
-                            <button class="btn edit" id="btnMod">
+                        
+                        <!-- refactor
+                        
+                            <form action="/dashboard/update" method="post">
+                                <input type="hidden" name="emailAdmin" th:value="${utente.email}">
+                    
+                                <input type="hidden" name="id" th:value="${user.id}">
+                    
+                            </form>
+                        
+                        -->
+                            <button class="btn edit editCliente" id="btnMod">
                                 <i class="fas fa-edit"></i>
                             </button>
-                            </form>
                 
                 
                             <form action="/dashboard/delete" method="post">
@@ -359,9 +364,9 @@
             </div>
         </div>
           
-        <!-- FORM AGGIUNTA VEICOLO -->
+        <!-- FORM UPDATE VEICOLO -->
         <div class="container-fluid formAgg" id="modificaContainerVeicoli">
-                <button class="btn btn-danger rounded-pill" id="closeTab" ><i class="fas fa-times"></i></button>
+                <button class="btn btn-danger close rounded-pill" id="closeTabVei" ><i class="fas fa-times"></i></button>
                 <form class="container" action="/dashboard/updVeicolo" method="post" enctype="multipart/form-data" id="formBody">
                     <h2>Modifica <span id="questoVeicolo"></span></h2>
                     <div class="row">
@@ -440,7 +445,47 @@
             </form>
         </div>
         <!-- fine upd veicolo -->
-
+        <!-- inizio UPD CLIENTE -->
+        <div class="container-fluid formAgg" id="modificaContainerClienti">
+            <button class="btn btn-danger rounded-pill close" id="closeTabCli" ><i class="fas fa-times"></i></button>
+            <form class="container" action="/dashboard/updateCliente"  method="post" id="formClienti">
+                <h2>Modifica <span id="questoCliente"></span></h2>
+                <div class="casellaForm">
+                    <h3>Username:</h3>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="username" required>
+                </div>
+                <div class="casellaForm">
+                    <h3>Email:</h3>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="email@email.ru" required>
+                </div>
+                <div class="casellaForm">
+                    <h3>Nome:</h3>
+                    <input type="text" class="form-control" name="nome" id="nome" placeholder="nome" required>
+                </div>
+                <div class="casellaForm">
+                    <h3>Cognome:</h3>
+                    <input type="text" class="form-control" name="cognome" id="cognome" placeholder="cognome" required>
+                </div>
+                <div class="casellaForm">
+                    <h3>Data di nascita:</h3>
+                    <input type="date" class="form-control" name="nascita" id="dateBirth" required>
+                </div>
+                <div class="casellaForm">
+                    <h3>Amministratore:</h3>
+                    <select class="form-select" id="tipo" name="tipo" required>
+                        <option value="B">No</option>
+                        <option value="A">Sì</option>
+                    </select>
+                </div>
+                <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
+                    <input type="hidden" name="id" id="idForm">
+                    <input type="hidden" name="utenteId" th:value="${utente.id}">
+                    <button id="btn-ins-cli" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
+                </div>
+                
+            </form>
+        </div>
+        <!-- fine upd cliente -->
 
 
 

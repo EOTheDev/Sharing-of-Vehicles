@@ -66,14 +66,8 @@ public ModelAndView errorDashboard(Model m) {
 
 @GetMapping("/dashboard/{id}")
 public ModelAndView enterByUtente(Model m, @PathVariable("id") int id) {
-	
-		System.out.println("sono in get");
-			m.addAttribute("listaUtenti", us.findAllUsers());
-			m.addAttribute("veicoli" , vs.findAllVeicoli());
-			m.addAttribute("prenotazioni", ps.findAllPrenotazione());	
-			m.addAttribute("utente", us.findUserById(id));
-
-	return new ModelAndView("dashboard");
+	Utente utente= us.findUserById(id);
+	return enterDashboard(m, utente.getEmail());
 }
 
 
@@ -156,44 +150,40 @@ public ModelAndView insertCliente(Model m,
 
 
 @PostMapping("/dashboard/delete")
-public ModelAndView deleteCliente(
+public String deleteCliente(
 		@RequestParam int id,
 		@RequestParam String emailAdmin,
 		Model m) {
-	
-	System.out.println("sono in delete");
-	
+
 	us.deleteUserById(id);
-	
-	m.addAttribute("utenti",us.findAllUsers());
-	
-	return this.enterDashboard(m, emailAdmin);
+	return "redirect:/dashboard/"+us.findUserByEmail(emailAdmin).getId();
 	
 }
 
 
-@PostMapping("/dashboard/update")
-	public ModelAndView updateCliente(Model m,
-			@RequestParam int id,
-			@RequestParam String emailAdmin
+@PostMapping("/dashboard/updateCliente")
+	public String updateCliente(Model m,
+	@RequestParam int id,
+	@RequestParam String username,
+	@RequestParam String email,
+	@RequestParam String nome,
+	@RequestParam String cognome,
+	@RequestParam String nascita,
+	@RequestParam String tipo,
+	@RequestParam int utenteId
 			) {
 		
 		Utente utente = us.findUserById(id);
+
+		utente.setUsername(username);
+		utente.setEmail(email);
+		utente.setNome(nome);
+		utente.setCognome(cognome);
+		utente.setNascita(nascita);
+		utente.setTipo(tipo);
+		us.addUser(utente);
 		
-		
-	
-//		Utente u = new Utente();
-//		u.setUsername(username);
-//		u.setEmail(email);
-//		u.setNome(nome);
-//		u.setCognome(cognome);
-//		u.setNascita(nascita);
-//		u.setTipo(tipo);
-		
-		
-//		us.addUser(u);
-		
-		return this.enterDashboard(m, emailAdmin);
+		return "redirect:/dashboard/"+utenteId;
 		
 		
 

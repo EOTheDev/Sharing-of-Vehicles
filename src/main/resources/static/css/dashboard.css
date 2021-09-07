@@ -62,8 +62,10 @@ body.container-fluid{
     overflow: visible;
     transform: translate(-50%, -50%);
 }
-#closeTab{
+.close{
     position: absolute;
     left: 80vw;
     top: -2vh;
 }
+
+
