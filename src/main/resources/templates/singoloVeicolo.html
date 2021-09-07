@@ -135,12 +135,19 @@
     console.log(urlData)
     var arrayURL=urlData.split("/");
     console.log(arrayURL)
-    if(arrayURL.length>=7){
-        var arrayURLperData=arrayURL[6].split("data=");
+    if (utente==null){
+        var arrayURLperData=arrayURL[5].split("data=");
         dataURL=arrayURLperData[1];
         console.log(dataURL);
         aggiornoCalendarioHTML(dataURL);
-    
+    } else{
+        if(arrayURL.length>=7){
+            var arrayURLperData=arrayURL[6].split("data=");
+            dataURL=arrayURLperData[1];
+            console.log(dataURL);
+            aggiornoCalendarioHTML(dataURL);
+        
+        }
     }
     /*continua poi su calendar.js*/
 

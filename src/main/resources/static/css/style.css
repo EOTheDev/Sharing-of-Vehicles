@@ -10,6 +10,7 @@ body{
 }
 main{
     position: relative;
+    height: 101vh;
 }
 
 .Loginbox{

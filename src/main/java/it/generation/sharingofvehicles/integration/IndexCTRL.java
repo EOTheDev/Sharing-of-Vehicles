@@ -259,9 +259,65 @@ public String addVeicolo(Model m,
 			return "redirect:/dashboard/"+veicoloSalvato.getUtenteId().getId(); 
 	
 	
+			
+		}
+		@PostMapping("/dashboard/updVeicolo")
+		public String updVeicolo(Model m,
+				Veicolo veicolo,
+				@RequestParam("imgUpl") MultipartFile multipartFile,
+				@RequestParam("utenteId") int utenteId
+				) {
+		
+					Veicolo veicoloNuovo=vs.findVeicoloById(veicolo.getId());
+					veicoloNuovo.setTipologia(veicolo.getTipologia());
+					veicoloNuovo.setAlimentazione(veicolo.getAlimentazione());
+					veicoloNuovo.setModello(veicolo.getModello());
+					veicoloNuovo.setColore(veicolo.getColore());
+					veicoloNuovo.setDescrizione(veicolo.getDescrizione());
+					veicoloNuovo.setImmagine(veicolo.getImmagine());
+					veicoloNuovo.setIndirizzo(veicolo.getIndirizzo());
+					veicoloNuovo.setLatitudine( 12
+						//per ora vuoto veicolo.getLatitudine()
+						);
+					veicoloNuovo.setLongitudine( 12
+						//per ora vuoto veicolo.getLatitudine()
+						);
+					veicoloNuovo.setPrezzo(veicolo.getPrezzo());
+					veicoloNuovo.setRuote(veicolo.getRuote());
+					veicoloNuovo.setPesoCo2(veicolo.getPesoCo2());
+					//non aggiorniamo l'utente creatore
 
-}
+				
+					if(multipartFile == null || multipartFile.isEmpty()) {
+						//salvo senza img
+						veicolo = vs.addVeicolo(veicoloNuovo);
+					} else {
+						//salvo con img
+						veicolo = vs.addVeicolo(veicoloNuovo, multipartFile);			
+					}
+					
+					
+					//5
+					//redirectAttributes.addFlashAttribute("utente", veicoloSalvato.getUtenteId());
+					
+					return "redirect:/dashboard/"+utenteId; 
+			
+			
+					
+				}
 
 
 
-}
+		@PostMapping("/dashboard/removeVeicolo")
+		public String removeVeicolo(Model m,
+				@RequestParam("veicoloId") int id,
+				@RequestParam("utenteId") int utenteId
+
+				){
+					vs.deleteVeicoloById(id);
+
+					return "redirect:/dashboard/"+utenteId; 	
+				}
+		
+		
+		}

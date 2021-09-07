@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Utente {
 
 
+	//@JsonIgnore non si può mettere se no non va
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

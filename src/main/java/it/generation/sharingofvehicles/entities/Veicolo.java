@@ -75,24 +75,24 @@ public class Veicolo {
 	
 	
 	
-	private double calcolaCO2(String tipologia2, String alimentazione2) {
-		switch (tipologia2) {
-		case "bici":
-			switch (alimentazione2) {
-			case "elettrica":
+	private double calcolaCO2() {
+		switch (tipologia) {
+		case "Bici":
+			switch (alimentazione) {
+			case "Elettrica":
 				return 0.95;
 			default:
 				return 1.00;
 			} 
 			
 			
-		case "monopattino":
+		case "Monopattino":
 			return 0.95;
 			
 			
-		case "scooter":
-			switch (alimentazione2) {
-			case "elettrica":
+		case "Scooter":
+			switch (alimentazione) {
+			case "Elettrica":
 				return 0.90;
 				
 			default:
@@ -101,11 +101,11 @@ public class Veicolo {
 			
 			
 		default: //auto
-			switch (alimentazione2) {
-			case "ibrida":
+			switch (alimentazione) {
+			case "Ibrida":
 				return 0.4;
 				
-			case "elettrica":
+			case "Elettrica":
 				return 0.6;
 			default:
 				return 0;
@@ -129,9 +129,9 @@ public class Veicolo {
     }
 	
 	
-	private int calcolaRuote(String tipologia2) {
+	private int calcolaRuote() {
 		//se auto return 4
-		if (tipologia2.equalsIgnoreCase("auto")){
+		if (tipologia.equalsIgnoreCase("Auto")){
 			return 4;
 		} else { //bici, scooter, monopattino
 			return 2;
@@ -145,12 +145,7 @@ public class Veicolo {
 		return ruote;
 	}
 	public void setRuote(int ruote) {
-		
-		if (tipologia.equalsIgnoreCase("auto")){
-			this.ruote = 4;
-		} else { //bici, scooter, monopattino
-			this.ruote = 2;
-		}
+		ruote =	calcolaRuote();
 		
 	}
 	public String getTipologia() {
@@ -176,8 +171,6 @@ public class Veicolo {
 		return immagine;
 	}
 
-
-
 	public void setImmagine(String immagine) {
 		
 		this.immagine = immagine;
@@ -185,12 +178,6 @@ public class Veicolo {
 
 
 
-	public double getPesoCO2() {
-		return pesoCo2;
-	}
-	public void setPesoCO2(double pesoCO2) {
-		this.pesoCo2 = pesoCO2;
-	}
 	public double getPrezzo() {
 		return prezzo;
 	}
@@ -205,7 +192,7 @@ public class Veicolo {
 
 
 	public void setPesoCo2(double pesoCo2) {
-		this.pesoCo2 = pesoCo2;
+		this.pesoCo2 = calcolaCO2();
 	}
 
 

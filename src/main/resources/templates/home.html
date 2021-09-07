@@ -275,11 +275,11 @@ for (const veicolo of veicoliGrafici) {
 
 function checkAlimentazione(ali=""){
 switch (ali) {
-    case "human power":
+    case "Human power":
         return 100;
-    case "elettrica":
+    case "Elettrica":
         return 75;
-    case "ibrida":
+    case "Ibrida":
         return 66;
 
     default:
@@ -297,13 +297,14 @@ var newGraph = new Chart(graficoVeicoli, {
         'g/m 3 di CO2 risparmati',
         'prezzo',
         'alimentazione',
+        'passeggeri'
         ],
         datasets: [
     [# th:each="veicolo : ${veicoli}"]
     {
       
       label: [[${veicolo.modello}]] ,
-      data: [ [[${veicolo.pesoCo2}]]*100, [[${veicolo.prezzo}]], checkAlimentazione([[${veicolo.alimentazione}]])],
+      data: [ [[${veicolo.pesoCo2}]]*100, [[${veicolo.prezzo}]], checkAlimentazione([[${veicolo.alimentazione}]]), [[${veicolo.ruote}]]*10 ],
       
       
       

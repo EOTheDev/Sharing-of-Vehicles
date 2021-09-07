@@ -139,58 +139,70 @@
                                     <div id="collapseInsVei" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#tableContainer">
                                         <!-- FORM AGGIUNTA VEICOLO -->
                                         <form class="accordion-body accBody" action="/dashboard/addVeicolo" method="post" enctype="multipart/form-data" id="formBody">
-                                            <div class="casellaForm">
-                                                <h3>Nome veicolo:</h3>
-                                                <input type="text" class="form-control" name="modello" id="username" placeholder="Modello" required>
-                                            </div>
-                                            <div class="casellaForm">
-                                                <h3>Tipo veicolo:</h3>
-                                                <select  class="form-select" name="tipologia" id="tipoVeicolo" required>
-                                                    <option value="">-</option>
-                                                    <option value="Auto">Automobile</option>
-                                                    <option value="Monopattino">Monopattino</option>
-                                                    <option value="Moto">Moto</option>
-                                                    <option value="Bici">Bicicletta</option>
-                                                </select>
-                                            </div>
-                                            <div class="casellaForm">
-                                                <h3>Alimentazione:</h3>
-                                                <select  class="form-select" name="alimentazione" id="alimentazione" required>
-                                                    <option value="">-</option>
-                                                    <option value="Benzina">Benzina</option>
-                                                    <option value="Diesel">Diesel</option>
-                                                    <option value="Ibrida">Ibrida</option>
-                                                    <option value="Elettrica">Elettrica</option>
-                                                    <option value="Human power">Human power</option>
-                                                </select>
-                                            </div>
-                                            <div class="casellaForm">
-                                                <h3>Colore:</h3>
-                                                <select  class="form-select" name="colore" id="alimentazione" required>
-                                                    <option value="">-</option>
-                                                    <option value="#BBDEF0" style="background-color: #BBDEF0;">Azzurro</option>
-                                                    <option value="#">Diesel</option>
-                                                    <option value="#">Ibrida</option>
-                                                    <option value="#">Elettrica</option>
-                                                    <option value="#">Human power</option>
-                                                </select>
-                                            </div>
-                                            <div class="casellaForm">
-                                                <h3>Posizione:</h3>
-                                                <input type="text" class="form-control" name="indirizzo" id="posizione" placeholder="Indirizzo" required>
-                                            </div>
-                                            <div class="casellaForm">
-                                                <h3>Prezzo:</h3>
-                                                <input type="text" class="form-control" name="prezzo" id="prezzo" placeholder="€uro" required>
-                                            </div>
-                                            <!-- <div class="casellaForm"> -->
-                                                <div class="casellaForm">
-                                                    <input type="file" class="form-control" name="imgUpl" accept="image/png" id="customFile">
+                                            <div class="row">
+                                                <div class="col casellaForm">
+                                                    <h3>Nome veicolo:</h3>
+                                                    <input type="text" class="form-control" name="modello" id="username" placeholder="Modello" required>
                                                 </div>
-                                            <!-- </div> -->
-                                            <div class="casellaForm" style="padding: 0.5rem 0 0 0;">
-                                                <input type="hidden" name="utenteId" th:value="${utente.id}">
-                                                <button id="btn-ins-vei" class="btn edit"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
+                                                <div class="col casellaForm">
+                                                    <h3>Tipo veicolo:</h3>
+                                                    <select  class="form-select" name="tipologia" id="tipoVeicolo" required>
+                                                        <option value="">-</option>
+                                                        <option value="Auto">Automobile</option>
+                                                        <option value="Monopattino">Monopattino</option>
+                                                        <option value="Moto">Moto</option>
+                                                        <option value="Bici">Bicicletta</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col casellaForm">
+                                                    <h3>Alimentazione:</h3>
+                                                    <select  class="form-select" name="alimentazione" id="alimentazione" required>
+                                                        <option value="">-</option>
+                                                        <option value="Benzina">Benzina</option>
+                                                        <option value="Diesel">Diesel</option>
+                                                        <option value="Ibrida">Ibrida</option>
+                                                        <option value="Elettrica">Elettrica</option>
+                                                        <option value="Human power">Human power</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col casellaForm">
+                                                    <h3>Colore:</h3>
+                                                    <select  class="form-select" name="colore" id="alimentazione" required>
+                                                        <option value="">-</option>
+                                                        <option value="#BBDEF0" style="background-color: #BBDEF0;">Grigio</option>
+                                                        <option value="#F2ABA6" style="background-color: #F2ABA6;">Rosa</option>
+                                                        <option value="#ADFFFF" style="background-color: #ADFFFF;">Azzurro</option>
+                                                        <option value="#d22a1e" style="background-color: #d22a1e;">Rosso</option>
+                                                        <option value="#58dd1a" style="background-color: #58dd1a;">Verde</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col casellaForm">
+                                                    <h3>Posizione:</h3>
+                                                    <input type="text" class="form-control" name="indirizzo" id="posizione" placeholder="Indirizzo" required>
+                                                </div>
+                                                <div class="col casellaForm">
+                                                    <h3>Prezzo:</h3>
+                                                    <input type="text" class="form-control" name="prezzo" id="prezzo" placeholder="€uro" required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col casellaForm">
+                                                    <input style="margin: 0.5rem 0 0.5rem 0;" type="file" class="form-control" name="imgUpl" accept="image/png" id="customFile">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col casellaForm">
+                                                    <h3>Descrizione:</h3>
+                                                    <textarea class="form-control" rows="2" style="width: 100%; resize: none;" name="descrizione" id="descrizione" placeholder="Inserisci la tua descrizione" required></textarea>
+                                                </div>
+                                                <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
+                                                    <input type="hidden" name="utenteId" th:value="${utente.id}">
+                                                    <button id="btn-ins-vei" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
+                                                </div>
                                             </div>
                                             <!-- else sbagliato <i class="fas fa-times"></i> -->
                                         </div>
@@ -300,40 +312,138 @@
                     <h3>I tuoi veicoli
                     </h3>
                     <tr>
-                        <!--<th>id</th>  -->
+                        <th>id</th> 
                         <th>Tipo veicolo</th>
                         <th>Modello</th>
                         <th>Alimentazione</th>
+                        <th>Colore</th>
                         <th>Descrizione</th>
                         <th>Ultima posizione</th>
-                        <th>Url Immagine</th>
+                        <th>Nome Immagine</th>
                         <th>Immagine</th>
                         <th>Tariffa</th>
                         <!-- <th>Incasso Totale</th> -->
                         <th>E/R per viaggio</th>
-                        <th>Noleggiatore preferito</th>
+                        <th>Admin Creatore</th>
                         <th>Interagisci</th>
                     </tr>
                     <tr th:each="veicolo:${veicoli}">
-                        <!-- <td><span th:text="${veicolo.id}" id="idVeicolo">15</span></td> -->
+                        <td><span th:text="${veicolo.id}" id="idVeicolo">15</span></td>
                         <td><span th:text="${veicolo.tipologia}" id="tipologia">Bici</span></td>
                         <td><span th:text="${veicolo.modello}" id="modello">Bella</span></td>
                         <td><span th:text="${veicolo.alimentazione}" id="alimentazione">Human Power</span></td>
+                        <td><span th:text="${veicolo.colore}" id="colore"></span></td>
                         <td><span style="max-height: 4rem;" th:text="${veicolo.descrizione}"id="descrizione">Bici rossa raggiante, il mezzo più sostenibile che ci sia</span></td>
                         <td><span th:text="${veicolo.indirizzo}"id="posizione">via del Campo, 19, Torino</span></td>
                         <td><span th:text="${veicolo.immagine}"id="urlImmagine">questa immagine.png</span></td>
                         <td><img src="img/veicolo.jpg"  th:attr="src=@{'/imgUpl/'+${veicolo.id}+'/'+${veicolo.immagine}}" alt="immagine del veicolo" srcset=""></td>
-                        <td><span th:text="${veicolo.prezzo}" id="tariffa">10</span> €/g</td>
+                        <td><span th:text="${veicolo.prezzo}" id="tariffa">10</span> €</td>
                         <!-- <td><span id="incassoVeicolo">2500</span> €</td> -->
                         <td><span id="emissioniPercentuale" th:text="${veicolo.pesoCo2}">1</span> g/m3</td>
-                        <td><span th:text="${veicolo.utenteId.username}" id="totEmissioni">25</span> g/m3</td>
-                        <td><button class="btn edit"><i class="fas fa-edit"></i></button> </i><button class="btn delete"><i class="fas fa-trash"></i></button></i></td>
+                        <td><span th:text="${veicolo.utenteId.username}" id="totEmissioni">25</span></td>
+                        <td>
+                            <button class="btn edit editVeicolo">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <form action="/dashboard/removeVeicolo/" method="post">
+                                <input type="hidden" name="utenteId" th:value="${utente.id}">
+                                <input type="hidden" name="veicoloId" th:value="${veicolo.id}">
+                                <button class="btn delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 
                 </table>
             </div>
         </div>
           
+        <!-- FORM AGGIUNTA VEICOLO -->
+        <div class="container-fluid formAgg" id="modificaContainerVeicoli">
+                <button class="btn btn-danger rounded-pill" id="closeTab" ><i class="fas fa-times"></i></button>
+                <form class="container" action="/dashboard/updVeicolo" method="post" enctype="multipart/form-data" id="formBody">
+                    <h2>Modifica <span id="questoVeicolo"></span></h2>
+                    <div class="row">
+                        <div class="col casellaForm">
+                            <h3>Nome veicolo:</h3>
+                            <input type="text" class="form-control" name="modello" id="modelloForm" placeholder="Modello" required>
+                        </div>
+                        <div class="col casellaForm">
+                            <h3>Tipo veicolo:</h3>
+                            <select  class="form-select" name="tipologia" id="tipoVeicoloForm" required>
+                                <option value="">-</option>
+                                <option value="Auto">Automobile</option>
+                                <option value="Monopattino">Monopattino</option>
+                                <option value="Moto">Moto</option>
+                                <option value="Bici">Bicicletta</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col casellaForm">
+                            <h3>Alimentazione:</h3>
+                            <select  class="form-select" name="alimentazione" id="alimentazioneForm" required>
+                                <option value="">-</option>
+                                <option value="Benzina">Benzina</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="Ibrida">Ibrida</option>
+                                <option value="Elettrica">Elettrica</option>
+                                <option value="Human power">Human power</option>
+                            </select>
+                        </div>
+                        <div class="col casellaForm">
+                            <h3>Colore:</h3>
+                            <select  class="form-select" name="colore" id="coloreForm" required>
+                                <option value="">-</option>
+                                <option value="#BBDEF0" style="background-color: #BBDEF0;">Grigio</option>
+                                <option value="#F2ABA6" style="background-color: #F2ABA6;">Rosa</option>
+                                <option value="#ADFFFF" style="background-color: #ADFFFF;">Azzurro</option>
+                                <option value="#d22a1e" style="background-color: #d22a1e;">Rosso</option>
+                                <option value="#58dd1a" style="background-color: #58dd1a;">Verde</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col casellaForm">
+                            <h3>Posizione:</h3>
+                            <input type="text" class="form-control" name="indirizzo" id="indirizzoForm" placeholder="Indirizzo" required>
+                        </div>
+                        <div class="col casellaForm">
+                            <h3>Prezzo:</h3>
+                            <input type="text" class="form-control" name="prezzo" id="prezzoForm" placeholder="€uro" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col casellaForm">
+                            <h3>Immagine:</h3>
+                            <div>
+                                Immagine precedente: 
+                                <span id="percorsoImmagineForm"></span>
+                            </div>
+                            <input style="margin: 0.5rem 0 0.5rem 0;" type="file" class="form-control" name="imgUpl" accept="image/png" id="customFile">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col casellaForm">
+                            <h3>Descrizione:</h3>
+                            <textarea class="form-control" rows="2" style="width: 100%; resize: none;" name="descrizione" id="descrizioneForm" placeholder="Inserisci la tua descrizione" required></textarea>
+                        </div>
+                        <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
+                            <input type="hidden" name="id" id="idForm">
+                            <input type="hidden" name="utenteId" th:value="${utente.id}">
+                            <button id="btn-ins-vei" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
+                        </div>
+                    </div>
+                    <!-- else sbagliato <i class="fas fa-times"></i> -->
+                </div>
+            </form>
+        </div>
+        <!-- fine upd veicolo -->
+
+
+
+
 
     </main>
     <footer class="footer" id="footerContainer"></footer>
@@ -347,5 +457,6 @@
     </script>
     <!-- aggiungo la navigazione -->
     <script src="/js/nav.js"></script>
+    <script src="/js/dashboard.js"></script>
 </body>
 </html>
