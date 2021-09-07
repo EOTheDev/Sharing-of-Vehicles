@@ -68,16 +68,16 @@
 
                 <a th:case="null" href="/login"><button class="btn btn-success rounded-pill" type="button" id="noleggia">Iscriviti</button></a>
                 <!-- form di prenotazione -->
-                <form th:case="*" action="addPrenotazione" id="formNoleggio">
-                    <button class="btn btn-success rounded-pill" type="button" id="noleggia">Noleggia</button>
-                    <input type="hidden" name="giorno">
-                    <input type="hidden" name="mese">
-                    <input type="hidden" name="anno">
+                <form th:case="*" action="/booking" method="POST" id="formNoleggio">
+                    <button class="btn btn-success rounded-pill" type="submit" id="noleggia">Noleggia</button>
+                    <input type="hidden" name="giorno" id="giornoForm">
+                    <input type="hidden" name="mese" id="meseForm">
+                    <input type="hidden" name="anno" id="annoForm">
                     <input type="hidden" name="idUtente" id="idUtente" th:value="${utente.id}">
                     <input type="hidden" name="idVeicolo" id="idVeicolo" th:value="${veicolo.id}">                   
                 </form>
                 <a href="/"><button class="btn btn-danger rounded-pill" type="button">Annulla</button></a>
-                
+            
             </div>
         </div>
 
