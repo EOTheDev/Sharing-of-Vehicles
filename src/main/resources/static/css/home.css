@@ -82,6 +82,17 @@ td, th{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-style: italic;
 }
+@media (min-width:576px) {
+    
+    #mese,#anno{
+        font-size: 4vw;
+    
+    }
+    #giorno{
+        font-size: 10vw;
+    }
+}
+
 #mese,#anno{
     font-size: 10vw;
 
