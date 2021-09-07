@@ -1,14 +1,19 @@
 package it.generation.sharingofvehicles.service;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import antlr.StringUtils;
 import it.generation.sharingofvehicles.dal.PrenotazioneDAO;
 import it.generation.sharingofvehicles.dal.VeicoloDAO;
 import it.generation.sharingofvehicles.entities.Veicolo;
+import it.generation.sharingofvehicles.config.*;
+import it.generation.sharingofvehicles.util.*;
 
 @Service
 public class VeicoloServiceImpl implements VeicoloService {
@@ -75,6 +80,40 @@ public class VeicoloServiceImpl implements VeicoloService {
 			veicoli=repo.findAll();
 		}
 		return veicoli;
+	}
+
+	@Override
+	public Veicolo addVeicolo(Veicolo veicolo, MultipartFile multipartFile) {
+		// 1) nome del file o immagine
+		 // 2) setto nome del file prima di salvare il veicolo
+		 // 3) salvo il veicolo
+		 // 4) genero il percorso della cartella dove salvare l'immagine
+		 // 5) classe utility con metodo statico che salva il file
+		 // 6) restituisco il veicolo salvato
+		
+		//1
+		//String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+		String fileName = CustomProperties.defaultImgName;
+		
+		//2
+		veicolo.setImmagine(fileName);
+		
+		//3
+		Veicolo veicoloSalvato = repo.save(veicolo);
+
+		//4
+		String uploadDir = CustomProperties.basepath + "/" + veicoloSalvato.getId();
+		 
+        try {
+        	//5
+			FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        
+
+        //6
+		return veicoloSalvato;
 	}
 
 }

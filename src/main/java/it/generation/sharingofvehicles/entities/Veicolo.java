@@ -1,5 +1,4 @@
 package it.generation.sharingofvehicles.entities;
-
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -12,7 +11,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
+import it.generation.sharingofvehicles.config.CustomProperties;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -39,7 +40,7 @@ public class Veicolo {
 	protected double prezzo;
 	protected int ruote;
 	//Admin che ha creato il veicolo
-	protected String colore;
+	protected String colore = "#f2e5r4";
 	
 //	@OneToMany(mappedBy = "viaggio", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	
@@ -111,6 +112,21 @@ public class Veicolo {
 			}
 		}
 	}
+	
+	@Transient // non viene salvata su database
+    public String getPhotosImagePath() {
+
+		// 1) percorso immagine di default se non è stata caricata
+		// 2) percorso immagine caricata
+
+		if (immagine == null || immagine.equals("")) {
+        	//1
+        	return "/" + CustomProperties.defaultImg;        	
+        }
+
+        //2
+        return "/" + CustomProperties.basepath + "/" + id + "/" + immagine;
+    }
 	
 	
 	private int calcolaRuote(String tipologia2) {

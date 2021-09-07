@@ -82,24 +82,23 @@ td, th{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-style: italic;
 }
-@media (min-width:576px) {
-    
-    #mese,#anno{
-        font-size: 4vw;
-    
-    }
-    #giorno{
-        font-size: 10vw;
-    }
-}
-
 #mese,#anno{
-    font-size: 10vw;
+    font-size: 4rem;
 
 }
 #giorno{
-    font-size: 20vw;
+    font-size: 10rem;
 }
+@media (max-width: 1100px) {
+    
+    #mese,#anno{
+        font-size: 8vw;
+    }
+    #giorno{
+        font-size: 20vw;
+    }
+}
+
 /* FINE CALENDARIO */
 .elencoVeicoli{
     box-sizing: border-box;

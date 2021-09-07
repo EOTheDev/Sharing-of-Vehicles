@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import it.generation.sharingofvehicles.entities.Utente;
+import it.generation.sharingofvehicles.entities.Veicolo;
 import it.generation.sharingofvehicles.service.PrenotazioneService;
 import it.generation.sharingofvehicles.service.UtenteService;
 import it.generation.sharingofvehicles.service.VeicoloService;
@@ -60,6 +63,18 @@ public ModelAndView errorDashboard(Model m) {
 }
 
 
+
+@GetMapping("/dashboard/{id}")
+public ModelAndView enterByUtente(Model m, @PathVariable("id") int id) {
+	
+		System.out.println("sono in get");
+			m.addAttribute("listaUtenti", us.findAllUsers());
+			m.addAttribute("veicoli" , vs.findAllVeicoli());
+			m.addAttribute("prenotazioni", ps.findAllPrenotazione());	
+			m.addAttribute("utente", us.findUserById(id));
+
+	return new ModelAndView("dashboard");
+}
 
 
 
@@ -216,5 +231,37 @@ public ModelAndView insertUser(Model m,
 	
 
 }
+
+
+@PostMapping("/dashboard/addVeicolo")
+public String addVeicolo(Model m,
+		Veicolo veicolo,
+		@RequestParam("imgUpl") MultipartFile multipartFile
+		//,
+		//RedirectAttributes redirectAttributes
+		) {
+
+			Veicolo veicoloSalvato = new Veicolo(); // vuoto
+		
+			//2
+			if(multipartFile == null || multipartFile.isEmpty()) {
+				//3
+				veicoloSalvato = vs.addVeicolo(veicolo);
+				
+			}else {
+				//4
+				veicoloSalvato = vs.addVeicolo(veicolo, multipartFile);			
+			}
+			
+			//5
+			//redirectAttributes.addFlashAttribute("utente", veicoloSalvato.getUtenteId());
+			
+			return "redirect:/dashboard/"+veicoloSalvato.getUtenteId().getId(); 
+	
+	
+
+}
+
+
 
 }

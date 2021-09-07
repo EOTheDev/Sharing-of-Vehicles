@@ -3,6 +3,8 @@ package it.generation.sharingofvehicles.service;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import it.generation.sharingofvehicles.entities.Veicolo;
 
 public interface VeicoloService {
@@ -16,6 +18,7 @@ public interface VeicoloService {
 	void deleteVeicoloById(int id);
 	List<Veicolo> findVeicoloByRuote(int ruote);
 	Veicolo updVeicolo(Veicolo v);
+    Veicolo addVeicolo(Veicolo veicolo, MultipartFile multipartFile);
 	
 	
 	
