@@ -193,132 +193,132 @@
                 
         <div class="container" id="tableContainer">
             
-        </div>
-        <div class="table-responsive">
-            <table class="table table-striped" id="prenotazioni">
-                <h3>Le tue prenotazioni</h3>
-                <tr>
-                    <th>Referente</th>
-                    <th>Numero prenotazione</th>
-                    <th>Veicolo</th>
-                    <th>Risparmio in CO2</th>
-                    <th>Data</th>
-                    <th>Tariffa</th>
-                    <th>Interagisci</th>
-                </tr>
-                <tr th:each="prenotazione:${prenotazioni}">
-                    <td><span id="nome" th:text="${prenotazione.utenteId.nome}">Mario</span> <span id="cognome" th:text="${prenotazione.utenteId.cognome}">Rossi</span></td>
-                    <td><span id="idPrenotazione"  th:text="${prenotazione.id}">X1A14B33</span></td>
-                    <td><span id="veicolo" th:text="${prenotazione.veicoloId.modello}">Bici</span></td>
-                    <td><span id="pesoCO2" th:text="${prenotazione.veicoloId.pesoCo2}">0.8</span> g/m3</td>
-                    <td><span id="giorno" th:text="${prenotazione.dataPrenotazione}">3</span></td>
-                    <td><span id="tariffa" th:text="${prenotazione.veicoloId.prezzo}">10</span> €</td>
-                    <td><button class="btn edit"><i class="fas fa-edit"></i></button> </i><button class="btn delete"><i class="fas fa-trash"></i></button></i></td>
-                </tr>
-            </table>
-        </div>
-
-
-
-
-       <!--TABELLA CLIENTI -->
-
-        <div class="table-responsive">
-            <table class="table table-striped" id="clienti">
-                <h3>I tuoi clienti
-                </h3>
-                <tr>
-                    <th>id
-            </th>
-                    <th>username</th>
-                    <th>Ruolo</th>
-                    <th>Nome</th>
-                    <th>Cognome</th>
-                    <th>Email</th>
-                    <th>Data di Nascita</th>
-                    <th>Data di iscrizione</th>
-                    <!-- <th>Soldi spesi</th>
-                    <th>Emissioni totali</th>
-                    <th>Emissioni in percentuale</th> 
-                -->
-                    <th>Interagisci</th> 
-                </tr>
-                <tr th:each="user:${listaUtenti}">
-                    <td><span th:text="${user.id}" id="id">elDiablo23</span></td>
-                    <td><span th:text="${user.username}" id="username">elDiablo23</span></td>
-                    <td><span th:text="${user.tipo}" id="ruolo">elDiablo23</span></td>
-                    <td><span th:text="${user.cognome}" id="cognome">Rossi</span></td>
-                    <td><span th:text="${user.nome}" id="nome">Mario</span></td>
-                    <td><span th:text="${user.email}" id="email">mariorossi@email.ru</span></td>
-                    <td><span th:text="${user.nascita}" id="dataNascita">19</span></td>
-                    <td><span th:text="${user.dataIscrizione}"id="iscrizione">16/12/2020</span></td>
-                    <!--TODO <td><span id="totSpesaUtente">235,05</span> €</td>
-                    <td><span id="totEmissioni">210</span> g/m3</td>
-                    <td><span id="emissioniPercentuale">0.9</span> g/m3</td> -->
-                    <td>
+            <div class="table-responsive">
+                <table class="table table-striped" id="prenotazioni">
+                    <h3>Le tue prenotazioni</h3>
+                    <tr>
+                        <th>Referente</th>
+                        <th>Numero prenotazione</th>
+                        <th>Veicolo</th>
+                        <th>Risparmio in CO2</th>
+                        <th>Data</th>
+                        <th>Tariffa</th>
+                        <th>Interagisci</th>
+                    </tr>
+                    <tr th:each="prenotazione:${prenotazioni}">
+                        <td><span id="nome" th:text="${prenotazione.utenteId.nome}">Mario</span> <span id="cognome" th:text="${prenotazione.utenteId.cognome}">Rossi</span></td>
+                        <td><span id="idPrenotazione"  th:text="${prenotazione.id}">X1A14B33</span></td>
+                        <td><span id="veicolo" th:text="${prenotazione.veicoloId.modello}">Bici</span></td>
+                        <td><span id="pesoCO2" th:text="${prenotazione.veicoloId.pesoCo2}">0.8</span> g/m3</td>
+                        <td><span id="giorno" th:text="${prenotazione.dataPrenotazione}">3</span></td>
+                        <td><span id="tariffa" th:text="${prenotazione.veicoloId.prezzo}">10</span> €</td>
+                        <td><button class="btn edit"><i class="fas fa-edit"></i></button> </i><button class="btn delete"><i class="fas fa-trash"></i></button></i></td>
+                    </tr>
+                </table>
+            </div>
+    
+    
+    
+    
+           <!--TABELLA CLIENTI -->
+    
+            <div class="table-responsive">
+                <table class="table table-striped" id="clienti">
+                    <h3>I tuoi clienti
+                    </h3>
+                    <tr>
+                        <th>id
+                </th>
+                        <th>username</th>
+                        <th>Ruolo</th>
+                        <th>Nome</th>
+                        <th>Cognome</th>
+                        <th>Email</th>
+                        <th>Data di Nascita</th>
+                        <th>Data di iscrizione</th>
+                        <!-- <th>Soldi spesi</th>
+                        <th>Emissioni totali</th>
+                        <th>Emissioni in percentuale</th> 
+                    -->
+                        <th>Interagisci</th> 
+                    </tr>
+                    <tr th:each="user:${listaUtenti}">
+                        <td><span th:text="${user.id}" id="id">elDiablo23</span></td>
+                        <td><span th:text="${user.username}" id="username">elDiablo23</span></td>
+                        <td><span th:text="${user.tipo}" id="ruolo">elDiablo23</span></td>
+                        <td><span th:text="${user.cognome}" id="cognome">Rossi</span></td>
+                        <td><span th:text="${user.nome}" id="nome">Mario</span></td>
+                        <td><span th:text="${user.email}" id="email">mariorossi@email.ru</span></td>
+                        <td><span th:text="${user.nascita}" id="dataNascita">19</span></td>
+                        <td><span th:text="${user.dataIscrizione}"id="iscrizione">16/12/2020</span></td>
+                        <!--TODO <td><span id="totSpesaUtente">235,05</span> €</td>
+                        <td><span id="totEmissioni">210</span> g/m3</td>
+                        <td><span id="emissioniPercentuale">0.9</span> g/m3</td> -->
+                        <td>
+                
+                        <form action="/dashboard/update" method="post">
+                            <input type="hidden" name="emailAdmin" th:value="${utente.email}">
+                
+                            <input type="hidden" name="id" th:value="${user.id}">
+                
+                            <button class="btn edit" id="btnMod">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            </form>
+                
+                
+                            <form action="/dashboard/delete" method="post">
+                            <input type="hidden" name="emailAdmin" th:value="${utente.email}">
+                            <input type="hidden" name="id" th:value="${user.id}">
+                                        <button class="btn delete" >
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                            </form>
+                        </td>
+                    </tr>
+                
+                </table>
+            </div>
             
-                    <form action="/dashboard/update" method="post">
-                        <input type="hidden" name="emailAdmin" th:value="${utente.email}">
-            
-                        <input type="hidden" name="id" th:value="${user.id}">
-            
-                        <button class="btn edit" id="btnMod">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        </form>
-            
-            
-                        <form action="/dashboard/delete" method="post">
-                        <input type="hidden" name="emailAdmin" th:value="${utente.email}">
-                        <input type="hidden" name="id" th:value="${user.id}">
-                                    <button class="btn delete" >
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                        </form>
-                    </td>
-                </tr>
-            
-            </table>
-        </div>
-        
-
-
-        <div class="table-responsive">
-            <table class="table table-striped " id="veicoli">
-                <h3>I tuoi veicoli
-                </h3>
-                <tr>
-                    <!--<th>id</th>  -->
-                    <th>Tipo veicolo</th>
-                    <th>Modello</th>
-                    <th>Alimentazione</th>
-                    <th>Descrizione</th>
-                    <th>Ultima posizione</th>
-                    <th>Url Immagine</th>
-                    <th>Immagine</th>
-                    <th>Tariffa</th>
-                    <th>Incasso Totale</th>
-                    <th>E/R per viaggio</th>
-                    <th>E/R totali</th>
-                    <th>Interagisci</th>
-                </tr>
-                <tr th:each="veicolo:${veicoli}">
-                    <!-- <td><span th:text="${veicolo.id}" id="idVeicolo">15</span></td> -->
-                    <td><span th:text="${veicolo.tipologia}" id="tipologia">Bici</span></td>
-                    <td><span th:text="${veicolo.modello}" id="modello">Bella</span></td>
-                    <td><span th:text="${veicolo.alimentazione}" id="alimentazione">Human Power</span></td>
-                    <td><span th:text="${veicolo.descrizione}"id="descrizione">Bici rossa raggiante, il mezzo più sostenibile che ci sia</span></td>
-                    <td><span th:text="${veicolo.indirizzo}"id="posizione">via del Campo, 19, Torino</span></td>
-                    <td><span th:text="${veicolo.immagine}"id="urlImmagine">questa immagine.png</span></td>
-                    <td><img src="img/veicolo.jpg" th:src="@{${veicolo.immagine}}" alt="immagine del veicolo" srcset=""></td>
-                    <td><span th:text="${veicolo.prezzo}" id="tariffa">10</span> €/g</td>
-                    <td><span id="incassoVeicolo">2500</span> €</td>
-                    <td><span id="emissioniPercentuale">1</span> g/m3</td>
-                    <td><span th:text="${veicolo.utenteId.nome}" id="totEmissioni">25</span> g/m3</td>
-                    <td><button class="btn edit"><i class="fas fa-edit"></i></button> </i><button class="btn delete"><i class="fas fa-trash"></i></button></i></td>
-                </tr>
-            
-            </table>
+    <!--   TABELLA VEICOLI -->
+    
+            <div class="table-responsive" style="max-width: 95vw;">
+                <table class="table table-striped " id="veicoli">
+                    <h3>I tuoi veicoli
+                    </h3>
+                    <tr>
+                        <!--<th>id</th>  -->
+                        <th>Tipo veicolo</th>
+                        <th>Modello</th>
+                        <th>Alimentazione</th>
+                        <th>Descrizione</th>
+                        <th>Ultima posizione</th>
+                        <th>Url Immagine</th>
+                        <th>Immagine</th>
+                        <th>Tariffa</th>
+                        <!-- <th>Incasso Totale</th> -->
+                        <th>E/R per viaggio</th>
+                        <th>Noleggiatore preferito</th>
+                        <th>Interagisci</th>
+                    </tr>
+                    <tr th:each="veicolo:${veicoli}">
+                        <!-- <td><span th:text="${veicolo.id}" id="idVeicolo">15</span></td> -->
+                        <td><span th:text="${veicolo.tipologia}" id="tipologia">Bici</span></td>
+                        <td><span th:text="${veicolo.modello}" id="modello">Bella</span></td>
+                        <td><span th:text="${veicolo.alimentazione}" id="alimentazione">Human Power</span></td>
+                        <td><span style="max-height: 4rem;" th:text="${veicolo.descrizione}"id="descrizione">Bici rossa raggiante, il mezzo più sostenibile che ci sia</span></td>
+                        <td><span th:text="${veicolo.indirizzo}"id="posizione">via del Campo, 19, Torino</span></td>
+                        <td><span th:text="${veicolo.immagine}"id="urlImmagine">questa immagine.png</span></td>
+                        <td><img src="img/veicolo.jpg" th:src="@{${veicolo.immagine}}" alt="immagine del veicolo" srcset=""></td>
+                        <td><span th:text="${veicolo.prezzo}" id="tariffa">10</span> €/g</td>
+                        <!-- <td><span id="incassoVeicolo">2500</span> €</td> -->
+                        <td><span id="emissioniPercentuale" th:text="${veicolo.pesoCo2}">1</span> g/m3</td>
+                        <td><span th:text="${veicolo.utenteId.username}" id="totEmissioni">25</span> g/m3</td>
+                        <td><button class="btn edit"><i class="fas fa-edit"></i></button> </i><button class="btn delete"><i class="fas fa-trash"></i></button></i></td>
+                    </tr>
+                
+                </table>
+            </div>
         </div>
           
 
