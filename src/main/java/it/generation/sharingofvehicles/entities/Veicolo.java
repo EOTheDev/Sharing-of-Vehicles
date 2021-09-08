@@ -90,7 +90,7 @@ public class Veicolo {
 			return 0.95;
 			
 			
-		case "Scooter":
+		case "Moto":
 			switch (alimentazione) {
 			case "Elettrica":
 				return 0.90;

@@ -66,7 +66,7 @@ public class VeicoloServiceImpl implements VeicoloService {
 
 	@Override
 	public Veicolo updVeicolo(Veicolo v) {
-		// TODO Auto-generated method stub
+		
 		return repo.save(v);
 	}
 

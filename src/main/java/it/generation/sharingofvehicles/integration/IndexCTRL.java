@@ -264,7 +264,6 @@ public String addVeicolo(Model m,
 					veicoloNuovo.setModello(veicolo.getModello());
 					veicoloNuovo.setColore(veicolo.getColore());
 					veicoloNuovo.setDescrizione(veicolo.getDescrizione());
-					veicoloNuovo.setImmagine(veicolo.getImmagine());
 					veicoloNuovo.setIndirizzo(veicolo.getIndirizzo());
 					veicoloNuovo.setLatitudine( 12
 						//per ora vuoto veicolo.getLatitudine()
@@ -280,6 +279,7 @@ public String addVeicolo(Model m,
 				
 					if(multipartFile == null || multipartFile.isEmpty()) {
 						//salvo senza img
+						veicolo.setImmagine(veicoloNuovo.getImmagine());
 						veicolo = vs.addVeicolo(veicoloNuovo);
 					} else {
 						//salvo con img
