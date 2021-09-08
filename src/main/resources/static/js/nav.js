@@ -27,23 +27,25 @@ window.addEventListener('DOMContentLoaded', (event) => {
             /*creo i nuovi elementi*/
             var alogout= document.createElement("a");
             var aPrenotazioni= document.createElement("a");
-            var button= document.createElement("button");
+            var button= document.createElement("img");
             var aCont= document.createElement("div");
             /*setto le classi*/
-            loginContainer.setAttribute("class", "dropdown");
-            button.setAttribute("class", "col-12 btn btn-alert dropdown-toggle");
+            loginContainer.setAttribute("class", "col-lg-1 dropdown");
+            button.setAttribute("class", "col-12 btn btn-alert rounded-pill dropdown-toggle");
             button.setAttribute("id","dropdownMenuButton");
             button.setAttribute("data-toggle","dropdown");
             button.setAttribute("aria-haspopup","true");
             button.setAttribute("aria-expanded","false");
+            button.setAttribute("src","/imgs/avatar-wobg.png");
+            button.setAttribute("style", "padding:0 0.8rem; max-width: 150px;")
 
-            
             aCont.setAttribute("class", "dropdown-menu")
             aCont.setAttribute("aria-labelledby", "dropdownMenuButton")
             
             aPrenotazioni.setAttribute("class","dropdown-item");
             if (utente.tipo=="B") {
-                aPrenotazioni.setAttribute("href", "/utente/"+utente.id);
+                let urlData=new Date();
+                aPrenotazioni.setAttribute("href", "/booking/data="+urlData.toISOString().substring(0,10)+"/utente="+utente.id+"#nav-contact-tab");
                 aPrenotazioni.innerHTML="Prenotazioni";
             } else { //utente admin
                 aPrenotazioni.setAttribute("href", "/dashboard/"+utente.id);
@@ -62,10 +64,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
             aCont.appendChild(aPrenotazioni);
             loginContainer.appendChild(button);
             loginContainer.appendChild(aCont);
-            button.innerHTML="Ciao, "+utente.username;
-        
+
+            // button.innerHTML="Profilo";
+            // mantengo il login
+            if (utente.tipo=="B") {
+                let urlData=new Date();
+                $("#imgLogo").find("a").attr("href", "/booking/data="+urlData.toISOString().substring(0,10)+"/utente="+utente.id);
+                $("#nomeAzienda").find("a").attr("href", "/booking/data="+urlData.toISOString().substring(0,10)+"/utente="+utente.id);
+                
+            } else { //utente admin
+                $("#imgLogo").find("a").attr("href", "/dashboard/"+utente.id);
+                $("#nomeAzienda").find("a").attr("href", "/dashboard/"+utente.id);
+            }
             }   
 });
+
 
 
 

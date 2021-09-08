@@ -97,6 +97,7 @@ public ModelAndView enterDashboard(Model m,
 			// return "dashboard";
 		case "B":
 			m.addAttribute("utente", utente);
+			m.addAttribute("prenotazioni", ps.findPrenotazioneByUtenteId(utente.getId()));
 			// return "redirect:/";
 			return this.getIndex(m);
 			

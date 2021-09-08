@@ -28,11 +28,6 @@ $(".editVeicolo").on("click", function () {
 
 });
 
-
-
-
-
-
 /*CLIENTI*/
 // rimuovo il popup di modifica clienti
 $("#closeTabCli").on("click", function() {
@@ -60,17 +55,6 @@ $(".editCliente").on("click", function () {
     $("#modificaContainerClienti").attr("style", "display:block;");
 
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 

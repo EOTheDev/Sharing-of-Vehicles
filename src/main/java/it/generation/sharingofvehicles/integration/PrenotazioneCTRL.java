@@ -94,7 +94,7 @@ public class PrenotazioneCTRL {
 
 		m.addAttribute("veicoli", veicoli );
 		m.addAttribute("utente", acquirente);
-		
+		m.addAttribute("prenotazioni", ps.findPrenotazioneByUtenteId(acquirente.getId()));
 		return new ModelAndView("home");
 	}
 	
