@@ -30,9 +30,10 @@ td, th{
         color: var(--dark);
     }
 #loginBtn:hover{
-    background-color: var(--logoGreen);
-    border-color: var(--light);
+    background-color: var(--light);
+    border-color: var(--logoGreen);
     color: var(--dark);
+    cursor:context-menu;
 }
 
 /* Calendario NON TOCCARE, VI TRANCIO LE MANI */
@@ -147,3 +148,5 @@ td, th{
         order: 0;
     }
 }
+
+

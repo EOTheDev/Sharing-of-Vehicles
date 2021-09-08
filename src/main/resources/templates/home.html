@@ -46,7 +46,7 @@
                     <span id="anno">2021</span>
                 </div>
                 <i class="fas fa-leaf" style="font-size: 4rem; color:#9dc119;padding: 1rem 0;"></i>
-                <a th:switch="${utente}" style="padding: 1rem 0;" href="/login">
+                <a th:switch="${utente}" style="padding: 1rem 0;">
                     <button th:case="null" class="btn btn-primary" id="loginBtn">Fai il login per noleggiare!</button>
                     <button th:case="*" class="btn btn-primary" id="loginBtn">Grazie, [[${utente.nome}]], per inquinare meno!</button>
                 </a>
