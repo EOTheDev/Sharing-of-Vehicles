@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Set 03, 2021 alle 16:05
+-- Creato il: Set 09, 2021 alle 01:45
 -- Versione del server: 10.4.19-MariaDB
 -- Versione PHP: 8.0.6
 
@@ -39,8 +39,15 @@ CREATE TABLE `prenotazioni` (
 --
 
 INSERT INTO `prenotazioni` (`utente_id`, `veicolo_id`, `data_prenotazione`, `id`) VALUES
-(1, 1, '2021-07-12 22:00:00', 1),
-(1, 1, '2021-07-30 08:14:09', 2);
+(1, 27, '2021-09-07 14:34:33', 1),
+(1, 31, '2021-09-07 14:34:41', 2),
+(18, 30, '2021-09-07 14:34:45', 4),
+(18, 27, '2021-09-07 14:34:49', 14),
+(18, 31, '2021-09-07 14:34:51', 15),
+(18, 30, '2021-09-07 14:34:54', 16),
+(18, 27, '2021-09-07 14:34:56', 17),
+(18, 31, '2021-09-07 14:35:00', 18),
+(18, 1, '2021-09-09 22:00:00', 19);
 
 -- --------------------------------------------------------
 
@@ -66,12 +73,11 @@ CREATE TABLE `utenti` (
 --
 
 INSERT INTO `utenti` (`id`, `username`, `password`, `firma`, `tipo`, `nome`, `cognome`, `nascita`, `email`, `data_iscrizione`) VALUES
-(1, 'Admin', 'Amministratore', 'Amministratore dei servizi', 'A', 'Paolino', 'Paperino', '20/08/1900', 'paolino.paperino@paperopoli.com ', '2005-12-31 22:00:00'),
-(2, 'User', 'UtenteRegistrato1', 'Utente con diritti minimi', 'B', 'Mauro', 'Pierini01', '20/08/1987', 'Mauro.Pierini@paperopoli.com ', '2021-07-28 05:35:17'),
+(1, 'Admin', 'Amministratore', 'Amministratore dei servizi', 'A', 'Paolino', 'Paperino', '1975-08-20', 'paolino.paperino@paperopoli.com ', '2005-12-31 22:00:00'),
+(2, 'User', 'UtenteRegistrato1', 'Utente con diritti minimi', 'B', 'Mauro', 'Pierini', '1987-04-12', 'Mauro.Pierini@paperopoli.com', '2021-07-27 22:00:00'),
 (4, 'leonardo.porta', 'ciao15', 'Cliente dal null', 'A', 'Edoardo', 'Orta', '2021-07-17', 'edoardo.orta.17@gmail.com', '2021-07-30 12:31:32'),
 (18, 'romavictrix', 'roma', 'Cliente dal null', 'B', 'Edoardo', 'Orta', '2021-06-08', 'edo17maggio@gmail.com', '2021-08-10 22:00:00'),
 (21, 'app_generation', 'ciao15', 'Cliente dal null', 'B', 'Edoardo', 'Orta', '2021-09-30', 'edo17maggio@yahoo.it', '2021-09-01 22:00:00'),
-(25, 'jahah', 'Eleutheria', 'Cliente dal null', 'B', 'Edoardo', 'Orta', '2021-09-17', 'edo17maggio@riss-re.fr', '2021-09-01 22:00:00'),
 (26, 'CascinaMarcella', 'pizzapazza', 'Cliente dal null', 'B', 'Cascina', 'Marcella', '2021-09-28', 'cascinamarcellanoreply@gmail.com', '2021-09-02 22:00:00');
 
 -- --------------------------------------------------------
@@ -85,7 +91,7 @@ CREATE TABLE `veicoli` (
   `ruote` tinyint(50) DEFAULT NULL,
   `tipologia` varchar(50) DEFAULT NULL,
   `modello` varchar(50) DEFAULT NULL,
-  `descrizione` varchar(225) DEFAULT NULL,
+  `descrizione` varchar(2000) DEFAULT NULL,
   `alimentazione` varchar(50) DEFAULT NULL,
   `indirizzo` varchar(200) DEFAULT NULL,
   `latitudine` decimal(10,7) NOT NULL,
@@ -102,11 +108,13 @@ CREATE TABLE `veicoli` (
 --
 
 INSERT INTO `veicoli` (`id`, `ruote`, `tipologia`, `modello`, `descrizione`, `alimentazione`, `indirizzo`, `latitudine`, `longitudine`, `immagine`, `peso_co2`, `prezzo`, `utente_id`, `colore`) VALUES
-(0, 2, 'auto', 'Fiat Panda', 'L\'auto più bella del mondo, raggiante e sfuggente', 'benzina', 'Corso G. Ferraris', '136.2566000', '69.2225600', '/imgs/lamborghini.png', '0.00', '20.00', 1, '#BBDEF0'),
-(1, 4, 'auto', 'BMW I8', 'L\'auto più bella del mondo, raggiante e sfuggente', 'elettrica', 'Via del Campo, Torino', '8.2060080', '44.8991380', '/imgs/BMWI8.png', '0.40', '150.00', 1, '#F2ABA6'),
-(2, 2, 'bici', 'BMX 360 Power', 'La bici più spettacolare di sempre, che ti permette di fare i migliori trick', 'Human Power', 'Via Zaia, Venezia', '15.6455200', '23.6654800', '/imgs/bmx.png', '1.00', '15.00', 2, '#ADFFFF'),
-(5, 0, 'bici', 'stampelle power 2000', 'le stampelle più belle del mondo', 'human power', 'Via Domodossola', '15.6665000', '125.6548000', '/imgs/stampelle.png', '1.00', '0.50', 1, '#d22a1e'),
-(20, 2, 'monopattino', 'Kinky Segway 500', 'The fastest ever built scooter, it will take you and your doggo to the moon', 'elettrica', 'Corso Roboante, 56, Vittorio Veneto', '64.5888121', '12.3654568', '/imgs/segway.png', '0.95', '35.59', 4, '#FBD99D');
+(1, 4, 'Auto', 'BMW I8', 'L\'auto più bella del mondo, raggiante e sfuggente', 'Elettrica', 'Via del Campo, Torino', '12.0000000', '12.0000000', 'veicolo.png', '0.60', '150.00', 1, '#F2ABA6'),
+(26, 0, 'Auto', 'Fiat Panda', 'Vettura a 5 porte di piccole dimensioni, perfetta per spostamenti agevoli in citta e per trovare parcheggio. Inoltre nonostante utilizzi benzina e diesel consuma sempre in misura minore rispetto ad altre vetture di dimensioni maggiore.', 'Benzina', 'Corso G. Ferraris', '12.0000000', '12.0000000', 'veicolo.png', '0.00', '200.00', 4, '#BBDEF0'),
+(27, 0, 'Bici', 'Stampelle Power 2000', 'Autonomia dettata dalla costituzione fisica dell\'utilizzatore, per la stabilità dei quadrupedi mantenendo comunque una postura eretta; Miglior mezzo da utilizzare camminando, oltre che ottima arma di difesa.', 'Human power', 'Via Domodossola, Novara', '12.0000000', '12.0000000', 'veicolo.png', '1.00', '0.60', 4, '#F2ABA6'),
+(28, 0, 'Monopattino', 'Kinky Segway 500', 'Sistema elettrico: MIKMOTOR con centralina 25A con sistema di raffreddamento. Telaio: lega di alluminio 6061 con verniciatura di alta qualità. Forcella: regolabile a 2 funzioni, in alluminio MOZO. Impianto frenante: tektro auriga idraulico.', 'Elettrica', 'Corso Roboante, 56, Vittorio Veneto', '12.0000000', '12.0000000', 'veicolo.png', '0.95', '10.50', 4, '#ADFFFF'),
+(30, 0, 'Bici', 'BMX 360 Power', ' Al freno elettrico anteriore si affianca un comodo freno a disco posteriore, per arrestare la corsa in tutta sicurezza.\r\nPerfetta per una continua interazione fra giovani.', 'Human power', 'Via Zaia, Venezia', '12.0000000', '12.0000000', 'veicolo.png', '1.00', '15.99', 4, '#d22a1e'),
+(31, 0, 'Auto', 'Nissan Leaf', 'La prima concept car ad implementare un motore elettrico. Non poteva mancare nel nostro repertorio. Solo qualità.', 'Elettrica', 'Ka Ri To, 659 Nagasaki', '12.0000000', '12.0000000', 'veicolo.png', '0.60', '90.00', 4, '#ADFFFF'),
+(34, 0, 'Moto', 'RGNT Scrambler', 'ELECTRIC TORQUE. TIMELESS DESIGN.\r\nOra la tua coscienza può essere pulita come la tua corsa. Un\'ode al design delle classic; fatta in Svezia per gli individualisti urbani.', 'Elettrica', 'Kungsbacka, 135 Svezia', '12.0000000', '12.0000000', 'veicolo.png', '0.90', '79.95', 4, '#BBDEF0');
 
 --
 -- Indici per le tabelle scaricate
@@ -144,19 +152,19 @@ ALTER TABLE `veicoli`
 -- AUTO_INCREMENT per la tabella `prenotazioni`
 --
 ALTER TABLE `prenotazioni`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT per la tabella `utenti`
 --
 ALTER TABLE `utenti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT per la tabella `veicoli`
 --
 ALTER TABLE `veicoli`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Limiti per le tabelle scaricate
