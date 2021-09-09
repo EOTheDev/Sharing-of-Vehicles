@@ -132,6 +132,14 @@ td, th{
 .graphicMaster{
     margin-top: 3rem;
 }
+/* carosello responsive */
+#carouselExampleIndicators{
+    
+    display: block;
+}
+#carouselCell{
+    display: none;
+}
 /* grafici su cell in ordine diverso */
 @media (max-width: 576px) {
     .graphicMaster:nth-child(odd) .sinistraGrafico{
@@ -147,6 +155,14 @@ td, th{
     .graphicMaster:nth-child(even) .sinistraGrafico{
         order: 0;
     }
-}
-
+    /* carosello responsive */
+    #carouselExampleIndicators{
+        
+        display: none;
+    }
+    #carouselCell{
+        display: block;
+    }
+    
+}   
 

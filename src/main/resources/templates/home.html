@@ -65,6 +65,40 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
+             <!-- carosello bootstrap -->
+             <div id="carouselCell" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" style="position: relative;">
+                        <img class="d-block w-100" src="/imgs/caroselloCell1.jpg" alt="First slide">
+                        <div class="carousel-caption" style="position: absolute; height: 100%; background-color: #3b3a3cd4; top:0rem; color:var(--logoGreen); display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                            <img src="/imgs/logo_white_large.png" style="max-width: 150px;  padding-bottom: 1rem;" alt="">
+                            <h2 style="font-size: 5vw; padding-bottom: 1rem;">PERCHÉ GUIDARE UN'AUTO ELETTRICA?</h2>
+                            <p style="font-size: 3vw;">Vantaggi tecnologici, ecologici, sociali, economici, più il brivido di un'accelerazione fluida e istantanea. E non solo.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="/imgs/caroselloCell0.jpg" alt="Second slide">
+                        <div class="carousel-caption" style="background-color: #3b3a3cd4;">
+                            <h2 style="font-size: 5vw;padding-bottom: 0.3rem;">AVVENTURA SENZA LIMITI</h2>
+                            <p style="font-size: 3vw;">Per chi desidera spingere l'elettrico in territori inesplorati, la RGNT Scrambler è senz'altro l'invincibile paladino. Non si tratta solo di una moto elettrica sempre pronta per l'avventura ma è anche la più capace del pianeta. Esplorate nuove strade in sella alla moto ma senza tutto il frastuono.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="/imgs/caroselloCell2.jpg" alt="Third slide">
+                        <div class="carousel-caption" style="position: absolute; height: 100%; background-color: #3b3a3cd4; top:0rem; color:var(--logoGreen); display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                            <img src="/imgs/logo_white_large.png" style="width: 200px">
+                        </div>
+
+                    </div>
+                    
+                </div>
+                
+            </div>
         <nav>
             <div class="nav nav-tabs" th:switch="${utente}" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Prenota</a>
