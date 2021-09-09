@@ -26,7 +26,7 @@
         <div class="Loginbox">
             <img src="imgs/avatar.png" class="Avatar">
             <h1>Prenotazione confermata!</h1>
-            <form action="/" method="get" id="formlogin">
+            <form th:attr="action=@{'/booking/data='+${prenotazione.dataPrenotazione}+'/utente='+${utente.id}}" method="get" id="formlogin">
                 <div >Prenotazione Numero: <span th:text="${prenotazione.id}"></span></div>
                 <div >Data: <span th:text="${prenotazione.dataPrenotazione}"></span></div>
                 <div >Username: <span th:text="${utente.username}"></span></div>

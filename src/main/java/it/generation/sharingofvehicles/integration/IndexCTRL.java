@@ -221,8 +221,46 @@ public String updClienteHome(Model m,
 	
 
 }
+@PostMapping("/dashboard/updatePrenotazione")
+	public String updatePrenotazione(Model m,
+	@RequestParam int id,
+	@RequestParam String email,
+	@RequestParam String dataPrenotazione,
+	@RequestParam int utenteId
+			) {
+		
+		Prenotazione pren = ps.findPrenotazioneById(id);
 
+		pren.setUtenteId(us.findUserByEmail(email));
+		pren.setVeicoloId(vs.findVeicoloById(id));
+		
+		// prendo la data come stringa e la trasformo in un array di int per creare la data
+		int[] data= new int[3];
+		String[] dataStrArr=dataPrenotazione.split("-");
+		for (int i = 0; i < data.length; i++) {
+			data[i]= Integer.parseInt(dataStrArr[i]);
+		
+		}
+		pren.setDataPrenotazione(LocalDate.of(data[0], data[1], data[2]));
+		
+		ps.addPrenotazione(pren);
+		return "redirect:/dashboard/"+utenteId;
+		
+		
 
+}
+@PostMapping("/dashboard/removePrenotazione")
+		public String removePrenotazione(Model m,
+				@RequestParam("prenotazioneId") int id,
+				@RequestParam("utenteId") int utenteId
+
+				){
+					ps.deletePrenotazioneById(id);
+
+					return "redirect:/dashboard/"+utenteId; 	
+				}
+		
+		
 
 
 

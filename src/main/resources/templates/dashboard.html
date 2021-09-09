@@ -244,7 +244,18 @@
                         <td><span id="pesoCO2" th:text="${prenotazione.veicoloId.pesoCo2}">0.8</span> g/m3</td>
                         <td><span id="giorno" th:text="${prenotazione.dataPrenotazione}">3</span></td>
                         <td><span id="tariffa" th:text="${prenotazione.veicoloId.prezzo}">10</span> €</td>
-                        <td><button class="btn edit"><i class="fas fa-edit"></i></button> </i><button class="btn delete" onclick="deleteReservation(1)"><i class="fas fa-trash"></i></button></i></td>
+                        <td>
+                            <button class="btn edit editPrenotazione">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <form action="/dashboard/removePrenotazione" method="POST">
+                                <input type="hidden" name="utenteId" th:value="${utente.id}">
+                                <input type="hidden" name="prenotazioneId" th:value="${prenotazione.id}">
+                                            <button class="btn delete" >
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                            </form>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -283,22 +294,8 @@
                         <td><span th:text="${user.email}" id="email">mariorossi@email.ru</span></td>
                         <td><span th:text="${user.nascita}" id="dataNascita">19</span></td>
                         <td><span th:text="${user.dataIscrizione}"id="iscrizione">16/12/2020</span></td>
-                        <!--TODO <td><span id="totSpesaUtente">235,05</span> €</td>
-                        <td><span id="totEmissioni">210</span> g/m3</td>
-                        <td><span id="emissioniPercentuale">0.9</span> g/m3</td> -->
                         <td>
-                
-                        
-                        <!-- refactor
-                        
-                            <form action="/dashboard/update" method="post">
-                                <input type="hidden" name="emailAdmin" th:value="${utente.email}">
-                    
-                                <input type="hidden" name="id" th:value="${user.id}">
-                    
-                            </form>
-                        
-                        -->
+                                      
                             <button class="btn edit editCliente" id="btnMod">
                                 <i class="fas fa-edit"></i>
                             </button>
@@ -334,7 +331,6 @@
                         <th>Nome Immagine</th>
                         <th>Immagine</th>
                         <th>Tariffa</th>
-                        <!-- <th>Incasso Totale</th> -->
                         <th>E/R per viaggio</th>
                         <th>Admin Creatore</th>
                         <th>Interagisci</th>
@@ -350,7 +346,6 @@
                         <td><span th:text="${veicolo.immagine}"id="urlImmagine">questa immagine.png</span></td>
                         <td><img src="img/veicolo.jpg"  th:attr="src=@{'/imgUpl/'+${veicolo.id}+'/'+${veicolo.immagine}}" alt="immagine del veicolo" srcset=""></td>
                         <td><span th:text="${veicolo.prezzo}" id="tariffa">10</span> €</td>
-                        <!-- <td><span id="incassoVeicolo">2500</span> €</td> -->
                         <td><span id="emissioniPercentuale" th:text="${veicolo.pesoCo2}">1</span> g/m3</td>
                         <td><span th:text="${veicolo.utenteId.username}" id="totEmissioni">25</span></td>
                         <td>
@@ -370,7 +365,42 @@
                 </table>
             </div>
         </div>
-          
+        
+        <!-- inizio UPD prenotazione-->
+        <div class="container-fluid formAgg" id="modificaContainerPrenotazioni">
+            <button class="btn btn-danger rounded-pill close" id="closeTabPre" ><i class="fas fa-times"></i></button>
+            <form class="container" action="/dashboard/updatePrenotazione"  method="post" id="formPrenotazioni">
+                <h2>Modifica <span id="questaPrenotazione"></span></h2>
+                <div class="casellaForm">
+                    <h3>Cliente, email:</h3>
+                    <select class="form-select" id="utenteId" name="email" required>
+                        <option th:each="utente: ${listaUtenti}" th:value="${utente.email}">[[${utente.nome}]] [[${utente.cognome}]], [[${utente.email}]]</option>
+                        
+                    </select>
+                </div>
+                <div class="casellaForm">
+                    <h3>Data prenotazione:</h3>
+                    <input type="date" class="form-control" name="dataPrenotazione" id="dataPrenotazione" required>
+                </div>
+                <div class="casellaForm">
+                    <h3>Veicolo:</h3>
+                    <select class="form-select" id="veicoloId" name="veicoloId" required>
+                        <option th:each="veicolo: ${veicoli}" th:value="${veicolo.id}">[[${veicolo.modello}]]</option>
+                        
+                    </select>
+                </div>
+                <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
+                    <input type="hidden" name="utenteId" th:value="${utente.id}">
+                    <input type="hidden" name="id" id="idForm">
+
+                    <button id="btn-ins-pre" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
+                </div>
+                
+            </form>
+        </div>
+        <!-- fine upd prenotazione -->
+
+
         <!-- FORM UPDATE VEICOLO -->
         <div class="container-fluid formAgg" id="modificaContainerVeicoli">
                 <button class="btn btn-danger close rounded-pill" id="closeTabVei" ><i class="fas fa-times"></i></button>
