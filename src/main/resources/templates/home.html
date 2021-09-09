@@ -227,6 +227,7 @@
                         
                     </div>
                     <!-- fine grafico 1 -->
+                    
                     <div class="row graphicMaster">
                         <div class="col"></div>
                         <div class="col-lg-4">
@@ -263,7 +264,7 @@
                                         <h4>Username: <span id="username" th:text="*{username}"></span></h4>
                                         <h4>Nome: <span id="nome" th:text="*{nome}"></span></h4>
                                         <h4>Cognome: <span id="cognome" th:text="*{cognome}"></span></h4>
-                                        <h4>Data di Nascita: <span id="dataNascita" th:text="*{nascita}"></span></h3>
+                                        <h4>Data di Nascita: <span id="dataNascita" th:text="*{nascita}"></span></h4>
                                     </div>
                                     <div class="col">
                                         <h4>Data di Iscrizione: <span th:text="*{dataIscrizione}"></span></h4>
@@ -288,21 +289,17 @@
                                 <div th:case="*">
                                     <div class="row"  >
                                         <div class="col-md-4 singolaPrenotazione" th:each="pren: ${prenotazioni}" style="padding-bottom: 1rem;"> 
-                                            <h4>Numero prenotazione: <span style="font-weight: 600;" th:text="${pren.id}"></span></h4>
+                                            <h4>Numero prenotazione: <span id="idPrenotazione" style="font-weight: 600;" th:text="${pren.id}"></span></h4>
                                             <h4>Veicolo: <span style="font-weight: 600;" th:text="${pren.veicoloId.modello}"></span></h4>
-                                            <h4>Data: <span style="font-weight: 600;" th:text="${pren.dataPrenotazione}"></span></h4>
+                                            <h4>Data: <span id="day" style="font-weight: 600;" th:text="${pren.dataPrenotazione}"></span></h4>
                                             <h4>Prezzo: <span style="font-weight: 600;" th:text="${pren.veicoloId.prezzo}"></span>€</h4>
                                              <button class="btn edit editPrenotazione"><i class="fas fa-edit"></i></button>
 				                            <form action="/dashboard/removePrenotazione" method="POST">
 				                                <input type="hidden" name="utenteId" th:value="${utente.id}">
 				                                <input type="hidden" name="prenotazioneId" th:value="${pren.id}">
-				                                            <button class="btn delete" >
-				                                                <i class="fas fa-trash"></i>
-				                                            </button>
+												<button class="btn delete"><i class="fas fa-trash"></i></button>
 				                            </form>
-                                            
-											<!-- <button class="btn edit editPrenotazione"><i class="fas fa-edit"></i></button>
-                           					<button class="btn delete" ><i class="fas fa-trash"></i></button> -->
+                        
                                         </div>
                                 </div>
                                 </div>
@@ -310,7 +307,36 @@
                         </div>
                     </div>
                 </div>
-            </div>
+           <!-- UPDATE PRENOTAZIONI -->
+	     <div class="container-fluid formAgg" th:switch="${utente}" id="modificaContainerPrenotazioni">
+	     <div th:case="null">non fare nulla</div>
+	     <div th:case="*"> 
+	            <button class="btn btn-danger rounded-pill close" id="closeTabPre" ><i class="fas fa-times"></i></button>
+	            <form class="container" action="/updatePrenotazione" method="post" id="formPrenotazioni">
+	                <h2>Modifica <span id="questaPrenotazione"></span></h2>
+	                <div class="casellaForm">
+	                        <!--passare nome/email utente  -->
+	                </div>
+	                <div class="casellaForm">
+	                    <h3>Data prenotazione:</h3>
+	                    <input type="date" class="form-control" name="dataPrenotazione" id="dataPrenotazione" required>
+	                </div>
+	                <div class="casellaForm">
+	                    <h3>Veicolo:</h3>
+	                    <select class="form-select" id="veicoloId" name="veicoloId" required>
+	                         <option th:each="veicolo: ${veicoli}" th:value="${veicolo.id}">[[${veicolo.modello}]]</option> 	                         
+	                    </select>
+	                </div>
+	                <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
+	            		<input type="hidden" name="utenteId" th:value="${utente.id}">
+	                    <input type="hidden" name="id" id="idForm"> 
+	                    <button id="btn-ins-pre" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
+	                </div>
+	                
+	            </form>
+		 </div>
+		 </div>
+		 <!--FINE UPD PRENOTAZIONI-->
      
             <!-- UPDATE CLIENTE -->
             <!-- inizio UPD CLIENTE -->
@@ -343,7 +369,7 @@
                 
                     <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
                         <input type="hidden" name="tipo" id="tipo" value="B" th:value="B">
-                       <!--  <input type="hidden" name="id" id="idForm" th:value="${utente.id}"> -->
+                       
                         <input type="hidden" name="utenteId" th:value="${utente.id}">
                         <button id="btn-ins-cli" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
                     </div>

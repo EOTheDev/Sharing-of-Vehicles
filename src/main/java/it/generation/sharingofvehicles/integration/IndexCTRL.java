@@ -40,6 +40,7 @@ public class IndexCTRL {
 public ModelAndView getIndex(Model m) {
 	
 	m.addAttribute("veicoli",vs.findAllVeicoli());
+	m.addAttribute("listaUtenti", us.findAllUsers());
 	
 	return  new ModelAndView("home");
 }
@@ -246,8 +247,6 @@ public String updClienteHome(Model m,
 	
 	return "redirect:/dashboard/"+utenteId;
 	
-	
-
 }
 
 @PostMapping("/dashboard/aggiungiPrenotazione")
@@ -303,6 +302,32 @@ public String updClienteHome(Model m,
 		ps.addPrenotazione(pren);
 		return "redirect:/dashboard/"+utenteId;
 
+}
+@PostMapping("/updatePrenotazione")
+public String updPrenotazione(Model m,
+		@RequestParam int id,
+		@RequestParam int veicoloId,
+		@RequestParam String dataPrenotazione,
+		@RequestParam int utenteId
+		) {
+	
+	Prenotazione pren = ps.findPrenotazioneById(id);
+	
+	pren.setUtenteId(us.findUserById(utenteId));
+	pren.setVeicoloId(vs.findVeicoloById(veicoloId));
+	
+	// prendo la data come stringa e la trasformo in un array di int per creare la data
+	int[] data= new int[3];
+	String[] dataStrArr=dataPrenotazione.split("-");
+	for (int i = 0; i < data.length; i++) {
+		data[i]= Integer.parseInt(dataStrArr[i]);
+		
+	}
+	pren.setDataPrenotazione(LocalDate.of(data[0], data[1], data[2]));
+	
+	ps.addPrenotazione(pren);
+	return "redirect:/dashboard/"+utenteId;
+	
 }
 
 
@@ -363,8 +388,8 @@ public String addVeicolo(Model m,
 		) {
 			
 			Veicolo veicoloSalvato = new Veicolo(); // vuoto
-			veicoloSalvato.setLatitudine(45.062943674698175);
-			veicoloSalvato.setLongitudine(7.679208331070612);
+			veicoloSalvato.setLatitudine(45.0629436);
+			veicoloSalvato.setLongitudine(7.6792083);
 		
 			//2
 			if(multipartFile == null || multipartFile.isEmpty()) {
