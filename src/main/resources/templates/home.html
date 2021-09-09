@@ -89,12 +89,12 @@
                             <div id="dateCalendar">
                                 <!-- <button class="btn btn-primary"><i class="fas fa-arrow-left"></i></button> -->
                                 <span id="giorno">
-                                    23
+                                    10
                                 </span>
                                 
                                 <!-- <button class="btn btn-primary"><i class="fas fa-arrow-right"></i></button> -->
                             </div>
-                            <span id="mese">Aprile</span><br>
+                            <span id="mese">Settembre</span><br>
                             <span id="anno">2021</span>
                         </div>
                         <i class="fas fa-leaf" style="font-size: 4rem; color:#9dc119;padding: 1rem 0;"></i>
@@ -275,7 +275,7 @@
             <div th:case="null">ciao</div>
             <div th:case="*" class="container-fluid">
                 <button class="btn btn-danger rounded-pill close" id="closeTabCli" ><i class="fas fa-times"></i></button>
-                <form class="container" action="/dashboard/updateCliente"  method="post" id="formClienti">
+                <form class="container" action="/updCliente"  method="post" id="formClienti">
                     <h2>Modifica <span id="questoCliente"></span></h2>
                     <div class="casellaForm">
                         <h3>Username:</h3>
@@ -299,8 +299,8 @@
                     </div>
                 
                     <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
-                        <input type="hidden" name="tipo" id="tipo" value="B">
-                        <input type="hidden" name="id" id="idForm">
+                        <input type="hidden" name="tipo" id="tipo" value="B" th:value="B">
+                       <!--  <input type="hidden" name="id" id="idForm" th:value="${utente.id}"> -->
                         <input type="hidden" name="utenteId" th:value="${utente.id}">
                         <button id="btn-ins-cli" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
                     </div>

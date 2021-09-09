@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import it.generation.sharingofvehicles.entities.Prenotazione;
 import it.generation.sharingofvehicles.entities.Utente;
 import it.generation.sharingofvehicles.entities.Veicolo;
 import it.generation.sharingofvehicles.service.PrenotazioneService;
@@ -51,6 +52,11 @@ public ModelAndView getIndex(Model m) {
 @GetMapping("login")
 public ModelAndView login(Model m) {
 	return new ModelAndView("login");
+}
+
+@GetMapping("/registrazione")
+public ModelAndView registrazione(Model m) {
+	return new ModelAndView("registrazione");
 }
 
 
@@ -189,6 +195,32 @@ public String deleteCliente(
 		
 
 }
+@PostMapping("/updCliente")
+public String updClienteHome(Model m,
+@RequestParam String username,
+@RequestParam String email,
+@RequestParam String nome,
+@RequestParam String cognome,
+@RequestParam String nascita,
+//@RequestParam String tipo,
+@RequestParam int utenteId
+		) {
+	
+	Utente utente = us.findUserById(utenteId);
+
+	utente.setUsername(username);
+	utente.setEmail(email);
+	utente.setNome(nome);
+	utente.setCognome(cognome);
+	utente.setNascita(nascita);
+	utente.setTipo("B");
+	us.addUser(utente);
+	
+	return "redirect:/dashboard/"+utenteId;
+	
+	
+
+}
 
 
 
@@ -311,6 +343,7 @@ public String addVeicolo(Model m,
 
 					return "redirect:/dashboard/"+utenteId; 	
 				}
+		
 		
 		
 		}

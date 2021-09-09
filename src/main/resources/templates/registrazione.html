@@ -30,18 +30,18 @@
             <h1>Registrazione</h1>
             <form id="formRegistrazione" action="insertUser" method="POST">
                 <p>Nome</p>
-                <input type="text" name="nome" placeholder="Nome">
+                <input type="text" name="nome" placeholder="Nome" required>
                 <p>Cognome</p>
-                <input type="text" name="cognome" placeholder="Cognome">
+                <input type="text" name="cognome" placeholder="Cognome" required>
                 <p>Data di nascita</p>
-                <input type="date" name="nascita">
+                <input type="date" name="nascita" required>
                 <p>Username</p>
-                <input type="text" name="username" placeholder="Scegli un Username">
+                <input type="text" name="username" placeholder="Scegli un Username" required>
                 <p>Email</p>
-                <input type="text" name="email" placeholder="Inserisci email">
+                <input type="text" name="email" placeholder="Inserisci email" required>
                 <p>Password</p>
-                <input type="password" name="password" placeholder="Crea password">
-                <input type="submit" name="" value="Registrati"><br>
+                <input type="password" name="password" placeholder="Crea password" required>
+                <input type="submit" value="Registrati"><br>
         
             </form>
         </div>
