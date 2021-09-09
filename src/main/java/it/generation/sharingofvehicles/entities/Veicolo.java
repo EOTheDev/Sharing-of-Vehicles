@@ -32,8 +32,8 @@ public class Veicolo {
 	protected String alimentazione;
 	protected String descrizione;
 	protected String indirizzo;
-	protected int latitudine;
-	protected int longitudine;
+	protected double latitudine;
+	protected double longitudine;
 	protected String immagine;
 	protected String modello;
 	protected double pesoCo2;
@@ -233,26 +233,26 @@ public class Veicolo {
 
 
 
-	public int getLatitudine() {
+	public double getLatitudine() {
 		return latitudine;
 	}
 
 
 
-	public void setLatitudine(int latitudine) {
+	public void setLatitudine(double latitudine) {
 		this.latitudine = latitudine;
 	}
 
 
 
-	public int getLongitudine() {
+	public double getLongitudine() {
 		return longitudine;
 	}
 
 
 
-	public void setLongitudine(int longitudine) {
-		this.longitudine = longitudine;
+	public void setLongitudine(double d) {
+		this.longitudine = d;
 	}
 
 	

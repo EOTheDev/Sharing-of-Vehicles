@@ -231,8 +231,10 @@ public String addVeicolo(Model m,
 		//,
 		//RedirectAttributes redirectAttributes
 		) {
-
+			
 			Veicolo veicoloSalvato = new Veicolo(); // vuoto
+			veicoloSalvato.setLatitudine(45.062943674698175);
+			veicoloSalvato.setLongitudine(7.679208331070612);
 		
 			//2
 			if(multipartFile == null || multipartFile.isEmpty()) {
