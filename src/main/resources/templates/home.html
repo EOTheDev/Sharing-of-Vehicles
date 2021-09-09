@@ -110,88 +110,89 @@
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                 <!-- tab home -->
-                <!-- inizio grafico -->
-                <!-- prenota veicolo -->
-                <div class="row">
-                    <!-- calendario -->
-                    <div class="col-lg-4 latoCalendario">
-                        <div id="calendar" >
-                            
-                            <div id="topCalendar">
-                                <input type="date" onblur="aggiornoDisponibilita()" id="dataPrenotazione">
-                            </div>
-                            <div id="dateCalendar">
-                                <!-- <button class="btn btn-primary"><i class="fas fa-arrow-left"></i></button> -->
-                                <span id="giorno">
-                                    10
-                                </span>
-                                
-                                <!-- <button class="btn btn-primary"><i class="fas fa-arrow-right"></i></button> -->
-                            </div>
-                            <span id="mese">Settembre</span><br>
-                            <span id="anno">2021</span>
-                        </div>
-                        <i class="fas fa-leaf" style="font-size: 4rem; color:#9dc119;padding: 1rem 0;"></i>
-                        <a th:switch="${utente}" style="padding: 1rem 0;">
-                            <button th:case="null" class="btn btn-primary" id="loginBtn">Fai il login per noleggiare!</button>
-                            <button th:case="*" class="btn btn-primary" id="loginBtn">Grazie, [[${utente.nome}]], per inquinare meno!</button>
-                        </a>
-                    </div>
-                    <!-- fine calendario -->
-                    <!-- inizio veicoli -->
-                    <div class="col-lg-8 elencoVeicoli">
-                        <h1>I veicoli disponibili</h1>
-                        <!-- singolo veicolo -->
-                        <div id="veicoliDisponibili" th:each="veicolo:${veicoli}">
-                            <div class="row singoloVeicolo">
-                                <div th:switch="${utente}"class="col-lg-2 side">
-                                    <img class="col-lg-12" src="https://www.you-go.it/wp-content/uploads/2020/11/volkswagen-id3-bianca-647x277.png" th:attr="src=@{'/imgUpl/'+${veicolo.id}+'/'+${veicolo.immagine}}"alt="" >
-                                    <a th:case="null" class="col-lg-12 linkVeicolo" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}}"><button class="col-12 btn edit">Iscriviti</button></a> 
-                                    <a th:case="*" class="col-lg-12 linkVeicolo" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}+'/'+${utente.id}}"><button class="col-12 btn edit">Prenota</button></a> 
-                                    
+                <div class="container-fluid">
+                    <!-- prenota veicolo -->
+                    <div class="row">
+                        <!-- calendario -->
+                        <div class="col-lg-4 latoCalendario">
+                            <div id="calendar" >
+                    
+                                <div id="topCalendar">
+                                    <input type="date" onblur="aggiornoDisponibilita()" id="dataPrenotazione">
                                 </div>
-                                <div class="col-lg-10 rightSide">
-                                    <h2 th:switch="${veicolo.alimentazione}" class="titolo">
-                                        <span class="modello" th:text="${veicolo.modello}">BMW I8</span>
-                                        <i th:case="'Diesel'" class="fas fa-smog text-muted">
-                                            <span class="text-muted alimentazione" th:text="${veicolo.alimentazione}"> 
-                                                Ibrida
-                                            </span> <!-- se implemento thymeleaf sovrascrive icona -->
-                                        </i>
-                                        <i th:case="'benzina'" class="fas fa-smog text-muted">
-                                            <span class="text-muted alimentazione" th:text="${veicolo.alimentazione}"> 
-                                                Ibrida
-                                            </span> <!-- se implemento thymeleaf sovrascrive icona -->
-                                        </i>
-                                        <i th:case="*" class="fas fa-bolt text-muted">
-                                            <span class="text-muted alimentazione" th:text="${veicolo.alimentazione}"> 
-                                                Ibrida
-                                            </span> <!-- se implemento thymeleaf sovrascrive icona -->
-                                        </i>
-                                    </h2>
-                                    <div th:switch="${veicolo.tipologia}" class="text">
-                                        <!-- if auto fa-car-alt, else if fa-leaf -->                              
-                                        <i th:case="'auto'" class="fas fa-car-alt">
-                                            <span class="tipo" th:text="${veicolo.tipologia}"> Auto</span>
-                                        </i>
-                                        <i th:case="*" class="fas fa-leaf ">
-                                            <span class="tipo" th:text="${veicolo.tipologia}"> Auto</span>
-                                        </i>
-                                        
-                                        <i class="fas fa-map-marker-alt">
-                                            <span class="posizione" th:text="${veicolo.indirizzo}"> Via del Campo, Torino </span>
-                                        </i>
-                                        <div class="descrizione" th:text="${veicolo.descrizione}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iusto excepturi deserunt, error optio laboriosam expedita laudantium repellat. Impedit, laboriosam aliquid quibusdam deleniti dolores eaque ratione tenetur harum porro quis!*5</div>
+                                <div id="dateCalendar">
+                                    <!-- <button class="btn btn-primary"><i class="fas fa-arrow-left"></i></button> -->
+                                    <span id="giorno">
+                                        10
+                                    </span>
+                    
+                                    <!-- <button class="btn btn-primary"><i class="fas fa-arrow-right"></i></button> -->
+                                </div>
+                                <span id="mese">Settembre</span><br>
+                                <span id="anno">2021</span>
+                            </div>
+                            <i class="fas fa-leaf" style="font-size: 4rem; color:#9dc119;padding: 1rem 0;"></i>
+                            <a th:switch="${utente}" style="padding: 1rem 0;">
+                                <button th:case="null" class="btn btn-primary" id="loginBtn">Fai il login per noleggiare!</button>
+                                <button th:case="*" class="btn btn-primary" id="loginBtn">Grazie, [[${utente.nome}]], per inquinare meno!</button>
+                            </a>
+                        </div>
+                        <!-- fine calendario -->
+                        <!-- inizio veicoli -->
+                        <div class="col-lg-8 elencoVeicoli">
+                            <h1>I veicoli disponibili</h1>
+                            <!-- singolo veicolo -->
+                            <div id="veicoliDisponibili" th:each="veicolo:${veicoli}">
+                                <div class="row singoloVeicolo">
+                                    <div th:switch="${utente}"class="col-lg-2 side">
+                                        <img class="col-lg-12" src="https://www.you-go.it/wp-content/uploads/2020/11/volkswagen-id3-bianca-647x277.png" th:attr="src=@{'/imgUpl/'+${veicolo.id}+'/'+${veicolo.immagine}}"alt="" >
+                                        <a th:case="null" class="col-lg-12 linkVeicolo" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}}"><button class="col-12 btn edit">Iscriviti</button></a>
+                                        <a th:case="*" class="col-lg-12 linkVeicolo" href="/veicolo" th:href="@{'/veicolo/'+${veicolo.id}+'/'+${utente.id}}"><button class="col-12 btn edit">Prenota</button></a>
+                    
+                                    </div>
+                                    <div class="col-lg-10 rightSide">
+                                        <h2 th:switch="${veicolo.alimentazione}" class="titolo">
+                                            <span class="modello" th:text="${veicolo.modello}">BMW I8</span>
+                                            <i th:case="'Diesel'" class="fas fa-smog text-muted">
+                                                <span class="text-muted alimentazione" th:text="${veicolo.alimentazione}">
+                                                    Ibrida
+                                                </span> <!-- se implemento thymeleaf sovrascrive icona -->
+                                            </i>
+                                            <i th:case="'Benzina'" class="fas fa-smog text-muted">
+                                                <span class="text-muted alimentazione" th:text="${veicolo.alimentazione}">
+                                                    Ibrida
+                                                </span> <!-- se implemento thymeleaf sovrascrive icona -->
+                                            </i>
+                                            <i th:case="*" class="fas fa-bolt text-muted">
+                                                <span class="text-muted alimentazione" th:text="${veicolo.alimentazione}">
+                                                    Ibrida
+                                                </span> <!-- se implemento thymeleaf sovrascrive icona -->
+                                            </i>
+                                        </h2>
+                                        <div th:switch="${veicolo.tipologia}" class="text">
+                                            <!-- if auto fa-car-alt, else if fa-leaf -->
+                                            <i th:case="'Auto'" class="fas fa-car-alt">
+                                                <span class="tipo" th:text="${veicolo.tipologia}"> Auto</span>
+                                            </i>
+                                            <i th:case="*" class="fas fa-leaf ">
+                                                <span class="tipo" th:text="${veicolo.tipologia}"> Auto</span>
+                                            </i>
+                    
+                                            <i class="fas fa-map-marker-alt">
+                                                <span class="posizione" th:text="${veicolo.indirizzo}"> Via del Campo, Torino </span>
+                                            </i>
+                                            <div class="descrizione" th:text="${veicolo.descrizione}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iusto excepturi deserunt, error optio laboriosam expedita laudantium repellat. Impedit, laboriosam aliquid quibusdam deleniti dolores eaque ratione tenetur harum porro quis!*5</div>
+                                        </div>
                                     </div>
                                 </div>
+                    
                             </div>
-                            
+                            <!-- fine singolo veicolo -->
+                    
                         </div>
-                        <!-- fine singolo veicolo -->
-                        
                     </div>
+                    <!-- fine banner veicoli -->
                 </div>
-                <!-- fine banner veicoli -->
                 
             </div>
                 <!-- fine tab home -->
@@ -255,7 +256,7 @@
                     <div class="tab-pane fade" th:switch="${utente}" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                         <h1 th:case="null">Non dovresti essere qui</h1>
                         <div th:case="*">
-                            <div class="container" th:switch="${prenotazioni}">
+                            <div class="container">
                                 <div class="row">
                                     <h1>I tuoi dati personali</h1>
                                 </div>
@@ -277,30 +278,31 @@
                                 <!-- chiudo utente -->
                                 <hr>
                                 <!--TAB PRENOTAZIONI  -->
-                                <div class="row">
-                                    <h1>Le tue prenotazioni</h1>
-                                </div>
-                                <div class="row" th:case="null">
-                                    <div class="col">
-                                        <i class="fas fa-heart-broken" style="text-align: center; font-size: 5rem;"></i>
-                                        <h3>Non hai ancora prenotazioni.</h3>
+                                <div class="container-fluid" th:switch="${prenotazioni.size()}">
+                                    <div class="row">
+                                        <h1>Le tue prenotazioni</h1>
                                     </div>
-                                </div>
-                                <div th:case="*">
-                                    <div class="row"  >
-                                        <div class="col-md-4 singolaPrenotazione" th:each="pren: ${prenotazioni}" style="padding-bottom: 1rem;"> 
-                                            <h4>Numero prenotazione: <span id="idPrenotazione" style="font-weight: 600;" th:text="${pren.id}"></span></h4>
-                                            <h4>Veicolo: <span style="font-weight: 600;" th:text="${pren.veicoloId.modello}"></span></h4>
-                                            <h4>Data: <span id="day" style="font-weight: 600;" th:text="${pren.dataPrenotazione}"></span></h4>
-                                            <h4>Prezzo: <span style="font-weight: 600;" th:text="${pren.veicoloId.prezzo}"></span>€</h4>
-                                             <button class="btn edit editPrenotazione"><i class="fas fa-edit"></i></button>
-				                            <form action="/dashboard/removePrenotazione" method="POST">
-				                                <input type="hidden" name="utenteId" th:value="${utente.id}">
-				                                <input type="hidden" name="prenotazioneId" th:value="${pren.id}">
-												<button class="btn delete"><i class="fas fa-trash"></i></button>
-				                            </form>
-                        
+                                    <div class="row" th:case="0">
+                                        <div class="col">
+                                            <i class="fas fa-heart-broken" style="text-align: center;width: 100%; font-size: 5rem;"></i>
+                                            <h3>Non hai ancora prenotazioni.</h3>
                                         </div>
+                                    </div>
+                                    <div th:case="*">
+                                        <div class="row"  >
+                                            <div class="col-md-4 singolaPrenotazione" th:each="pren: ${prenotazioni}" style="padding-bottom: 1rem;">
+                                                <h4>Numero prenotazione: <span id="idPrenotazione" style="font-weight: 600;" th:text="${pren.id}"></span></h4>
+                                                <h4>Veicolo: <span style="font-weight: 600;" th:text="${pren.veicoloId.modello}"></span></h4>
+                                                <h4>Data: <span id="day" style="font-weight: 600;" th:text="${pren.dataPrenotazione}"></span></h4>
+                                                <h4>Prezzo: <span style="font-weight: 600;" th:text="${pren.veicoloId.prezzo}"></span>€</h4>
+                                                 <button class="btn edit editPrenotazione"><i class="fas fa-edit"></i></button>
+                                                                                <form action="/dashboard/removePrenotazione" method="POST">
+                                                                                    <input type="hidden" name="utenteId" th:value="${utente.id}">
+                                                                                    <input type="hidden" name="prenotazioneId" th:value="${pren.id}">
+                                                                                    <button class="btn delete"><i class="fas fa-trash"></i></button>
+                                                                                </form>
+                                            </div>
+                                    </div>
                                 </div>
                                 </div>
                             </div>

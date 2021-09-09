@@ -388,8 +388,8 @@ public String addVeicolo(Model m,
 		) {
 			
 			Veicolo veicoloSalvato = new Veicolo(); // vuoto
-			veicoloSalvato.setLatitudine(45.0629436);
-			veicoloSalvato.setLongitudine(7.6792083);
+			veicolo.setLatitudine(45.0629436);
+			veicolo.setLongitudine(7.6792083);
 		
 			//2
 			if(multipartFile == null || multipartFile.isEmpty()) {
@@ -423,10 +423,10 @@ public String addVeicolo(Model m,
 					veicoloNuovo.setColore(veicolo.getColore());
 					veicoloNuovo.setDescrizione(veicolo.getDescrizione());
 					veicoloNuovo.setIndirizzo(veicolo.getIndirizzo());
-					veicoloNuovo.setLatitudine( 12
+					veicoloNuovo.setLatitudine(  45.045875
 						//per ora vuoto veicolo.getLatitudine()
 						);
-					veicoloNuovo.setLongitudine( 12
+					veicoloNuovo.setLongitudine(  7.657734
 						//per ora vuoto veicolo.getLatitudine()
 						);
 					veicoloNuovo.setPrezzo(veicolo.getPrezzo());
