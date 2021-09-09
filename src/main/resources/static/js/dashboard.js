@@ -86,7 +86,10 @@ $(".editCliente").on("click", function () {
 //     }
 // })
 
-
+function deleteReservation(id){
+    var table = document.querySelector('table');
+    table.deleteRow(id);
+}
 
 
 
