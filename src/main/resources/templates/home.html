@@ -241,6 +241,7 @@
                                 </div>
                                 <!-- chiudo utente -->
                                 <hr>
+                                <!--TAB PRENOTAZIONI  -->
                                 <div class="row">
                                     <h1>Le tue prenotazioni</h1>
                                 </div>
@@ -257,7 +258,17 @@
                                             <h4>Veicolo: <span style="font-weight: 600;" th:text="${pren.veicoloId.modello}"></span></h4>
                                             <h4>Data: <span style="font-weight: 600;" th:text="${pren.dataPrenotazione}"></span></h4>
                                             <h4>Prezzo: <span style="font-weight: 600;" th:text="${pren.veicoloId.prezzo}"></span>€</h4>
-
+                                             <button class="btn edit editPrenotazione"><i class="fas fa-edit"></i></button>
+				                            <form action="/dashboard/removePrenotazione" method="POST">
+				                                <input type="hidden" name="utenteId" th:value="${utente.id}">
+				                                <input type="hidden" name="prenotazioneId" th:value="${pren.id}">
+				                                            <button class="btn delete" >
+				                                                <i class="fas fa-trash"></i>
+				                                            </button>
+				                            </form>
+                                            
+											<!-- <button class="btn edit editPrenotazione"><i class="fas fa-edit"></i></button>
+                           					<button class="btn delete" ><i class="fas fa-trash"></i></button> -->
                                         </div>
                                 </div>
                                 </div>

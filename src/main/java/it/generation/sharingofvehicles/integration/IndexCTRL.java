@@ -41,7 +41,6 @@ public ModelAndView getIndex(Model m) {
 	
 	m.addAttribute("veicoli",vs.findAllVeicoli());
 	
-//	System.out.println("sono in index");
 	return  new ModelAndView("home");
 }
 
