@@ -32,12 +32,12 @@ td img{
 .alarm{
     background-color: var(--alert);
 }
-.accBody{
+/* .accBody{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    align-items: flex-end;
-}
+    align-items: center;
+} */
 .casellaForm{
     display: flex;
     flex-direction: column;

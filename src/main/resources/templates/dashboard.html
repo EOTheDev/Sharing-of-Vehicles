@@ -21,557 +21,487 @@
 <body class="container-fluid" >
     <!-- carico header con thymeleaf -->
     <header class="header" th:replace="html/nav" id="navbarContainer">
-    </header>
-    
-    <!-- <a href="/"><button class="btn delete"><i class="fas fa-home"></i></button></a> -->
-    
-    <!-- <header>
-        <div class="row">
-            <h2 class="col-6-lg" id="headerVis">Visualizza
-                <span id="pizzaBoy">
-                    <!-- cosa visualizzo? TODO  <i class="fas fa-arrow-down"></i>
-                    </h2>
-                    <select class="col-6-lg" id="visualizzo">
-                        <option value="-">
-                            Seleziona
-                        </option>
-                        <option value="prenotazioni">
-                            Prenotazioni
-                        </option>
-                        <option value="veicoli">
-                            Veicoli
-                        </option>
-                        <option value="clienti">
-                            Clienti
-                        </option>
-                    </select>
-                </div> -->
-            </header>    
-            <main>
-                  <!--tab in testa-->
-  <nav>
-    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Prenotazioni</a>
-      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Clienti</a>
-      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Veicoli</a>
-    </div>
-  </nav>
-  <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-        <!-- TAB PRENOTAZIONI -->
-         <!-- inizio add prenotazione-->
-         <div class="container-fluid" id="aggiungiContainerPrenotazioni">
-            <form class="container" action="/dashboard/aggiungiPrenotazione"  method="post" id="formPrenotazioni">
-                <h2>Aggiungi Prenotazione</h2>
-                <div class="casellaForm">
-                    <h3>Cliente, email:</h3>
-                    <select class="form-select" id="utenteId" name="email" required>
-                        <option th:each="utente: ${listaUtenti}" th:value="${utente.email}">[[${utente.nome}]] [[${utente.cognome}]], [[${utente.email}]]</option>
-                        
-                    </select>
-                </div>
-                <div class="casellaForm">
-                    <h3>Data prenotazione:</h3>
-                    <input type="date" class="form-control" name="dataPrenotazione" id="dataPrenotazione" required>
-                </div>
-                <div class="casellaForm">
-                    <h3>Veicolo:</h3>
-                    <select class="form-select" id="veicoloId" name="veicoloId" required>
-                        <option th:each="veicolo: ${veicoli}" th:value="${veicolo.id}">[[${veicolo.modello}]]</option>
-                        
-                    </select>
-                </div>
-                <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
-                    <input type="hidden" name="utenteId" th:value="${utente.id}">
-                    <input type="hidden" name="id" id="idForm">
+    </header></header>    
+    <main>
+        <!--tab in testa-->
+        <nav>
+            <h1 class="titoloPagina">La tua dashboard</span>, bentornato, <span th:text="${utente.nome}"></span>!
+            </h1>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <div class="col"></div>
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Prenotazioni</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Utenti</a>
+            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Veicoli</a>
+            <div class="col"></div>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <!-- TAB PRENOTAZIONI -->
+                <!-- inizio add prenotazione-->
+                <div class="container-fluid" id="aggiungiContainerPrenotazioni">
+                    <form class="container" action="/dashboard/aggiungiPrenotazione"  method="post" id="formPrenotazioni">
+                        <h2>Aggiungi Prenotazione</h2>
+                        <div class="casellaForm">
+                            <h3>Cliente, email:</h3>
+                            <select class="form-select" id="utenteId" name="email" required>
+                                <option th:each="utente: ${listaUtenti}" th:value="${utente.email}">[[${utente.nome}]] [[${utente.cognome}]], [[${utente.email}]]</option>
+                                
+                            </select>
+                        </div>
+                        <div class="casellaForm">
+                            <h3>Data prenotazione:</h3>
+                            <input type="date" class="form-control" name="dataPrenotazione" id="dataPrenotazione" required>
+                        </div>
+                        <div class="casellaForm">
+                            <h3>Veicolo:</h3>
+                            <select class="form-select" id="veicoloId" name="veicoloId" required>
+                                <option th:each="veicolo: ${veicoli}" th:value="${veicolo.id}">[[${veicolo.modello}]]</option>
+                                
+                            </select>
+                        </div>
+                        <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
+                            <input type="hidden" name="utenteId" th:value="${utente.id}">
+                            <input type="hidden" name="id" id="idForm">
 
-                    <button id="btn-ins-pre" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
+                            <button id="btn-ins-pre" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
+                        </div>
+                        
+                    </form>
                 </div>
-                
-            </form>
-        </div>
-        <!-- fine add prenotazione -->
-    </div>
-    <!-- FINE TAB PRENOTAZIONI -->
-    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
-  </div>
-  
+                <!-- fine add prenotazione -->
                 <div class="container">
-                    <h1 class="titoloPagina">La tua dashboard</span>, bentornato, <span th:text="${utente.nome}"></span>!
-                    </h1>
-            <div class="row">
-                 <div class="col">
-                     <!-- inizio accordion -->
-                     <div class="accordion col-12" id="formPrenotazione">
-                        <h2  class="col-12 accordion-header" id="headingTwo">
-                            <button id="insAcc" class=" col-12 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFormAcc" aria-expanded="true" aria-controls="collapseTwo">
-                                <span id="enterPrenotazione">Inserisci nuova prenotazione</span>
-                            </button>
-            
-                                <div id="collapseFormAcc" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#tableContainer">
-                                        <div class="accordion-body accBody" id="formBody">
-                                            <div class="casellaForm">
-                                                <h3>id utente:</h3>
-                                                <input type="number" class="form-control" id="idUtente" placeholder="id utente" required>
-                                            </div>
-                                            <div class="casellaForm">
-                                                <h3>data:</h3>
-                                                <input type="date" class="form-control" id="datePrenotazione" required>
-                                            </div>
-                                            <div class="casellaForm">
-                                                <h3>id veicolo:</h3>
-                                                <input type="number" class="form-control" id="idVeicolo" placeholder="id veicolo" required>
-                                            </div>
-            
-                                            <div class="casellaForm" style="padding: 0.5rem 0 0 0;">
-                                                <input type="hidden" name="emailAdmin" th:value="${utente.email}">
-                                                <button id="btn-ins-pre" class="btn edit"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
-                                            </div>
-                                            <!-- </div> -->
-                                        </div>
-                                    </div>
-                                </div>
-                        </h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped" id="prenotazioni">
+                            <h3>Le tue prenotazioni</h3>
+                            <tr>
+                                <th>Referente</th>
+                                <th>Numero prenotazione</th>
+                                <th>Veicolo</th>
+                                <th>Risparmio in CO2</th>
+                                <th>Data</th>
+                                <th>Tariffa</th>
+                                <th>Interagisci</th>
+                            </tr>
+                            <tr th:each="prenotazione:${prenotazioni}">
+                                <td><span id="nome" th:text="${prenotazione.utenteId.nome}">Mario</span> <span id="cognome" th:text="${prenotazione.utenteId.cognome}">Rossi</span></td>
+                                <td><span id="idPrenotazione"  th:text="${prenotazione.id}">X1A14B33</span></td>
+                                <td><span id="veicolo" th:text="${prenotazione.veicoloId.modello}">Bici</span></td>
+                                <td><span id="pesoCO2" th:text="${prenotazione.veicoloId.pesoCo2}">0.8</span> g/m3</td>
+                                <td><span id="giorno" th:text="${prenotazione.dataPrenotazione}">3</span></td>
+                                <td><span id="tariffa" th:text="${prenotazione.veicoloId.prezzo}">10</span> €</td>
+                                <td>
+                                    <button class="btn edit editPrenotazione">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <form action="/dashboard/removePrenotazione" method="POST">
+                                        <input type="hidden" name="utenteId" th:value="${utente.id}">
+                                        <input type="hidden" name="prenotazioneId" th:value="${prenotazione.id}">
+                                                    <button class="btn delete" >
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
-                    <!-- fine accordion -->
-                             <div class="col">
-                                 <!-- inizio accordion cliente -->
-                                 <div class="accordion col-12" id="formCliente">
-                                                 <h2  class="col-12 accordion-header" id="headingTwo">
-                                                     <button id="insCli" class=" col-12 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInsCli" aria-expanded="true" aria-controls="collapseTwo">
-                                    <span id="enterCliente">Inserisci nuovo cliente</span>
-                                                     </button>
-                                    <div id="collapseInsCli" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#tableContainer">
-                                            <form class="accordion-body accBody" action="/dashboard/insert"  method="post" id="formBody">
-                                                <div class="casellaForm">
-                                                    <h3>username:</h3>
-                                                    <input type="text" class="form-control" name="username" id="username" placeholder="username" required>
-                                                </div>
-                                                <div class="casellaForm">
-                                                    <h3>email:</h3>
-                                                    <input type="email" class="form-control" name="email" id="username" placeholder="username" required>
-                                                </div>
-                                                <div class="casellaForm">
-                                                    <h3>nome:</h3>
-                                                    <input type="text" class="form-control" name="nome" id="nome" placeholder="nome" required>
-                                                </div>
-                                                <div class="casellaForm">
-                                                    <h3>Cognome:</h3>
-                                                    <input type="text" class="form-control" name="cognome" id="cognome" placeholder="cognome" required>
-                                                </div>
-                                                <div class="casellaForm">
-                                                    <h3>data nascita:</h3>
-                                                    <input type="date" class="form-control" name="nascita" id="dateBirth" required>
-                                                </div>
-                                                <div class="casellaForm">
-                                                    <h3>amministratore:</h3>
-                                                    <select class="form-select" id="tipo" name="tipo" required>
-                                                        <option value="B" >-</option>
-                                                        <option value="A">Sì</option>
-                                                        <option value="B">No</option>
-                                                    </select>
-                                                </div>
-                                                <div class="casellaForm" style="padding: 0.5rem 0 0 0;">
-                                                    <input type="hidden" name="emailAdmin" th:value="${utente.email}">
-                                                    <button id="btn-ins-cli" class="btn edit"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
-                                                </div>
+                </div>
+
+
+
+            </div>
+            <!-- FINE TAB PRENOTAZIONI -->
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <!-- TAB Clienti -->
+                <!-- inizio ADD CLIENTE -->
+                <div class="container-fluid " id="aggiungiContainerClienti">
+                    <form class="container" action="/dashboard/addCliente"  method="post" id="formClienti">
+                        <h2>Aggiungi utente</h2>
+                        <div class="casellaForm">
+                            <h3>Username:</h3>
+                            <input type="text" class="form-control" name="username" id="username" placeholder="username" required>
+                        </div>
+                        <div class="casellaForm">
+                            <h3>Email:</h3>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="email@email.ru" required>
+                        </div>
+                        <div class="casellaForm">
+                            <h3>Nome:</h3>
+                            <input type="text" class="form-control" name="nome" id="nome" placeholder="nome" required>
+                        </div>
+                        <div class="casellaForm">
+                            <h3>Cognome:</h3>
+                            <input type="text" class="form-control" name="cognome" id="cognome" placeholder="cognome" required>
+                        </div>
+                        <div class="casellaForm">
+                            <h3>Data di nascita:</h3>
+                            <input type="date" class="form-control" name="nascita" id="dateBirth" required>
+                        </div>
+                        <div class="casellaForm">
+                            <h3>Amministratore:</h3>
+                            <select class="form-select" id="tipo" name="tipo" required>
+                                <option value="B">No</option>
+                                <option value="A">Sì</option>
+                            </select>
+                        </div>
+                        <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
+                            <input type="hidden" name="utenteId" th:value="${utente.id}">
+                            <button id="btn-ins-cli" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
+                        </div>
+                        
+                    </form>
+                </div>
+                <!-- fine upd cliente -->
+                <!--TABELLA CLIENTI -->
             
-                                            </form>
-                                        </div>
-                                    </div>
-                                    </h2>
-                                </div>
-                                <!-- fine accordion -->
-                                <div class="col">
-                                    <!-- inizio accordion veicolo-->
-                                    <div class="accordion col-12" id="formVeicolo">
-                                        <h2  class="col-12 accordion-header" id="headingTwo">
-                                            <button id="insVei" class=" col-12 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInsVei" aria-expanded="true" aria-controls="collapseTwo">
-                                                <span id="enterVeicolo">Inserisci nuovo veicolo</span>
-                                            </button>
-                                        </h2>
-                                        <div id="collapseInsVei" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#tableContainer">
-                                            <!-- FORM AGGIUNTA VEICOLO -->
-                                            <form class="accordion-body accBody" action="/dashboard/addVeicolo" method="post" enctype="multipart/form-data" id="formBody">
-                                                <div class="row">
-                                                    <div class="col casellaForm">
-                                                        <h3>Nome veicolo:</h3>
-                                                        <input type="text" class="form-control" name="modello" id="username" placeholder="Modello" required>
-                                                    </div>
-                                                    <div class="col casellaForm">
-                                                        <h3>Tipo veicolo:</h3>
-                                                        <select  class="form-select" name="tipologia" id="tipoVeicolo" required>
-                                                            <option value="">-</option>
-                                                            <option value="Auto">Automobile</option>
-                                                            <option value="Monopattino">Monopattino</option>
-                                                            <option value="Moto">Moto</option>
-                                                            <option value="Bici">Bicicletta</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col casellaForm">
-                                                        <h3>Alimentazione:</h3>
-                                                        <select  class="form-select" name="alimentazione" id="alimentazione" required>
-                                                            <option value="">-</option>
-                                                            <option value="Benzina">Benzina</option>
-                                                            <option value="Diesel">Diesel</option>
-                                                            <option value="Ibrida">Ibrida</option>
-                                                            <option value="Elettrica">Elettrica</option>
-                                                            <option value="Human power">Human power</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col casellaForm">
-                                                        <h3>Colore:</h3>
-                                                        <select  class="form-select" name="colore" id="alimentazione" required>
-                                                            <option value="">-</option>
-                                                            <option value="#BBDEF0" style="background-color: #BBDEF0;">Grigio</option>
-                                                            <option value="#F2ABA6" style="background-color: #F2ABA6;">Rosa</option>
-                                                            <option value="#ADFFFF" style="background-color: #ADFFFF;">Azzurro</option>
-                                                            <option value="#d22a1e" style="background-color: #d22a1e;">Rosso</option>
-                                                            <option value="#58dd1a" style="background-color: #58dd1a;">Verde</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col casellaForm">
-                                                        <h3>Posizione:</h3>
-                                                        <input type="text" class="form-control" name="indirizzo" id="posizione" placeholder="Indirizzo" required>
-                                                    </div>
-                                                    <div class="col casellaForm">
-                                                        <h3>Prezzo:</h3>
-                                                        <input type="text" class="form-control" name="prezzo" id="prezzo" placeholder="€uro" required>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col casellaForm">
-                                                        <input style="margin: 0.5rem 0 0.5rem 0;" type="file" class="form-control" name="imgUpl" accept="image/png" id="customFile">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col casellaForm">
-                                                        <h3>Descrizione:</h3>
-                                                        <textarea class="form-control" rows="2" style="width: 100%; resize: none;" name="descrizione" id="descrizione" placeholder="Inserisci la tua descrizione" required></textarea>
-                                                    </div>
-                                                    <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
-                                                        <input type="hidden" name="utenteId" th:value="${utente.id}">
-                                                        <button id="btn-ins-vei" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
-                                                    </div>
-                                                </div>
-                                                <!-- else sbagliato <i class="fas fa-times"></i> -->
-                                            </div>
-                                        </form>
-                                    </div>
-            
-                                </div>
+                <div class="container">
+                    <div class="table-responsive">
+                        <table class="table table-striped" id="clienti">
+                            <h3>I tuoi clienti
+                            </h3>
+                            <tr>
+                                <th>id</th>
+                                <th>username</th>
+                                <th>Ruolo</th>
+                                <th>Nome</th>
+                                <th>Cognome</th>
+                                <th>Email</th>
+                                <th>Data di Nascita</th>
+                                <th>Data di iscrizione</th>
+                                <th>Interagisci</th>
+                            </tr>
+                            <tr th:each="user:${listaUtenti}">
+                                <td><span th:text="${user.id}" id="id">elDiablo23</span></td>
+                                <td><span th:text="${user.username}" id="username">elDiablo23</span></td>
+                                <td><span th:text="${user.tipo}" id="ruolo">elDiablo23</span></td>
+                                <td><span th:text="${user.cognome}" id="cognome">Rossi</span></td>
+                                <td><span th:text="${user.nome}" id="nome">Mario</span></td>
+                                <td><span th:text="${user.email}" id="email">mariorossi@email.ru</span></td>
+                                <td><span th:text="${user.nascita}" id="dataNascita">19</span></td>
+                                <td><span th:text="${user.dataIscrizione}"id="iscrizione">16/12/2020</span></td>
+                                <td>
+                    
+                                    <button class="btn edit editCliente" id="btnMod">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                    
+                    
+                                    <form action="/dashboard/delete" method="post">
+                                    <input type="hidden" name="emailAdmin" th:value="${utente.email}">
+                                    <input type="hidden" name="id" th:value="${user.id}">
+                                                <button class="btn delete" >
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                    </form>
+                                </td>
+                            </tr>
+                    
+                        </table>
+                    </div>
+                </div>
+                <!-- FINE TABELLA CLIENTI -->
+            </div>
+            <!-- FINE TAB Clienti -->
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <!-- TAB VEICOLI -->
+                <!-- FORM AGGIUNTA VEICOLO -->
+                <form class="container" action="/dashboard/addVeicolo" method="post" enctype="multipart/form-data" id="formBody" >
+                        <h2>Aggiungi veicolo</h2>
+                        <div class="row">
+                            <div class="col casellaForm">
+                                <h3>Nome veicolo:</h3>
+                                <input type="text" class="form-control" name="modello" id="username" placeholder="Modello" required>
+                            </div>
+                            <div class="col casellaForm">
+                                <h3>Tipo veicolo:</h3>
+                                <select  class="form-select" name="tipologia" id="tipoVeicolo" required>
+                                    <option value="">-</option>
+                                    <option value="Auto">Automobile</option>
+                                    <option value="Monopattino">Monopattino</option>
+                                    <option value="Moto">Moto</option>
+                                    <option value="Bici">Bicicletta</option>
+                                </select>
                             </div>
                         </div>
-                        <!-- fine accordion -->
-                    </div>
-                </div>
-            
-        </div>
-        <div class="container" id="tableContainer">
-            
-            <div class="table-responsive">
-                <table class="table table-striped" id="prenotazioni">
-                    <h3>Le tue prenotazioni</h3>
-                    <tr>
-                        <th>Referente</th>
-                        <th>Numero prenotazione</th>
-                        <th>Veicolo</th>
-                        <th>Risparmio in CO2</th>
-                        <th>Data</th>
-                        <th>Tariffa</th>
-                        <th>Interagisci</th>
-                    </tr>
-                    <tr th:each="prenotazione:${prenotazioni}">
-                        <td><span id="nome" th:text="${prenotazione.utenteId.nome}">Mario</span> <span id="cognome" th:text="${prenotazione.utenteId.cognome}">Rossi</span></td>
-                        <td><span id="idPrenotazione"  th:text="${prenotazione.id}">X1A14B33</span></td>
-                        <td><span id="veicolo" th:text="${prenotazione.veicoloId.modello}">Bici</span></td>
-                        <td><span id="pesoCO2" th:text="${prenotazione.veicoloId.pesoCo2}">0.8</span> g/m3</td>
-                        <td><span id="giorno" th:text="${prenotazione.dataPrenotazione}">3</span></td>
-                        <td><span id="tariffa" th:text="${prenotazione.veicoloId.prezzo}">10</span> €</td>
-                        <td>
-                            <button class="btn edit editPrenotazione">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                            <form action="/dashboard/removePrenotazione" method="POST">
+                        <div class="row">
+                            <div class="col casellaForm">
+                                <h3>Alimentazione:</h3>
+                                <select  class="form-select" name="alimentazione" id="alimentazione" required>
+                                    <option value="">-</option>
+                                    <option value="Benzina">Benzina</option>
+                                    <option value="Diesel">Diesel</option>
+                                    <option value="Ibrida">Ibrida</option>
+                                    <option value="Elettrica">Elettrica</option>
+                                    <option value="Human power">Human power</option>
+                                </select>
+                            </div>
+                            <div class="col casellaForm">
+                                <h3>Colore:</h3>
+                                <select  class="form-select" name="colore" id="alimentazione" required>
+                                    <option value="">-</option>
+                                    <option value="#BBDEF0" style="background-color: #BBDEF0;">Grigio</option>
+                                    <option value="#F2ABA6" style="background-color: #F2ABA6;">Rosa</option>
+                                    <option value="#ADFFFF" style="background-color: #ADFFFF;">Azzurro</option>
+                                    <option value="#d22a1e" style="background-color: #d22a1e;">Rosso</option>
+                                    <option value="#58dd1a" style="background-color: #58dd1a;">Verde</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col casellaForm">
+                                <h3>Posizione:</h3>
+                                <input type="text" class="form-control" name="indirizzo" id="posizione" placeholder="Indirizzo" required>
+                            </div>
+                            <div class="col casellaForm">
+                                <h3>Prezzo:</h3>
+                                <input type="text" class="form-control" name="prezzo" id="prezzo" placeholder="€uro" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col casellaForm">
+                                <input style="margin: 0.5rem 0 0.5rem 0;" type="file" class="form-control" name="imgUpl" accept="image/png" id="customFile">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col casellaForm">
+                                <h3>Descrizione:</h3>
+                                <textarea class="form-control" rows="2" style="width: 100%; resize: none;" name="descrizione" id="descrizione" placeholder="Inserisci la tua descrizione" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
                                 <input type="hidden" name="utenteId" th:value="${utente.id}">
-                                <input type="hidden" name="prenotazioneId" th:value="${prenotazione.id}">
-                                            <button class="btn delete" >
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                            </form>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-    
-    
-    
-    
-           <!--TABELLA CLIENTI -->
-    
-            <div class="table-responsive">
-                <table class="table table-striped" id="clienti">
-                    <h3>I tuoi clienti
-                    </h3>
-                    <tr>
-                        <th>id
-                </th>
-                        <th>username</th>
-                        <th>Ruolo</th>
-                        <th>Nome</th>
-                        <th>Cognome</th>
-                        <th>Email</th>
-                        <th>Data di Nascita</th>
-                        <th>Data di iscrizione</th>
-                        <!-- <th>Soldi spesi</th>
-                        <th>Emissioni totali</th>
-                        <th>Emissioni in percentuale</th> 
-                    -->
-                        <th>Interagisci</th> 
-                    </tr>
-                    <tr th:each="user:${listaUtenti}">
-                        <td><span th:text="${user.id}" id="id">elDiablo23</span></td>
-                        <td><span th:text="${user.username}" id="username">elDiablo23</span></td>
-                        <td><span th:text="${user.tipo}" id="ruolo">elDiablo23</span></td>
-                        <td><span th:text="${user.cognome}" id="cognome">Rossi</span></td>
-                        <td><span th:text="${user.nome}" id="nome">Mario</span></td>
-                        <td><span th:text="${user.email}" id="email">mariorossi@email.ru</span></td>
-                        <td><span th:text="${user.nascita}" id="dataNascita">19</span></td>
-                        <td><span th:text="${user.dataIscrizione}"id="iscrizione">16/12/2020</span></td>
-                        <td>
-                                      
-                            <button class="btn edit editCliente" id="btnMod">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                
-                
-                            <form action="/dashboard/delete" method="post">
-                            <input type="hidden" name="emailAdmin" th:value="${utente.email}">
-                            <input type="hidden" name="id" th:value="${user.id}">
-                                        <button class="btn delete" >
+                                <button id="btn-ins-vei" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
+                            </div>
+                        </div>
+                    
+                </form>
+                <!--   TABELLA VEICOLI -->
+            
+                <div class="container">
+                    <div class="table-responsive" style="max-width: 95vw;">
+                        <table class="table table-striped " id="veicoli">
+                            <h3>I tuoi veicoli
+                            </h3>
+                            <tr>
+                                <th>id</th>
+                                <th>Tipo veicolo</th>
+                                <th>Modello</th>
+                                <th>Alimentazione</th>
+                                <th>Colore</th>
+                                <th>Descrizione</th>
+                                <th>Ultima posizione</th>
+                                <th>Nome Immagine</th>
+                                <th>Immagine</th>
+                                <th>Tariffa</th>
+                                <th>E/R per viaggio</th>
+                                <th>Admin Creatore</th>
+                                <th>Interagisci</th>
+                            </tr>
+                            <tr th:each="veicolo:${veicoli}">
+                                <td><span th:text="${veicolo.id}" id="idVeicolo">15</span></td>
+                                <td><span th:text="${veicolo.tipologia}" id="tipologia">Bici</span></td>
+                                <td><span th:text="${veicolo.modello}" id="modello">Bella</span></td>
+                                <td><span th:text="${veicolo.alimentazione}" id="alimentazione">Human Power</span></td>
+                                <td><span th:text="${veicolo.colore}" id="colore"></span></td>
+                                <td><span style="max-height: 4rem;" th:text="${veicolo.descrizione}"id="descrizione">Bici rossa raggiante, il mezzo più sostenibile che ci sia</span></td>
+                                <td><span th:text="${veicolo.indirizzo}"id="posizione">via del Campo, 19, Torino</span></td>
+                                <td><span th:text="${veicolo.immagine}"id="urlImmagine">questa immagine.png</span></td>
+                                <td><img src="img/veicolo.jpg"  th:attr="src=@{'/imgUpl/'+${veicolo.id}+'/'+${veicolo.immagine}}" alt="immagine del veicolo" srcset=""></td>
+                                <td><span th:text="${veicolo.prezzo}" id="tariffa">10</span> €</td>
+                                <td><span id="emissioniPercentuale" th:text="${veicolo.pesoCo2}">1</span> g/m3</td>
+                                <td><span th:text="${veicolo.utenteId.username}" id="totEmissioni">25</span></td>
+                                <td>
+                                    <button class="btn edit editVeicolo">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <form action="/dashboard/removeVeicolo/" method="post">
+                                        <input type="hidden" name="utenteId" th:value="${utente.id}">
+                                        <input type="hidden" name="veicoloId" th:value="${veicolo.id}">
+                                        <button class="btn delete">
                                             <i class="fas fa-trash"></i>
                                         </button>
-                            </form>
-                        </td>
-                    </tr>
-                
-                </table>
+                                    </form>
+                                </td>
+                            </tr>
+                    
+                        </table>
+                    </div>
+                </div>
+                <!-- fine table veicoli -->
             </div>
             
-    <!--   TABELLA VEICOLI -->
-    
-            <div class="table-responsive" style="max-width: 95vw;">
-                <table class="table table-striped " id="veicoli">
-                    <h3>I tuoi veicoli
-                    </h3>
-                    <tr>
-                        <th>id</th> 
-                        <th>Tipo veicolo</th>
-                        <th>Modello</th>
-                        <th>Alimentazione</th>
-                        <th>Colore</th>
-                        <th>Descrizione</th>
-                        <th>Ultima posizione</th>
-                        <th>Nome Immagine</th>
-                        <th>Immagine</th>
-                        <th>Tariffa</th>
-                        <th>E/R per viaggio</th>
-                        <th>Admin Creatore</th>
-                        <th>Interagisci</th>
-                    </tr>
-                    <tr th:each="veicolo:${veicoli}">
-                        <td><span th:text="${veicolo.id}" id="idVeicolo">15</span></td>
-                        <td><span th:text="${veicolo.tipologia}" id="tipologia">Bici</span></td>
-                        <td><span th:text="${veicolo.modello}" id="modello">Bella</span></td>
-                        <td><span th:text="${veicolo.alimentazione}" id="alimentazione">Human Power</span></td>
-                        <td><span th:text="${veicolo.colore}" id="colore"></span></td>
-                        <td><span style="max-height: 4rem;" th:text="${veicolo.descrizione}"id="descrizione">Bici rossa raggiante, il mezzo più sostenibile che ci sia</span></td>
-                        <td><span th:text="${veicolo.indirizzo}"id="posizione">via del Campo, 19, Torino</span></td>
-                        <td><span th:text="${veicolo.immagine}"id="urlImmagine">questa immagine.png</span></td>
-                        <td><img src="img/veicolo.jpg"  th:attr="src=@{'/imgUpl/'+${veicolo.id}+'/'+${veicolo.immagine}}" alt="immagine del veicolo" srcset=""></td>
-                        <td><span th:text="${veicolo.prezzo}" id="tariffa">10</span> €</td>
-                        <td><span id="emissioniPercentuale" th:text="${veicolo.pesoCo2}">1</span> g/m3</td>
-                        <td><span th:text="${veicolo.utenteId.username}" id="totEmissioni">25</span></td>
-                        <td>
-                            <button class="btn edit editVeicolo">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                            <form action="/dashboard/removeVeicolo/" method="post">
-                                <input type="hidden" name="utenteId" th:value="${utente.id}">
-                                <input type="hidden" name="veicoloId" th:value="${veicolo.id}">
-                                <button class="btn delete">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                
-                </table>
             </div>
+            <!-- FINE TAB VEICOLI -->
         </div>
         
-        <!-- inizio UPD prenotazione-->
-        <div class="container-fluid formAgg" id="modificaContainerPrenotazioni">
-            <button class="btn btn-danger rounded-pill close" id="closeTabPre" ><i class="fas fa-times"></i></button>
-            <form class="container" action="/dashboard/updatePrenotazione"  method="post" id="formPrenotazioni">
-                <h2>Modifica <span id="questaPrenotazione"></span></h2>
-                <div class="casellaForm">
-                    <h3>Cliente, email:</h3>
-                    <select class="form-select" id="utenteId" name="email" required>
-                        <option th:each="utente: ${listaUtenti}" th:value="${utente.email}">[[${utente.nome}]] [[${utente.cognome}]], [[${utente.email}]]</option>
+        <div class="container" id="tableContainer">
+            
+           
+        <div class="container">
+            
+            <div class="row">
                         
-                    </select>
-                </div>
-                <div class="casellaForm">
-                    <h3>Data prenotazione:</h3>
-                    <input type="date" class="form-control" name="dataPrenotazione" id="dataPrenotazione" required>
-                </div>
-                <div class="casellaForm">
-                    <h3>Veicolo:</h3>
-                    <select class="form-select" id="veicoloId" name="veicoloId" required>
-                        <option th:each="veicolo: ${veicoli}" th:value="${veicolo.id}">[[${veicolo.modello}]]</option>
+          
+                <!-- inizio UPD prenotazione-->
+                <div class="container-fluid formAgg" id="modificaContainerPrenotazioni">
+                    <button class="btn btn-danger rounded-pill close" id="closeTabPre" ><i class="fas fa-times"></i></button>
+                    <form class="container" action="/dashboard/updatePrenotazione"  method="post" id="formPrenotazioni">
+                        <h2>Modifica <span id="questaPrenotazione"></span></h2>
+                        <div class="casellaForm">
+                            <h3>Cliente, email:</h3>
+                            <select class="form-select" id="utenteId" name="email" required>
+                                <option th:each="utente: ${listaUtenti}" th:value="${utente.email}">[[${utente.nome}]] [[${utente.cognome}]], [[${utente.email}]]</option>
+                                
+                            </select>
+                        </div>
+                        <div class="casellaForm">
+                            <h3>Data prenotazione:</h3>
+                            <input type="date" class="form-control" name="dataPrenotazione" id="dataPrenotazione" required>
+                        </div>
+                        <div class="casellaForm">
+                            <h3>Veicolo:</h3>
+                            <select class="form-select" id="veicoloId" name="veicoloId" required>
+                                <option th:each="veicolo: ${veicoli}" th:value="${veicolo.id}">[[${veicolo.modello}]]</option>
+                                
+                            </select>
+                        </div>
+                        <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
+                            <input type="hidden" name="utenteId" th:value="${utente.id}">
+                            <input type="hidden" name="id" id="idForm">
+
+                            <button id="btn-ins-pre" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
+                        </div>
                         
-                    </select>
+                    </form>
                 </div>
-                <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
-                    <input type="hidden" name="utenteId" th:value="${utente.id}">
-                    <input type="hidden" name="id" id="idForm">
-
-                    <button id="btn-ins-pre" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
-                </div>
-                
-            </form>
-        </div>
-        <!-- fine upd prenotazione -->
+                <!-- fine upd prenotazione -->
 
 
-        <!-- FORM UPDATE VEICOLO -->
-        <div class="container-fluid formAgg" id="modificaContainerVeicoli">
-                <button class="btn btn-danger close rounded-pill" id="closeTabVei" ><i class="fas fa-times"></i></button>
-                <form class="container" action="/dashboard/updVeicolo" method="post" enctype="multipart/form-data" id="formBody">
-                    <h2>Modifica <span id="questoVeicolo"></span></h2>
-                    <div class="row">
-                        <div class="col casellaForm">
-                            <h3>Nome veicolo:</h3>
-                            <input type="text" class="form-control" name="modello" id="modelloForm" placeholder="Modello" required>
-                        </div>
-                        <div class="col casellaForm">
-                            <h3>Tipo veicolo:</h3>
-                            <select  class="form-select" name="tipologia" id="tipoVeicoloForm" required>
-                                <option value="">-</option>
-                                <option value="Auto">Automobile</option>
-                                <option value="Monopattino">Monopattino</option>
-                                <option value="Moto">Moto</option>
-                                <option value="Bici">Bicicletta</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col casellaForm">
-                            <h3>Alimentazione:</h3>
-                            <select  class="form-select" name="alimentazione" id="alimentazioneForm" required>
-                                <option value="">-</option>
-                                <option value="Benzina">Benzina</option>
-                                <option value="Diesel">Diesel</option>
-                                <option value="Ibrida">Ibrida</option>
-                                <option value="Elettrica">Elettrica</option>
-                                <option value="Human power">Human power</option>
-                            </select>
-                        </div>
-                        <div class="col casellaForm">
-                            <h3>Colore:</h3>
-                            <select  class="form-select" name="colore" id="coloreForm" required>
-                                <option value="">-</option>
-                                <option value="#BBDEF0" style="background-color: #BBDEF0;">Grigio</option>
-                                <option value="#F2ABA6" style="background-color: #F2ABA6;">Rosa</option>
-                                <option value="#ADFFFF" style="background-color: #ADFFFF;">Azzurro</option>
-                                <option value="#d22a1e" style="background-color: #d22a1e;">Rosso</option>
-                                <option value="#58dd1a" style="background-color: #58dd1a;">Verde</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col casellaForm">
-                            <h3>Posizione:</h3>
-                            <input type="text" class="form-control" name="indirizzo" id="indirizzoForm" placeholder="Indirizzo" required>
-                        </div>
-                        <div class="col casellaForm">
-                            <h3>Prezzo:</h3>
-                            <input type="text" class="form-control" name="prezzo" id="prezzoForm" placeholder="€uro" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col casellaForm">
-                            <h3>Immagine:</h3>
-                            <div>
-                                Immagine precedente: 
-                                <span id="percorsoImmagineForm"></span>
+                <!-- FORM UPDATE VEICOLO -->
+                <div class="container-fluid formAgg" id="modificaContainerVeicoli">
+                        <button class="btn btn-danger close rounded-pill" id="closeTabVei" ><i class="fas fa-times"></i></button>
+                        <form class="container" action="/dashboard/updVeicolo" method="post" enctype="multipart/form-data" id="formBody">
+                            <h2>Modifica <span id="questoVeicolo"></span></h2>
+                            <div class="row">
+                                <div class="col casellaForm">
+                                    <h3>Nome veicolo:</h3>
+                                    <input type="text" class="form-control" name="modello" id="modelloForm" placeholder="Modello" required>
+                                </div>
+                                <div class="col casellaForm">
+                                    <h3>Tipo veicolo:</h3>
+                                    <select  class="form-select" name="tipologia" id="tipoVeicoloForm" required>
+                                        <option value="">-</option>
+                                        <option value="Auto">Automobile</option>
+                                        <option value="Monopattino">Monopattino</option>
+                                        <option value="Moto">Moto</option>
+                                        <option value="Bici">Bicicletta</option>
+                                    </select>
+                                </div>
                             </div>
-                            <input style="margin: 0.5rem 0 0.5rem 0;" type="file" class="form-control" name="imgUpl" accept="image/png" id="customFile">
+                            <div class="row">
+                                <div class="col casellaForm">
+                                    <h3>Alimentazione:</h3>
+                                    <select  class="form-select" name="alimentazione" id="alimentazioneForm" required>
+                                        <option value="">-</option>
+                                        <option value="Benzina">Benzina</option>
+                                        <option value="Diesel">Diesel</option>
+                                        <option value="Ibrida">Ibrida</option>
+                                        <option value="Elettrica">Elettrica</option>
+                                        <option value="Human power">Human power</option>
+                                    </select>
+                                </div>
+                                <div class="col casellaForm">
+                                    <h3>Colore:</h3>
+                                    <select  class="form-select" name="colore" id="coloreForm" required>
+                                        <option value="">-</option>
+                                        <option value="#BBDEF0" style="background-color: #BBDEF0;">Grigio</option>
+                                        <option value="#F2ABA6" style="background-color: #F2ABA6;">Rosa</option>
+                                        <option value="#ADFFFF" style="background-color: #ADFFFF;">Azzurro</option>
+                                        <option value="#d22a1e" style="background-color: #d22a1e;">Rosso</option>
+                                        <option value="#58dd1a" style="background-color: #58dd1a;">Verde</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col casellaForm">
+                                    <h3>Posizione:</h3>
+                                    <input type="text" class="form-control" name="indirizzo" id="indirizzoForm" placeholder="Indirizzo" required>
+                                </div>
+                                <div class="col casellaForm">
+                                    <h3>Prezzo:</h3>
+                                    <input type="text" class="form-control" name="prezzo" id="prezzoForm" placeholder="€uro" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col casellaForm">
+                                    <h3>Immagine:</h3>
+                                    <div>
+                                        Immagine precedente: 
+                                        <span id="percorsoImmagineForm"></span>
+                                    </div>
+                                    <input style="margin: 0.5rem 0 0.5rem 0;" type="file" class="form-control" name="imgUpl" accept="image/png" id="customFile">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col casellaForm">
+                                    <h3>Descrizione:</h3>
+                                    <textarea class="form-control" rows="2" style="width: 100%; resize: none;" name="descrizione" id="descrizioneForm" placeholder="Inserisci la tua descrizione" required></textarea>
+                                </div>
+                                <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
+                                    <input type="hidden" name="id" id="idForm">
+                                    <input type="hidden" name="utenteId" th:value="${utente.id}">
+                                    <button id="btn-ins-vei" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col casellaForm">
-                            <h3>Descrizione:</h3>
-                            <textarea class="form-control" rows="2" style="width: 100%; resize: none;" name="descrizione" id="descrizioneForm" placeholder="Inserisci la tua descrizione" required></textarea>
+                    </form>
+                </div>
+                <!-- fine upd veicolo -->
+
+
+
+                <!-- inizio UPD CLIENTE -->
+                <div class="container-fluid formAgg" id="modificaContainerClienti">
+                    <button class="btn btn-danger rounded-pill close" id="closeTabCli" ><i class="fas fa-times"></i></button>
+                    <form class="container" action="/dashboard/updateCliente"  method="post" id="formClienti">
+                        <h2>Modifica <span id="questoCliente"></span></h2>
+                        <div class="casellaForm">
+                            <h3>Username:</h3>
+                            <input type="text" class="form-control" name="username" id="username" placeholder="username" required>
+                        </div>
+                        <div class="casellaForm">
+                            <h3>Email:</h3>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="email@email.ru" required>
+                        </div>
+                        <div class="casellaForm">
+                            <h3>Nome:</h3>
+                            <input type="text" class="form-control" name="nome" id="nome" placeholder="nome" required>
+                        </div>
+                        <div class="casellaForm">
+                            <h3>Cognome:</h3>
+                            <input type="text" class="form-control" name="cognome" id="cognome" placeholder="cognome" required>
+                        </div>
+                        <div class="casellaForm">
+                            <h3>Data di nascita:</h3>
+                            <input type="date" class="form-control" name="nascita" id="dateBirth" required>
+                        </div>
+                        <div class="casellaForm">
+                            <h3>Amministratore:</h3>
+                            <select class="form-select" id="tipo" name="tipo" required>
+                                <option value="B">No</option>
+                                <option value="A">Sì</option>
+                            </select>
                         </div>
                         <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
                             <input type="hidden" name="id" id="idForm">
                             <input type="hidden" name="utenteId" th:value="${utente.id}">
-                            <button id="btn-ins-vei" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
+                            <button id="btn-ins-cli" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
                         </div>
-                    </div>
-                    <!-- else sbagliato <i class="fas fa-times"></i> -->
+                        
+                    </form>
                 </div>
-            </form>
-        </div>
-        <!-- fine upd veicolo -->
-        <!-- inizio UPD CLIENTE -->
-        <div class="container-fluid formAgg" id="modificaContainerClienti">
-            <button class="btn btn-danger rounded-pill close" id="closeTabCli" ><i class="fas fa-times"></i></button>
-            <form class="container" action="/dashboard/updateCliente"  method="post" id="formClienti">
-                <h2>Modifica <span id="questoCliente"></span></h2>
-                <div class="casellaForm">
-                    <h3>Username:</h3>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="username" required>
-                </div>
-                <div class="casellaForm">
-                    <h3>Email:</h3>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="email@email.ru" required>
-                </div>
-                <div class="casellaForm">
-                    <h3>Nome:</h3>
-                    <input type="text" class="form-control" name="nome" id="nome" placeholder="nome" required>
-                </div>
-                <div class="casellaForm">
-                    <h3>Cognome:</h3>
-                    <input type="text" class="form-control" name="cognome" id="cognome" placeholder="cognome" required>
-                </div>
-                <div class="casellaForm">
-                    <h3>Data di nascita:</h3>
-                    <input type="date" class="form-control" name="nascita" id="dateBirth" required>
-                </div>
-                <div class="casellaForm">
-                    <h3>Amministratore:</h3>
-                    <select class="form-select" id="tipo" name="tipo" required>
-                        <option value="B">No</option>
-                        <option value="A">Sì</option>
-                    </select>
-                </div>
-                <div class="col casellaForm" style="padding: 0.5rem 0 0.5rem 0; height: 100%; align-items: center; justify-content: space-around;">
-                    <input type="hidden" name="id" id="idForm">
-                    <input type="hidden" name="utenteId" th:value="${utente.id}">
-                    <button id="btn-ins-cli" class="btn edit" style="width: 100%; height: 100%;"><i class="far fa-thumbs-up"></i> <h4>Inserisci</h4> </button>
-                </div>
-                
-            </form>
-        </div>
-        <!-- fine upd cliente -->
+                <!-- fine upd cliente -->
 
 
 

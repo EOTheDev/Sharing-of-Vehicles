@@ -150,8 +150,3 @@ td, th{
 }
 
 
-/*tabs */
-.nav-tabs>a{
-    color: var(--logoGreen);
-    font-weight: 500;
-}

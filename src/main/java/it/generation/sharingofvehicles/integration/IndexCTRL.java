@@ -167,6 +167,35 @@ public String deleteCliente(
 }
 
 
+@PostMapping("/dashboard/addCliente")
+	public String addCliente(Model m,
+	
+	@RequestParam String username,
+	@RequestParam String email,
+	@RequestParam String nome,
+	@RequestParam String cognome,
+	@RequestParam String nascita,
+	@RequestParam String tipo,
+	@RequestParam int utenteId
+			) {
+		
+		Utente utente = new Utente();
+
+		utente.setUsername(username);
+		utente.setEmail(email);
+		utente.setNome(nome);
+		utente.setCognome(cognome);
+		utente.setNascita(nascita);
+		utente.setTipo(tipo);
+		utente.setPassword("ciao15");
+		us.addUser(utente);
+		
+		return "redirect:/dashboard/"+utenteId;
+		
+		
+
+}
+
 @PostMapping("/dashboard/updateCliente")
 	public String updateCliente(Model m,
 	@RequestParam int id,
